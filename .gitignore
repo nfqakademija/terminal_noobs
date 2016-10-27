@@ -19,3 +19,14 @@
 /node_modules
 /bin/*
 .idea/*
+.idea/
+src/NFQ/DemoBundle/Command/
+src/NFQ/DemoBundle/Controller/
+src/NFQ/DemoBundle/DemoBundle.php
+src/NFQ/DemoBundle/DependencyInjection/
+src/NFQ/DemoBundle/Resources/
+src/NFQ/DemoBundle/Service/CarFactory.php
+src/NFQ/DemoBundle/Service/Car.php
+src/NFQ/DemoBundle/Tests/
+tests/
+web/images/
