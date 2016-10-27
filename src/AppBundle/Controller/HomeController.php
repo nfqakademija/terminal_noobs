@@ -13,7 +13,11 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('AppBundle:Home:index.html.twig', []);
+        $lectors = $this->get('app.lectors');
+
+        return $this->render('AppBundle:Home:index.html.twig', [
+            'lectors' => $lectors->getList()
+        ]);
     }
 
     /**
@@ -21,12 +25,24 @@ class HomeController extends Controller
      */
     public function listAction()
     {
-        $exampleService = $this->get('app.example');
-
-        $posts = $exampleService->getPosts();
+        $lectors = $this->get('app.lectors');
 
         return $this->render('AppBundle:Home:list.html.twig', [
-            'posts' => $posts,
+            'lectors' => $lectors->getList()
         ]);
+    }
+
+    /**
+     * @Route("/lector/new", name="lector_new")
+     */
+    public function newAction()
+    {
+        return $this->render('AppBundle:Lectors:new.html.twig', [
+        ]);
+    }
+
+    private function getService()
+    {
+        return $this->get('app.example');
     }
 }

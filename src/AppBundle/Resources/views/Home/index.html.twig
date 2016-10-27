@@ -23,4 +23,18 @@
 
 {% block body %}
     <div class="title">NFQ Akademija</div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Is active</th>
+        </tr>
+        {% for lector in lectors %}
+        <tr>
+            <td>{{ lector.id }}</td>
+            <td>{{ lector.name }}</td>
+            <td>{{ lector.active }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
