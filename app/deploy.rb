@@ -1,7 +1,7 @@
-set :application, 'akademija'
+set :application, 'terminal_noobs'
 set :repo_url, '#'
 
-set :deploy_to, '/home/kickstart/'
+set :deploy_to, '/home/terminal_noobs/'
 
 set :archive_cache, true
 set :branch, 'master'
