@@ -1,0 +1,18 @@
+services:
+    app.car_factory:
+        class: NFQ\DemoBundle\Service\CarFactory
+        arguments: ["@event_dispatcher"]
+
+    app.car:
+        class: NFQ\DemoBundle\Service\Car
+        factory: ["@app.car_factory", create]
+
+#    app.car.part.wheel:
+#        class: XX
+#        tags:
+#            - { name: app.car.part, type: wheel }
+
+    app.event_listener:
+        class: NFQ\DemoBundle\Event\EventListener
+        tags:
+            - { name: kernel.event_listener, event: app.pre_create, method: makeChanges }
