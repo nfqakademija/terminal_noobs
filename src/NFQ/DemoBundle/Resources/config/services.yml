@@ -1,11 +1,16 @@
 services:
-    app.car_factory:
-        class: NFQ\DemoBundle\Service\CarFactory
+#    app.car_factory:
+#        class: NFQ\DemoBundle\Service\CarFactory
+#        arguments: ["@event_dispatcher"]
+ #   app.car:
+#        class: NFQ\DemoBundle\Service\Car
+#        factory: ["@app.car_factory", create]
+    app.shoe_factory:
+        class: NFQ\DemoBundle\Service\ShoeFactory
         arguments: ["@event_dispatcher"]
-
-    app.car:
-        class: NFQ\DemoBundle\Service\Car
-        factory: ["@app.car_factory", create]
+    app.shoe:
+        class: NFQ\DemoBundle\Service\Shoe
+        factory: ["app.shoe_factory", create]
 
 #    app.car.part.wheel:
 #        class: XX

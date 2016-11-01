@@ -9,10 +9,12 @@ class PreCreateEvent extends Event
     const NAME = 'app.pre_create';
 
     private $car;
+    private $shoes;
 
-    public function __construct($car)
+
+    public function __construct($shoes)
     {
-        $this->setCar($car);
+        $this->setShoes($shoes);
     }
 
     /**
@@ -29,5 +31,21 @@ class PreCreateEvent extends Event
     public function setCar($car)
     {
         $this->car = $car;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShoes()
+    {
+        return $this->shoes;
+    }
+
+    /**
+     * @param mixed $shoes
+     */
+    public function setShoes($shoes)
+    {
+        $this->shoes = $shoes;
     }
 }

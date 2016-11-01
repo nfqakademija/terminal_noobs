@@ -50,9 +50,9 @@ class Shoe
      * @param mixed $laces_lenght
      * @return Shoe
      */
-    public function setLacesLenght($laces_lenght)
+    public function setLacesLength($laces_length)
     {
-        $this->laces_lenght = $laces_lenght;
+        $this->laces_length = $laces_length;
         return $this;
     }
 

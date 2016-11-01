@@ -2,7 +2,7 @@
 
 namespace NFQ\DemoBundle\Command;
 
-use NFQ\DemoBundle\Service\Car;
+use NFQ\DemoBundle\Service\Shoe;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,9 +20,11 @@ class AppDebugCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $car = $this->getContainer()->get('app.car');
+        $shoes = $this->getContainer()->get('app.shoe');
 
-        $output->writeln($car->getEngine());
+        foreach($shoes as $shoe){
+            $output->writeln($shoe->getShoeMaterial());
+        }
         $output->writeln('Done.');
     }
 }

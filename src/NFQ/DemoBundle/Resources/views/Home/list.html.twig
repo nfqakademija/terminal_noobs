@@ -1,40 +1,44 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-
-    {% for post in posts %}
-        {{ post.title }} <br/>
-        <p>{{ post.content }}</p>
-        <hr/>
-    {% endfor %}
-
-{% endblock %}
-
-{% block body %}
     <div class="title">Batai</div>
+    <style>
+   td, th{
+        border: 1px solid #0088CC;
+    }
+   table{
+       border-collapse: collapse;
+
+   }
+
+    </style>
     <table>
         <tr>
+
+            <th>Shoe Colour</th>
+            <th>Shoe Material</th>
             <th>Lace Colour</th>
             <th>Lace Length</th>
             <th>Lace Diameter</th>
             <th>Heel Material</th>
             <th>Heel Width</th>
-            <th>Heel Heigth/th>
-            <th>Shoe Colour/th>
-            <th>Shoe Material/th>
+            <th>Heel Heigth</th>
+
         </tr>
         {% for shoe in shoes %}
             <tr>
+                <td>{{ shoe.getShoeColour() }}</td>
+                <td>{{ shoe.getShoeMaterial() }}</td>
                 <td>{{ shoe.getLacesColour() }}</td>
                 <td>{{ shoe.getLacesLength() }}</td>
                 <td>{{ shoe.getLacesDiameter() }}</td>
                 <td>{{ shoe.getHeelMaterial() }}</td>
                 <td>{{ shoe.getHeelWidth() }}</td>
                 <td>{{ shoe.getHeelHeight() }}</td>
-                <td>{{ shoe.getShoeColour() }}</td>
-                <td>{{ shoe.getShoeMaterial() }}</td>
+
 
             </tr>
         {% endfor %}
     </table>
+
 {% endblock %}
