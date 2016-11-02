@@ -18,7 +18,7 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        $shoes = $this->get("app.shoes");
+        $shoes = $this->get("app.shoe_list");
         return $this->render('NFQDemoBundle:Home:index.html.twig', [
             'shoes' => $shoes->getShoesList()
         ]);
@@ -29,7 +29,7 @@ class IndexController extends Controller
      */
     public function listAction()
     {
-        $shoes = $this->get("app.shoes");
+        $shoes = $this->get("app.shoe_list");
         return $this->render('NFQDemoBundle:Home:list.html.twig', [
             'shoes' => $shoes->getShoesList()
         ]);

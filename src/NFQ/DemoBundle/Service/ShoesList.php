@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: matas
- * Date: 16.10.31
- * Time: 15.43
+ * Date: 16.11.2
+ * Time: 17.33
  */
 
 namespace NFQ\DemoBundle\Service;
@@ -11,21 +11,15 @@ namespace NFQ\DemoBundle\Service;
 use NFQ\DemoBundle\Event\Events;
 use NFQ\DemoBundle\Event\PreCreateEvent;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use NFQ\DemoBundle\Event\EventSubscriber;
-
-class ShoeFactory
+class ShoesList
 {
-    /**
-     * @var EventDispatcher
-     */
     private  $eventDispatcher;
-    private $eventSubscriber;
 
     public function __construct($eventDispatcher)
     {
         $this ->eventDispatcher = $eventDispatcher;
     }
-    public function create()
+    public function getShoesList()
     {
         $basic_shoe = new Shoe;
         $basic_shoe->setHeelHeight(12);
@@ -36,12 +30,18 @@ class ShoeFactory
         $basic_shoe->setShoeColour("Gray");
         $basic_shoe->setLacesLength(20);
         $basic_shoe->setShoeMaterial("Old rubber");
-        $this->eventDispatcher->dispatch(Events:: PRE_CREATE, new PreCreateEvent($basic_shoe));
-        $this->eventDispatcher->dispatch(Events:: DO_SOMETHING, new PreCreateEvent($basic_shoe));
+        $fancy_shoe = new Shoe;
+        $fancy_shoe->setHeelHeight(0.5);
+        $fancy_shoe->setHeelMaterial("Platinum and Carbon mesh");
+        $fancy_shoe->setHeelWidth(20);
+        $fancy_shoe->setLacesColour("Chrome");
+        $fancy_shoe->setLacesDiameter("15 units of laces diameter");
+        $fancy_shoe->setShoeColour("Fancy Gray");
+        $fancy_shoe->setLacesLength(17);
+        $fancy_shoe->setShoeMaterial("Dark Matter");
+        $this->eventDispatcher->dispatch(Events:: PRE_CREATE, new PreCreateEvent([$basic_shoe, $fancy_shoe]));
+        $this->eventDispatcher->dispatch(Events:: DO_SOMETHING, new PreCreateEvent([$basic_shoe, $fancy_shoe]));
 
-        return $basic_shoe;
-
+        return[$basic_shoe, $fancy_shoe];
     }
-
-
 }

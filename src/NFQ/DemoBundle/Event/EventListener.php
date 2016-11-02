@@ -14,9 +14,15 @@ class EventListener
     {
         /** @var Shoe $shoes */
         $shoes = $event->getShoes();
-        foreach($shoes as $shoe)
-        {
+        if( is_array ($shoes)) {
+            foreach($shoes as $shoe)
+            {
             $shoe->setShoeMaterial('Rubber from rubberry duckeys');
+            }
+        }
+        else{
+            $shoes->setShoeMaterial('Rubber from rubberry duckeys');
+
         }
     }
 }
