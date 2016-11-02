@@ -21,10 +21,8 @@ class AppDebugCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $shoes = $this->getContainer()->get('app.shoe');
+        $output->writeln($shoes->getShoeMaterial());
 
-        foreach($shoes as $shoe){
-            $output->writeln($shoe->getShoeMaterial());
-        }
         $output->writeln('Done.');
     }
 }

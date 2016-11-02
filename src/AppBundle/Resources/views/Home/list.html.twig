@@ -9,3 +9,32 @@
     {% endfor %}
 
 {% endblock %}
+
+{% block body %}
+    <div class="title">Batai</div>
+    <table>
+        <tr>
+            <th>Lace Colour</th>
+            <th>Lace Length</th>
+            <th>Lace Diameter</th>
+            <th>Heel Material</th>
+            <th>Heel Width</th>
+            <th>Heel Heigth/th>
+            <th>Shoe Colour/th>
+            <th>Shoe Material/th>
+        </tr>
+        {% for shoe in shoes %}
+            <tr>
+                <td>{{ shoe.getLacesColour() }}</td>
+                <td>{{ shoe.getLacesLength() }}</td>
+                <td>{{ shoe.getLacesDiameter() }}</td>
+                <td>{{ shoe.getHeelMaterial() }}</td>
+                <td>{{ shoe.getHeelWidth() }}</td>
+                <td>{{ shoe.getHeelHeight() }}</td>
+                <td>{{ shoe.getShoeColour() }}</td>
+                <td>{{ shoe.getShoeMaterial() }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

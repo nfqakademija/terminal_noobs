@@ -1,3 +1,6 @@
-app:
-    resource: "@AppBundle/Controller"
+#app:
+#    resource: "@AppBundle/Controller"
+#    type: annotation
+demo:
+    resource: "@NFQDemoBundle/Controller"
     type: annotation

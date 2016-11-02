@@ -25,7 +25,6 @@ class ShoeFactory
     }
     public function create()
     {
-
         $basic_shoe = new Shoe;
         $basic_shoe->setHeelHeight(12);
         $basic_shoe->setHeelMaterial("Žieminių Padangų Guma");
@@ -44,8 +43,8 @@ class ShoeFactory
         $fancy_shoe->setShoeColour("Fancy Gray");
         $fancy_shoe->setLacesLength(15);
         $fancy_shoe->setShoeMaterial("Dark Matter");
-        $this->eventDispatcher->dispatch(Events:: PRE_CREATE, new PreCreateEvent([$basic_shoe, $fancy_shoe]));
-        return [$basic_shoe, $fancy_shoe];
+        $this->eventDispatcher->dispatch(Events:: PRE_CREATE, new PreCreateEvent($basic_shoe));
+        return $basic_shoe;
 
     }
 

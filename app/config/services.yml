@@ -7,3 +7,6 @@ services:
 #    app.example:
 #        class: AppBundle\Service\ExampleService
 #        arguments: ["@doctrine.orm.entity_manager"]
+   app.shoes:
+        class: NFQ\DemoBundle\Service\ShoeFactory
+        arguments: ["@doctrine.orm.entity_manager"]

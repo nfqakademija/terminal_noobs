@@ -10,7 +10,7 @@ services:
         arguments: ["@event_dispatcher"]
     app.shoe:
         class: NFQ\DemoBundle\Service\Shoe
-        factory: ["app.shoe_factory", create]
+        factory: ["@app.shoe_factory", create]
 
 #    app.car.part.wheel:
 #        class: XX
