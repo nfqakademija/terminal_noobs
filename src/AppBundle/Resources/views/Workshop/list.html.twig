@@ -4,4 +4,16 @@
 
 {% block body %}
 <h1>Welcome to the Workshop:list page</h1>
+    <table>
+        <th>#</th><th>Workshop title</th><th>Workshop description</th>
+    {% for item in workshops %}
+        <tr>
+            <td>{{ item.getId }}</td>
+            <td>{{ item.getTitle }}</td>
+            <td>{{ item.getDescription }}</td>
+            <td>{{ item.getLector.getId }}</td>
+            <td><a href="show/{{ item.getId }}">details</a></td>
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}

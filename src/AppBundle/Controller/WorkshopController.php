@@ -9,22 +9,21 @@ class WorkshopController extends Controller
 {
     /**
      * @Route("/workshop/list")
-     * @Route("/workshop/")
      */
     public function listAction()
     {
         return $this->render('AppBundle:Workshop:list.html.twig', array(
-            // ...
+            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
         ));
     }
 
     /**
-     * @Route("/workshop/show")
+     * @Route("/workshop/show/{id}")
      */
-    public function showAction()
+    public function showAction($id)
     {
         return $this->render('AppBundle:Workshop:show.html.twig', array(
-            // ...
+            'workshop' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->find($id)
         ));
     }
 

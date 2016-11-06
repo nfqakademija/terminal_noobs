@@ -3,11 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Workshop;
+use \AppBundle\Entity\User;
 
 /**
  * Attendance
  *
- * @ORM\Table(name="attendance")
+ * @ORM\Table(name="attendances")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AttendanceRepository")
  */
 class Attendance
@@ -21,15 +23,22 @@ class Attendance
      */
     private $id;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="present", type="boolean")
+     */
+    private $present;
 
     /**
-     * Get id
-     *
-     * @return int
+     * @ORM\ManyToOne(targetEntity="Workshop", inversedBy="attendance")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $workshop;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
+     */
+    private $student;
 }
 

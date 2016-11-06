@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\User as User;
 
 /**
  * Team
@@ -28,15 +29,7 @@ class Team
      */
     private $name;
 
-    /**
-     * @OneToOne(targetEntity="User")
-     */
-    private $mentor;
 
-    /**
-     * @ORM\OneToMany(targetEntity="User")
-     */
-    private $students;
 
     /**
      * Get id

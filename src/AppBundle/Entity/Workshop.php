@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Workshop
  *
- * @ORM\Table(name="workshop")
+ * @ORM\Table(name="workshops")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\WorkshopRepository")
  */
 class Workshop
@@ -20,6 +20,96 @@ class Workshop
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Workshop
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     * @return Workshop
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Workshop
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLector()
+    {
+        return $this->lector;
+    }
+
+    /**
+     * @param mixed $lector
+     * @return Workshop
+     */
+    public function setLector($lector)
+    {
+        $this->lector = $lector;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttendance()
+    {
+        return $this->attendance;
+    }
+
+    /**
+     * @param mixed $attendance
+     * @return Workshop
+     */
+    public function setAttendance($attendance)
+    {
+        $this->attendance = $attendance;
+        return $this;
+    }
 
     /**
      * @var string
@@ -36,125 +126,15 @@ class Workshop
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="lector", type="string", length=255)
      * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="lector_id", referencedColumnName="id", nullable=true)
      */
     private $lector;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="datetime", type="datetime")
+     * @ORM\OneToMany(targetEntity="Attendance", mappedBy="workshop")
      */
-    private $datetime;
+    private $attendance;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Workshop
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Workshop
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set lector
-     *
-     * @param string $lector
-     *
-     * @return Workshop
-     */
-    public function setLector($lector)
-    {
-        $this->lector = $lector;
-
-        return $this;
-    }
-
-    /**
-     * Get lector
-     *
-     * @return string
-     */
-    public function getLector()
-    {
-        return $this->lector;
-    }
-
-    /**
-     * Set datetime
-     *
-     * @param \DateTime $datetime
-     *
-     * @return Workshop
-     */
-    public function setDatetime($datetime)
-    {
-        $this->datetime = $datetime;
-
-        return $this;
-    }
-
-    /**
-     * Get datetime
-     *
-     * @return \DateTime
-     */
-    public function getDatetime()
-    {
-        return $this->datetime;
-    }
 }
 

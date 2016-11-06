@@ -3,5 +3,14 @@
 {% block title %}AppBundle:Workshop:show{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Workshop:show page</h1>
+    <h1>Welcome to the Workshop:Show page</h1>
+    <table>
+        <th>#</th><th>Workshop title</th><th>Workshop description</th>
+            <tr>
+                <td>{{ workshop.getID }}</td>
+                <td>{{ workshop.getTitle }}</td>
+                <td>{{ workshop.getDescription }}</td>
+                <td>{{ workshop.getLector.getId }}</td>
+            </tr>
+    </table>
 {% endblock %}
