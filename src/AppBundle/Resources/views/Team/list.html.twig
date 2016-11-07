@@ -3,5 +3,23 @@
 {% block title %}AppBundle:Team:list{% endblock %}
 
 {% block body %}
+    <div class="container">
 <h1>Welcome to the Team:list page</h1>
+        <table class="table">
+            <th>Team name</th><th>Members</th><th>Mentor</th><th>Actions</th>
+            {% for team in teams %}
+            <tr>
+                <td>{{  team.getName }}</td>
+                <td>
+                    {% for member in team.getMembers %}
+                        {{  member.getName  }}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ team.getMentor.getName }}</td>
+                <td><a href="show/{{ team.getId }}">Edit</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
 {% endblock %}

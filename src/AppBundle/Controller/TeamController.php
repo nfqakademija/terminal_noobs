@@ -22,18 +22,19 @@ class TeamController extends Controller
      */
     public function listAction()
     {
+        dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
         return $this->render('AppBundle:Team:list.html.twig', array(
-            // ...
+            'teams' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
         ));
     }
 
     /**
-     * @Route("/team/show")
+     * @Route("/team/show/{id}")
      */
-    public function showAction()
+    public function showAction($id)
     {
         return $this->render('AppBundle:Team:show.html.twig', array(
-            // ...
+            'team' => $this->getDoctrine()->getRepository('AppBundle:Team')->find($id)
         ));
     }
 

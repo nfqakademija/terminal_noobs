@@ -3,5 +3,19 @@
 {% block title %}AppBundle:Team:show{% endblock %}
 
 {% block body %}
+    <div class="container">
 <h1>Welcome to the Team:show page</h1>
+        <h2>{{ team.name }}</h2>
+        <table class="table">
+            <th>Members</th><th>Mentor</th>
+            <tr>
+                <td>
+                    {% for member in team.getMembers %}
+                        {{  member.getName  }}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ team.getMentor.getName }}</td>
+            </tr>
+        </table>
+    </div>
 {% endblock %}

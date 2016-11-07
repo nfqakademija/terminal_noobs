@@ -30,7 +30,7 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
             ->setId(1)
             ->setTitle("Design patterns")
             ->setDescription("Description of the design pattern workshop")
-            ->setLector($this->getReference('user1'));
+            ->setLector($this->getReference('lector_simonas'));
 
         $manager->persist($workshop);
 
@@ -40,8 +40,16 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
             ->setId(2)
             ->setTitle("Introduction to symfony")
             ->setDescription("Description of the introduction workshop")
-            ->setLector($this->getReference('user1'));
+            ->setLector($this->getReference('lector_simonas'));
         $manager->persist($workshop);
+
+        $workshop
+            ->setId(3)
+        ->setTitle("Design")
+        ->setDescription("Description of the introduction workshop")
+        ->setLector($this->getReference('lector_darius'));
+        $manager->persist($workshop);
+
         $manager->flush();
 
 

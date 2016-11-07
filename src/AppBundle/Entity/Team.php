@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User as User;
 
@@ -25,10 +26,39 @@ class Team
     /**
      * @var string
      *
-     * @ORM\Column(name="Name", type="string", length=55, unique=false)
+     * @ORM\Column(name="teamName", type="string", length=55, unique=false)
      */
     private $name;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="teams_members",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="team_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $members;
+
+    /**
+     * @return mixed
+     */
+    public function getMentor()
+    {
+        return $this->mentor;
+    }
+
+    /**
+     * @param mixed $mentor
+     */
+    public function setMentor($mentor)
+    {
+        $this->mentor = $mentor;
+    }
+
+    /**
+     * @ORM\OneToOne(targetEntity="User")
+     */
+    private $mentor;
 
 
     /**
@@ -63,6 +93,29 @@ class Team
     public function getName()
     {
         return $this->name;
+    }
+
+    public function __construct()
+    {
+        $member = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMembers()
+    {
+        return $this->members;
+    }
+
+    /**
+     * @param mixed $members
+     * @return Team
+     */
+    public function setMembers($members)
+    {
+        $this->members = new ArrayCollection($members);
+        return $this;
     }
 }
 

@@ -19,6 +19,9 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\Column(name="full_name", type="string", length=55, nullable=true)
+     */
     private $name;
 
     /**
