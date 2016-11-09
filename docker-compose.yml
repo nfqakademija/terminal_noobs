@@ -33,5 +33,7 @@ services:
     image: mariadb:10.1.10
     volumes_from:
       - "mariadb-data"
+    ports:
+      - "3000:3306"
     environment:
         MYSQL_ROOT_PASSWORD: root
