@@ -3,28 +3,7 @@
 {% block title %}AppBundle:Home:index{% endblock %}
 
 {% block body %}
-    <header class="header">
-        <div class="page">
 
-            <div class="image-holder"><img src="{{ asset('images/logo.png') }}"></div>
-            <div class="logo">NFQ Akademija</div>
-        </div>
-
-    </header>
-
-    <nav class="nav">
-
-        <div class="width-menu">
-            <ul class="width-item menu">
-                <li class="width-item">
-                    <a href="/team/list">Lektoriai</a> <!-- Lektoriai -->
-                    <a href="#">komandos</a> <!-- Grupes -->
-                    <a href="#">Tvarkaraštis</a> <!-- Tvarkaraštis -->
-                </li>
-            </ul>
-        </div>
-
-    </nav>
 
     <article class="article">
 
@@ -34,65 +13,33 @@
 
 
 
-        {% for a in  teams%}
-         <li> {{  a.getName}}
-         </li>
+            {% for a in  teams%}
+                <li> {{  a.getName}}
+                </li>
 
 
-        {% endfor %}
+            {% endfor %}
         </ul>
         <table class="red-table">
             <tr>
-            <td>
-            <p>* Jonas Jonaitis</p>
-            </td><td>
-            <p>* Jonas Jonaitis</p>
-            </td><td>
-            <p>* Jonas Jonaitis</p>
-            </td><td>
-            <p>* Jonas Jonaitis</p>
-            </td><td>
-            <p>* Jonas Jonaitis</p>
-            </td><td>
-            <p>* Jonas Jonaitis</p>
-            </td>
+                <td>
+                    <p>* Jonas Jonaitis</p>
+                </td><td>
+                    <p>* Jonas Jonaitis</p>
+                </td><td>
+                    <p>* Jonas Jonaitis</p>
+                </td><td>
+                    <p>* Jonas Jonaitis</p>
+                </td><td>
+                    <p>* Jonas Jonaitis</p>
+                </td><td>
+                    <p>* Jonas Jonaitis</p>
+                </td>
             </tr>
         </table>
 
 
     </article>
 
-    <div class="footer">
-        <div class="page">
-            <div class="clear-footer-content">
-                <div class="entry clear">
-                    <div class="contacts">
-                        <img src="http://www.nfq.lt/public/images/web/nfq-logo-footer.png" alt="NFQ">
-                        <div class="vcard">
-                            <strong>Kaune</strong>
-                            <p class="adr">Brastos g. 15, LT-47183 Kaunas</p>
-                            "
-                            Tel. "
-                            <span class="tel">+370 37 333 053</span>
-                            <br>
-                            <a href="mailto:info@nfq.lt" rel="nofollow" title="Email info@nfq.lt">info@nfq.lt</a>
-                            <br>
-                        </div>
-                        <div class="vcard">
-                            <strong>Vilniuje</strong>
-                            <p class="adr">Konstitucijos pr. 7, LT-09308 Vilnius</p>
-                            <p class="adr">( Verslo centras „Europa“ )</p>
-                            "
-                            Tel. "
-                            <sp an class="tel">+370 5 248 7499</span>
-                                <br>
-                                <a href="mailto:info@nfq.lt" rel="nofollow" title="Email info@nfq.lt">info@nfq.lt</a>
-                                <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </div>
 {% endblock %}
