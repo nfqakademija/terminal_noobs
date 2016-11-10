@@ -1,0 +1,114 @@
+.page{
+  margin: 0px;
+  max-width: 960px;
+}
+
+//==HEADER===================================
+.header{
+  height: 210px;
+  background-color: #A4A4A4;
+}
+.logo{
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: normal;
+  padding: 0px;
+}
+
+.image-holder img {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+
+}
+
+//==NAVIGATOR===================================
+.nav{
+  float: left;
+  max-width: 170px;
+  margin: 0;
+  height: 650px;
+  background-color: #D8D8D8;
+}
+
+.width-menu{
+  border-bottom: 1px solid #CCC;
+}
+
+.width-item menu{
+  border-left: 1px solid #CCC;
+}
+
+.width-item{
+  display: inline-block;
+}
+
+.width-item a{
+  margin-left: 10px;
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: left;
+  text-indent: -25px;
+}
+.width-item a:hover{
+  margin-left: 10px;
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  color: orange;
+  padding: 5px 10px;
+  text-align: left;
+  text-indent: -25px;
+}
+
+//==ARTICLE===================================
+.article{
+  margin-left: 180px;
+  width: 780px;
+  height: 650px;
+  background-color: #F5F5F5;
+}
+.article a{
+  font-size: 40px;
+  color: #A4A4A4;
+  text-decoration: none;
+}
+.article a:hover{
+  font-size: 40px;
+  color: orange;
+  text-decoration: none;
+}
+
+//==FOOTER===================================
+.footer{
+  background-color: #F3F5F5;
+  height: 170px;
+}
+.contacts{
+  float: inherit;
+  padding-right:  50px;
+  line-height: 18px;
+}
+.contacts img+.vcard{
+  margin: 0;
+}
+.vcard{
+  margin-top: 25px;
+  color: #777;
+  float: right;
+  width: 240px;
+}
+.vcard strong{
+  background-color: #F5F5F5;
+  display: inline;
+  margin-bottom: 3px;
+  color:#333;
+}
+.vcard a{
+  text-decoration: underline;
+  color: #899da0;
+}
