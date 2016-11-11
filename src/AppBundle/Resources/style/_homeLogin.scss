@@ -52,6 +52,7 @@ a:hover {
   border-bottom: 2px solid #efefef;
   padding-right: 20px;
   position: relative;
+
 }
 .login-form-1 .form-group:last-child {
   border-bottom: 0;
@@ -82,7 +83,7 @@ a:hover {
 }
 .login-form-1 .login-button:hover {
   color: #555555;
-  transform: rotate(450deg);
+  transform: rotate(90deg);
 }
 .login-form-1 .login-button.clicked {
   color: #555555;
