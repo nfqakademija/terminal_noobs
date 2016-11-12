@@ -36,7 +36,6 @@ body{ //'images/body-bg.jpg'
   float: left;
   max-width: 170px;
   margin: 0;
-  height: 650px;
   //background-color: #D8D8D8;
   background-color: rgba(216, 216, 216, 0.3);
 }
@@ -77,8 +76,8 @@ body{ //'images/body-bg.jpg'
 //==ARTICLE===================================
 .article{
   margin-left: 180px;
-  width: 780px;
-  height: 650px;
+  //width: 780px;
+  //height: 650px;
   background-color: rgba(157, 157, 157, 0.8);
 }
 .aa{
@@ -96,6 +95,12 @@ body{ //'images/body-bg.jpg'
 
 //==FOOTER===================================
 .footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1px;
+  text-align: center;
   background-color: rgba(216, 216, 216, 0.2);
   height: 170px;
 }
