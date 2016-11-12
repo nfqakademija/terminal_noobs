@@ -1,3 +1,12 @@
+body{ //'images/body-bg.jpg'
+  background-image: url(http://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2015/10/Czy-warto-kupi%C4%87.jpg);// no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+}
 .page{
   margin: 0px;
   max-width: 960px;
@@ -5,8 +14,7 @@
 
 //==HEADER===================================
 .header{
-  height: 210px;
-  background-color: #A4A4A4;
+
 }
 .logo{
   margin-left: 10px;
@@ -29,7 +37,8 @@
   max-width: 170px;
   margin: 0;
   height: 650px;
-  background-color: #D8D8D8;
+  //background-color: #D8D8D8;
+  background-color: rgba(216, 216, 216, 0.3);
 }
 
 .width-menu{
@@ -70,15 +79,15 @@
   margin-left: 180px;
   width: 780px;
   height: 650px;
-  background-color: #F5F5F5;
+  background-color: rgba(157, 157, 157, 0.8);
 }
-.article a{
-  text-align: right;
-  font-size: 20px;
-  color: #A4A4A4;
-  text-decoration: none;
-}
-.article a:hover{
+a{
+   text-align: right;
+   font-size: 20px;
+   color: #A9A9A9;
+   text-decoration: none;
+ }
+a:hover{
   text-align: right;
   font-size: 30px;
   color: orange;
@@ -87,7 +96,7 @@
 
 //==FOOTER===================================
 .footer{
-  background-color: #F3F5F5;
+  background-color: rgba(216, 216, 216, 0.2);
   height: 170px;
 }
 .contacts{
@@ -100,17 +109,25 @@
 }
 .vcard{
   margin-top: 25px;
-  color: #777;
+  font-size: 14px;
+  color: #E3E1E1;
   float: right;
   width: 240px;
 }
 .vcard strong{
-  background-color: #F5F5F5;
+  //background-color: #F5F5F5;
+  font-size: 14px;
   display: inline;
   margin-bottom: 3px;
-  color:#333;
+  color:#FFFFFF;
 }
 .vcard a{
   text-decoration: underline;
-  color: #899da0;
+  font-size: 14px;
+  color:#FFFFFF;
+}
+.vcard a:hover{
+  text-decoration: underline;
+  font-size: 16px;
+  color: #E36B01;
 }
