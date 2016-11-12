@@ -4,14 +4,12 @@
 
 {% block body %}
 
-
+    {% include "::inc/nav.html.twig" %}
     <article class="article">
 
         <a href="#">&plus;</a>
-        <h1>Lektoriai</h1>
+        <h1>Komandų sąrašas</h1>
         <ul>
-
-
 
             {% for a in  teams%}
                 <li> {{  a.getName}}
@@ -20,23 +18,7 @@
 
             {% endfor %}
         </ul>
-        <table class="red-table">
-            <tr>
-                <td>
-                    <p>* Jonas Jonaitis</p>
-                </td><td>
-                    <p>* Jonas Jonaitis</p>
-                </td><td>
-                    <p>* Jonas Jonaitis</p>
-                </td><td>
-                    <p>* Jonas Jonaitis</p>
-                </td><td>
-                    <p>* Jonas Jonaitis</p>
-                </td><td>
-                    <p>* Jonas Jonaitis</p>
-                </td>
-            </tr>
-        </table>
+
 
 
     </article>
