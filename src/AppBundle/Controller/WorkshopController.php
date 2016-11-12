@@ -38,7 +38,7 @@ class WorkshopController extends Controller
     }
 
     /**
-     * @Route("/worksop/update")
+     * @Route("/workshop/update")
      */
     public function updateAction()
     {
