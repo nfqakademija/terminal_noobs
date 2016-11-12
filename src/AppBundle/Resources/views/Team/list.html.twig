@@ -1,29 +1,86 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Home:index{% endblock %}
+{% block title %}AppBundle:Team:list{% endblock %}
 
 {% block body %}
-
     {% include "::inc/nav.html.twig" %}
-    <article class="article">
 
-        <a href="#">&plus;</a>
-        <h1>Komandos</h1>
-        <ul>
+    <div class="container">
+        <article class="article">
 
-
-
-            {% for a in  teams%}
-                <li> {{  a.getName}}
-                </li>
+            <a href="#">&plus;</a>
 
 
-            {% endfor %}
-        </ul>
+            <h1>Komandų informacija</h1>
+            <table class="table">
+                <th>ID</th><th>Nr.</th><th>Pavadinimas</th><th>Mentorius</th><th></th>
+                {% for item in teams %}
+                    <tr>
+                        <td>{{ item.getId }}</td>
+                        <td>4</td>
+                        <td>{{ item.getName }}</td>
+                        <td>{{ item.getMentor.getName }}</td>
 
+                        <!-- a href="show/{{ item.getId }}"-->
+                        <td>
+                            <!-- Trigger/Open The Modal -->
+                            <button class="btn-default" id="myBtn">daugiau info</button>
 
+                            <!-- The Modal -->
+                            <div id="myModal" class="modal">
 
-    </article>
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">×</span>
+                                    <h1>Komandos pavadinimas: {{ item.getName }}</h1>
+                                    <p>Informacija apie komandukę. </p>
+                                </div>
+
+                            </div>
+
+                            <script>
+                                // Get the modal
+                                var modal = document.getElementById('myModal');
+
+                                // Get the button that opens the modal
+                                var btn = document.getElementById("myBtn");
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks the button, open the modal
+                                btn.onclick = function() {
+                                    modal.style.display = "block";
+                                }
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
+                            </script>
+                        </td>
+                    </tr>
+                    <th>Nariai:</th><th>ID</th>><th>Vardas</th><th></th>
+                    {% for member in item.getMembers %}
+                        <tr>
+                            <td></td>
+                            <td>{{ member.getId }}</td>
+                            <td>{{ member.getName }}</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </table>
+
+        </article>
+    </div>
 
 
 {% endblock %}
