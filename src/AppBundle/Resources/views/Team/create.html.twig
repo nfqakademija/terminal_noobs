@@ -3,5 +3,13 @@
 {% block title %}AppBundle:Team:create{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Team:create page</h1>
+    {% include "::inc/nav.html.twig" %}
+        <article class="article">
+        <h1>Komandų tvarkymas</h1>
+            <a href="#">Edit</a><br>
+            <a href="#">Add</a><br>
+            <a href="#">Delete</a><br>
+
+
+        </article>
 {% endblock %}

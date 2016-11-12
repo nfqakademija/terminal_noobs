@@ -16,6 +16,24 @@ class WorkshopController extends Controller
             'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
         ));
     }
+    /**
+     * @Route("/workshop/table")
+     */
+    public function tableAction()
+    {
+        return $this->render('AppBundle:Workshop:table.html.twig', array(
+            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
+        ));
+    }
+    /**
+     * @Route("/workshop/attendance")
+     */
+    public function attendanceAction()
+    {
+        return $this->render('AppBundle:Workshop:attendance.html.twig', array(
+            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
+        ));
+    }
 
     /**
      * @Route("/workshop/show/{id}")
