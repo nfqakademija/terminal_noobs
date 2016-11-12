@@ -3,13 +3,67 @@
 {% block title %}NFQ Komandos{% endblock %}
 
 {% block body %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     {% include "::inc/nav.html.twig" %}
         <article class="article">
-        <h1>Komandų tvarkymas</h1>
-            <a class="aa" href="#">Edit</a><br>
-            <a class="aa" href="#">Add</a><br>
-            <a class="aa" href="#">Delete</a><br>
+            <br>
+        <h1 class="acenter">Komandų tvarkymas</h1>
+            <br>
+            <div class="container">
+
+                    <table class="table">
+                        <th>Pavadinimas</th><th>Menorius</th><th>Nariai</th>
+                        {% for item in teams %}
+                            <tr>
+                                <td>{{ item.getId }} {{ item.getName }}</td>
+                                <td>{{ item.getMentor.getName }}</td>
+                                <td></td>
+
+                                <!-- a href="show/{{ item.getId }}"-->
+                                <td>
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">daugiau</button>
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">{{ item.getName }}</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Mentorius: {{ item.getMentor.getName }}</p>
+                                                    <p>narys 1</p>
+                                                    <p>narys 2</p>
+                                                    <p>narys 3</p>
 
 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Atšaukti</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Išsaugoti</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                {% for member in item.getMembers %}
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td>{{ member.getName }}</td>
+                                    </tr>
+                                {% endfor %}
+
+                                <br>
+                            </tr>
+
+                    </table>
+                {% endfor %}
+
+            </div>
         </article>
 {% endblock %}
