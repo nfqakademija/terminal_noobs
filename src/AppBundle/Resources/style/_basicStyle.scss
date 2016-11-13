@@ -34,21 +34,23 @@ body{ //'images/body-bg.jpg'
 
 //==NAVIGATOR===================================
 .nav{
-  background-color: #a2a2a2;
+  background-color: #B4AEA3;
 }
 .item-a{
   font-size: 20px;
   text-decoration: none;
-  color: #e37952;
-}
-.dropdown-menu{
-
+  color: dimgray;
 }
 //==ARTICLE===================================
 .article{
   min-height: 400px;
-  height: 400px;
   background-color: rgba(240, 240, 240, 0.8);
+}
+.acenter{
+  margin: auto;
+  width: 40%;
+  border: 3px solid #EDE5D5;
+  padding: 10px;
 }
 .aa{
    text-align: right;
