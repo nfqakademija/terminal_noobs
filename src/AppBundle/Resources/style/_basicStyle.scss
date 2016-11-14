@@ -16,15 +16,21 @@ body{
 }
 
 //==HEADER===================================
-.header{
-
-}
+.header{}
 .logo{
   margin-left: 10px;
   font-size: 20px;
   color: white;
   font-weight: normal;
   padding: 0px;
+}
+.logo:hover{
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: normal;
+  padding: 0px;
+  text-decoration: none;
 }
 
 .image-holder img {
