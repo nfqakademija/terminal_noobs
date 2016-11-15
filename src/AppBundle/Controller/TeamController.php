@@ -12,7 +12,7 @@ class TeamController extends Controller
      */
     public function createAction()
     {
-        dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
+        //dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
         return $this->render('AppBundle:Team:create.html.twig', array(
             'teams' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
         ));
@@ -23,7 +23,7 @@ class TeamController extends Controller
      */
     public function listAction()
     {
-        dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
+        //dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
         return $this->render('AppBundle:Team:list.html.twig', array(
             'teams' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
         ));
