@@ -71,7 +71,45 @@ class WorkshopController extends Controller
     public function attendanceAction()
     {
         return $this->render('AppBundle:Workshop:attendance.html.twig', array(
-            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
+            'teams' => [
+                'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
+                'teams' => [
+                    [
+                        'name' => 'terminal_noobs',
+                        'members' => [
+                            [
+                                'name' => 'Mantas Narkevicius',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Viktorija Razaite',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Matas Minelga',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'other_team',
+                        'members' => [
+                            [
+                                'name' => 'Petras Petraitis',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Jonas Jonaitis',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Justas Justaitis',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
         ));
     }
 
