@@ -65,6 +65,7 @@ body{
 }
 //==ARTICLE===================================
 .article{
+  margin-left: 0px;
   min-height: 400px;
   background-color: rgba(240, 240, 240, 0.8);
 }
@@ -75,9 +76,10 @@ body{
   padding: 10px;
 }
 .aa{
+  float:right;
    text-align: right;
    font-size: 20px;
-   color: #A9A9A9;
+   color: #717171;
    text-decoration: none;
  }
 .aa:hover{
