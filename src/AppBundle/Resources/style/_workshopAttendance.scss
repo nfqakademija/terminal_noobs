@@ -14,10 +14,10 @@
 /*Checkboxes*/
 .input[type="checkbox"] {
   display: inline-block;
-  border: 1px solid #62ff2b;
+  border: 1px solid #000;
   width: 10px;
   height: 30px;
-  //position: relative;
+  position: relative;
   padding: 10px 10px 10px 10px;
 }
 .input[type="checkbox"][disabled]{
@@ -28,7 +28,7 @@
   border: 1px solid #000;
   width: 10px;
   height: 10px;
-  //position: relative;
+  position: relative;
   padding: 10px 10px 10px 10px;
   outline:1px solid red;
 }
