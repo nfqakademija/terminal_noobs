@@ -7,7 +7,12 @@ body{
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
+  margin-bottom: 30px;
+}
+#container {
+  min-height:100%;
+  position:relative;
 }
 .page{
   margin: 0px;
@@ -94,48 +99,13 @@ body{
 }
 
 //==FOOTER===================================
-.footer{
+.footer {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1px;
-  text-align: center;
+  text-align: left;
+  bottom: 0px;
+  width: 100%;
+  height: auto !important;
+  margin: 0 auto -30px;
   background-color: rgba(216, 216, 216, 0.2);
-  height: 170px;
-}
-.contacts{
-  float: inherit;
-  padding-right:  50px;
-  line-height: 18px;
-}
-.contacts img+.vcard{
-  margin: 0;
-}
-.vcard{
-  margin-top: 25px;
-  font-size: 14px;
-  color: #E3E1E1;
-  float: right;
-  width: 240px;
-}
-.vcard strong{
-  //background-color: #F5F5F5;
-  font-size: 14px;
-  display: inline;
-  margin-bottom: 3px;
-  color:#FFFFFF;
-}
-.vcard a{
-  text-decoration: underline;
-  font-size: 14px;
-  color:#FFFFFF;
-}
-.vcard a:hover{
-  text-decoration: underline;
-  font-size: 16px;
-  color: #E36B01;
-}
-.contents{
-
+  color: white;
 }
