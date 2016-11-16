@@ -2,77 +2,21 @@
 
 {% block title %}NFQ Lentelės{% endblock %}
 
-{% block body %}
+{% block body %} <div class="container">
     {% include "::inc/navGeras.html.twig" %}
 
     <article class="article">
-        <div class="container">
 
-        <br>
-        <h1 class="acenter">Paskaitų informacija</h1><br>
-        <table class="table">
-            <th>Nr.</th><th>Pavadinimas</th><th>Aprašymas</th><th>Dėstytojas</th><th></th>
-        {% for item in workshops %}
-            <tr>
-                <td>{{ item.getId }}</td>
-                <td>{{ item.getTitle }}</td>
-                <td>{{ item.getDescription }}</td>
-                <td>{{ item.getLector.getName }}</td>
-                <!-- a href="show/{{ item.getId }}"-->
-                <td>
-                    <!-- Trigger/Open The Modal -->
-                    <button class="btn-default" id="myBtn">daugiau info</button>
 
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal">
+            <br>
+            <h1 class="acenter">Paskaitų informacija</h1><br>
+            <table class="table">
+                <th>Nr.</th><th>Pavadinimas</th><th>Aprašymas</th><th>Dėstytojas</th><th></th>
 
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">×</span>
-                            <h1>Paskaitos tema: {{ item.getTitle }}</h1>
-                            <p>Informacija apie paskaitą. Informacija apie paskaitą.
-                                Informacija apie paskaitą. Informacija apie paskaitą.
-                                Informacija apie paskaitą. Informacija apie paskaitą.
-                                Informacija apie paskaitą. Informacija apie paskaitą.
-                                Informacija apie paskaitą. Informacija apie paskaitą. </p>
-                        </div>
+            </table>
 
-                    </div>
-
-                    <script>
-                        // Get the modal
-                        var modal = document.getElementById('myModal');
-
-                        // Get the button that opens the modal
-                        var btn = document.getElementById("myBtn");
-
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
-
-                        // When the user clicks the button, open the modal
-                        btn.onclick = function() {
-                            modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                            modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
-                            }
-                        }
-                    </script>
-                </td>
-            </tr>
-        {% endfor %}
-        </table>
-        </div>
     </article>
-
+    </div>
 
 
 {% endblock %}
