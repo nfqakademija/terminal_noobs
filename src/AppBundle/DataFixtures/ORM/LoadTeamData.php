@@ -24,7 +24,7 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $team = new Team();
+        /*$team = new Team();
         $team->setName("Terminal_noobs")->setMembers([
             0 => $this->getReference("student_mantas"),
             1 => $this->getReference("student_viktorija"),
@@ -32,7 +32,7 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface
         ]);
         $team->setMentor($this->getReference('mentor_giedrius'));
         $manager->persist($team);
-        $manager->flush();
+        $manager->flush();*/
     }
 
     /**

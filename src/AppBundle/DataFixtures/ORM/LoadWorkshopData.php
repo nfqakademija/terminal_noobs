@@ -24,7 +24,7 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        $workshop = new Workshop();
+        /*$workshop = new Workshop();
 
         $workshop
             ->setId(1)
@@ -50,7 +50,7 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
         ->setLector($this->getReference('lector_darius'));
         $manager->persist($workshop);
 
-        $manager->flush();
+        $manager->flush();*/
 
 
     }

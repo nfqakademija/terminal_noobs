@@ -15,13 +15,18 @@ use \AppBundle\Entity\User;
 class Attendance
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Workshop", inversedBy="attendance")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\JoinColumn(name="workshop_id", referencedColumnName="id")
      */
-    private $id;
+    private $workshop;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\Id
+     * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
+     */
+    private $student;
 
     /**
      * @var bool
@@ -30,15 +35,77 @@ class Attendance
      */
     private $present;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Workshop", inversedBy="attendance")
-     */
-    private $workshop;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
+     * Set present
+     *
+     * @param boolean $present
+     *
+     * @return Attendance
      */
-    private $student;
+    public function setPresent($present)
+    {
+        $this->present = $present;
+
+        return $this;
+    }
+
+    /**
+     * Get present
+     *
+     * @return boolean
+     */
+    public function getPresent()
+    {
+        return $this->present;
+    }
+
+    /**
+     * Set workshop
+     *
+     * @param \AppBundle\Entity\Workshop $workshop
+     *
+     * @return Attendance
+     */
+    public function setWorkshop(\AppBundle\Entity\Workshop $workshop)
+    {
+        $this->workshop = $workshop;
+
+        return $this;
+    }
+
+    /**
+     * Get workshop
+     *
+     * @return \AppBundle\Entity\Workshop
+     */
+    public function getWorkshop()
+    {
+        return $this->workshop;
+    }
+
+    /**
+     * Set student
+     *
+     * @param \AppBundle\Entity\User $student
+     *
+     * @return Attendance
+     */
+    public function setStudent(\AppBundle\Entity\User $student)
+    {
+        $this->student = $student;
+
+        return $this;
+    }
+
+    /**
+     * Get student
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
 }
-

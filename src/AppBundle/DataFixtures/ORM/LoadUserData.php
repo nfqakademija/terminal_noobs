@@ -13,9 +13,15 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\User;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -24,47 +30,110 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $user = new User();
-        $user->setName('Ramunas Norvaisas');
-        $manager->persist($user);
-        $this->setReference('lector_ramunas', $user);
 
-        $user = new User();
-        $user->setName('Darius Bisikirskis');
-        $manager->persist($user);
-        $this->setReference('lector_darius', $user);
+        $userManager = $this->container->get('fos_user.user_manager');
 
-        $user = new User();
-        $user->setName('Simonas Serlinskas');
-        $manager->persist($user);
-        $this->setReference('lector_simonas', $user);
+        /*
+         * Admin login
+         */
+        $user = $userManager->createUser();
+        $user->setUsername('admin');
+        $user->setEmail('admin@admin.com');
+        $user->setPlainPassword('password');
+        $user->setEnabled(true);
+        $user->setRoles(array('ROLE_ADMIN'));
+        $userManager->updateUser($user, true);
+        /*
+         * Setting up lector logins
+         */
 
-        $user = new User();
-        $user->setName('Mantas Kaveckas');
-        $manager->persist($user);
-        $this->setReference('lector_mantas', $user);
 
-        $user = new User();
-        $user->setName('Mantas Narkevicius');
-        $manager->persist($user);
-        $this->setReference('student_mantas', $user);
 
-        $user = new User();
-        $user->setName('Viktorija Razaite');
-        $manager->persist($user);
-        $this->setReference('student_viktorija', $user);
+        $user = $userManager->createUser();
+        $user->setUsername('darkas');
+        $user->setEmail('darius.kasiulevicius@nfq.lt');
+        $user->setPlainPassword('password');
+        $user->setEnabled(true);
+        $user->setRoles(array('ROLE_USER'));
+        $userManager->updateUser($user, true);
 
-        $user = new User();
-        $user->setName('Matas Minelga');
-        $manager->persist($user);
-        $this->setReference('student_matas', $user);
+        $user = $userManager->createUser();
+        $user->setUsername('simser');
+        $user->setEmail('simonas.serlinskas@nfq.com');
+        $user->setPlainPassword('password');
+        $user->setEnabled(true);
+        $user->setRoles(array('ROLE_USER'));
+        $userManager->updateUser($user, true);
 
-        $user = new User();
-        $user->setName('Giedrius Vickus');
-        $manager->persist($user);
-        $this->setReference('mentor_giedrius', $user);
+        $user = $userManager->createUser();
+        $user->setUsername('darbis');
+        $user->setEmail('dariusb@nfq.lt');
+        $user->setPlainPassword('password');
+        $user->setEnabled(true);
+        $user->setRoles(array('ROLE_USER'));
+        $userManager->updateUser($user, true);
 
-        $manager->flush();
+
+
+        /*
+         * Setting up mentors
+         */
+
+        $userInfo = [
+            [
+                'username' => 'gievic',
+                'email'    => 'giedrius.vickus@nfq.lt',
+                'password' => 'demo'
+            ],
+            [
+                'username' => 'manurn',
+                'email'    => 'mantas.urnieza@nfq.lt',
+                'password' => 'demo'
+            ]
+        ];
+
+        foreach ($userInfo as $info){
+                $user = $userManager->createUser();
+                $user->setUsername($info['username']);
+                $user->setEmail($info['email']);
+                $user->setPlainPassword($info['password']);
+                $user->setEnabled(true);
+                $user->setRoles(array('ROLE_USER'));
+                $userManager->updateUser($user, true);
+        }
+
+        /*
+         * Setting up students
+         */
+
+        $userInfo = [
+            [
+                'username' => 'mannar',
+                'email'    => 'manttassn@gmail.com',
+                'password' => 'demo'
+            ],
+            [
+                'username' => 'vikraz',
+                'email'    => 'viktorija.razaite@gmail.com',
+                'password' => 'demo'
+            ],
+            [
+                'username' => 'matmin',
+                'email'    => 'minematas@gmail.com',
+                'password' => 'demo'
+            ]
+        ];
+
+        foreach ($userInfo as $info){
+                $user = $userManager->createUser();
+                $user->setUsername($info['username']);
+                $user->setEmail($info['email']);
+                $user->setPlainPassword($info['password']);
+                $user->setEnabled(true);
+                $user->setRoles(array('ROLE_USER'));
+                $userManager->updateUser($user, true);
+        }
+
     }
 
     /**
@@ -75,5 +144,15 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
     public function getOrder()
     {
         return 1;
+    }
+
+    /**
+     * Sets the container.
+     *
+     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
     }
 }

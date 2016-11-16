@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:User:list{% endblock %}
+
+{% block body %}
+<h1>Welcome to the User:list page</h1>
+    {% for user in users %}
+        {{ user.getEmail }}
+    {% endfor %}
+{% endblock %}

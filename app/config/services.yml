@@ -10,3 +10,4 @@ services:
     app.lectors:
         class: AppBundle\Service\LectorsService
         arguments: ["@doctrine.orm.entity_manager"]
+

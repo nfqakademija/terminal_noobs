@@ -16,15 +16,55 @@ class WorkshopController extends Controller
             'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
         ));
     }
+
     /**
      * @Route("/workshop/table")
      */
     public function tableAction()
     {
         return $this->render('AppBundle:Workshop:table.html.twig', array(
-            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
+            'grades' => [
+                'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
+                'teams' => [
+                    [
+                        'name' => 'terminal_noobs',
+                        'members' => [
+                            [
+                                'name' => 'Mantas Narkevicius',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Viktorija Razaite',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Matas Minelga',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'other_team',
+                        'members' => [
+                            [
+                                'name' => 'Petras Petraitis',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Jonas Jonaitis',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Justas Justaitis',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
         ));
     }
+
     /**
      * @Route("/workshop/attendance")
      */
@@ -50,8 +90,7 @@ class WorkshopController extends Controller
      */
     public function createAction()
     {
-        return $this->render('AppBundle:Workshop:create.html.twig', array(
-            // ...
+        return $this->render('AppBundle:Workshop:create.html.twig', array(// ...
         ));
     }
 
@@ -60,8 +99,7 @@ class WorkshopController extends Controller
      */
     public function updateAction()
     {
-        return $this->render('AppBundle:Workshop:update.html.twig', array(
-            // ...
+        return $this->render('AppBundle:Workshop:update.html.twig', array(// ...
         ));
     }
 
@@ -70,8 +108,7 @@ class WorkshopController extends Controller
      */
     public function deleteAction()
     {
-        return $this->render('AppBundle:Workshop:delete.html.twig', array(
-            // ...
+        return $this->render('AppBundle:Workshop:delete.html.twig', array(// ...
         ));
     }
 

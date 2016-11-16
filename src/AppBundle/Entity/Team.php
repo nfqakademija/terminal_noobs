@@ -26,45 +26,37 @@ class Team
     /**
      * @var string
      *
-     * @ORM\Column(name="teamName", type="string", length=55, unique=false)
+     * @ORM\Column(name="title", type="string", length=55, unique=false)
      */
-    private $name;
+    private $title;
 
     /**
      * @ORM\ManyToMany(targetEntity="User")
-     * @ORM\JoinTable(name="teams_members",
+     * @ORM\JoinTable(name="teams_users",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="team_id", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $members;
-
-    /**
-     * @return mixed
-     */
-    public function getMentor()
-    {
-        return $this->mentor;
-    }
-
-    /**
-     * @param mixed $mentor
-     */
-    public function setMentor($mentor)
-    {
-        $this->mentor = $mentor;
-    }
+    private $students;
 
     /**
      * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="mentor_id", referencedColumnName="id")
      */
     private $mentor;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -72,50 +64,84 @@ class Team
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
+     * @param string $title
      *
      * @return Team
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
-    }
-
-    public function __construct()
-    {
-        $member = new ArrayCollection();
+        return $this->title;
     }
 
     /**
-     * @return mixed
-     */
-    public function getMembers()
-    {
-        return $this->members;
-    }
-
-    /**
-     * @param mixed $members
+     * Add student
+     *
+     * @param \AppBundle\Entity\User $student
+     *
      * @return Team
      */
-    public function setMembers($members)
+    public function addStudent(\AppBundle\Entity\User $student)
     {
-        $this->members = new ArrayCollection($members);
+        $this->students[] = $student;
+
         return $this;
     }
-}
 
+    /**
+     * Remove student
+     *
+     * @param \AppBundle\Entity\User $student
+     */
+    public function removeStudent(\AppBundle\Entity\User $student)
+    {
+        $this->students->removeElement($student);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Set mentor
+     *
+     * @param \AppBundle\Entity\User $mentor
+     *
+     * @return Team
+     */
+    public function setMentor(\AppBundle\Entity\User $mentor = null)
+    {
+        $this->mentor = $mentor;
+
+        return $this;
+    }
+
+    /**
+     * Get mentor
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getMentor()
+    {
+        return $this->mentor;
+    }
+}
