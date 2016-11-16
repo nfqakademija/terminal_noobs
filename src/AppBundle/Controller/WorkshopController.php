@@ -78,10 +78,44 @@ class WorkshopController extends Controller
                             ],
                             [
                                 'name' => 'Jonas Jonaitis',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [10, 9, 8, 5]
                             ],
                             [
                                 'name' => 'Justas Justaitis',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'terminal_pros',
+                        'members' => [
+                            [
+                                'name' => 'John Pro',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Sam Win',
+                                'grades' => [10, 5, 8, 10]
+                            ],
+                            [
+                                'name' => 'Jim Crush',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'code_bugs',
+                        'members' => [
+                            [
+                                'name' => 'Carl Bee',
+                                'grades' => [10, 9, 8, 5]
+                            ],
+                            [
+                                'name' => 'Adam Ant',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Rick Roll',
                                 'grades' => [10, 9, 8, 10]
                             ]
                         ]
@@ -128,6 +162,40 @@ class WorkshopController extends Controller
                         ],
                         [
                             'name' => 'Justas Justaitis',
+                            'attendances' => [true, true, true, true]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'terminal_pros',
+                    'members' => [
+                        [
+                            'name' => 'John Pro',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Sam Win',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Jim Crush',
+                            'attendances' => [true, true, true, true]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'code_bugs',
+                    'members' => [
+                        [
+                            'name' => 'Carl Bee',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Adam Ant',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Rick Roll',
                             'attendances' => [true, true, true, true]
                         ]
                     ]
