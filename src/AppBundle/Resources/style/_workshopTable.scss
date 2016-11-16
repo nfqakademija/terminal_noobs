@@ -7,5 +7,9 @@ input[type=integer] {
   border-radius: 4px;
 }
 input[type=integer]:focus {
-  width: 100%;
+  //width: 100%;
+  border: none;
+  color: dimgray;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
