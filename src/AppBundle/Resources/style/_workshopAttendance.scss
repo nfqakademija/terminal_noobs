@@ -1,0 +1,74 @@
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/*Checkboxes*/
+.input[type="checkbox"] {
+  display: inline-block;
+  border: 1px solid #000;
+  width: 10px;
+  height: 30px;
+  //position: relative;
+  padding: 10px 10px 10px 10px;
+
+}
+.input[type="checkbox"] + label {
+  display: inline-block;
+  border: 1px solid #000;
+  width: 10px;
+  height: 30px;
+  //position: relative;
+  padding: 10px 10px 10px 10px;
+}
+.input[type="checkbox"]:checked + label:after {
+
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-default {
+  color: #ffffff;
+  background-color: #aea79f;
+  border-color: #aea79f;
+}
+.btn-default:hover {
+  color: orange;
+  background-color: #978e83;
+  border-color: #92897e;
+}
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #ffffff;
+  background-color: #978e83;
+  border-color: #92897e;
+}
