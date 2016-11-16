@@ -19,15 +19,18 @@
   height: 30px;
   //position: relative;
   padding: 10px 10px 10px 10px;
-
+}
+.input[type="checkbox"][disabled]{
+  outline:1px solid red; // or whatever
 }
 .input[type="checkbox"] + label {
   display: inline-block;
   border: 1px solid #000;
   width: 10px;
-  height: 30px;
+  height: 10px;
   //position: relative;
   padding: 10px 10px 10px 10px;
+  outline:1px solid red;
 }
 .input[type="checkbox"]:checked + label:after {
 
