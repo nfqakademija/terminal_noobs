@@ -13,7 +13,33 @@ class WorkshopController extends Controller
     public function listAction()
     {
         return $this->render('AppBundle:Workshop:list.html.twig', array(
-            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
+            'workshops' => [
+                [
+                    'getId' => '1',
+                    'getTitle' => 'Symfony introduction',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Simonas Serlinskas']
+                ],
+                [
+                    'getId' => '2',
+                    'getTitle' => 'MySQL',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Linas Kukulskis']
+                ],
+                [
+                    'getId' => '3',
+                    'getTitle' => 'Dizainas',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Darius Bisikirskas']
+                ],
+                [
+                    'getId' => '4',
+                    'getTitle' => 'GitHub',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Darius Kasiulevicius']
+                ]
+            ]
+
         ));
     }
 
@@ -72,44 +98,42 @@ class WorkshopController extends Controller
     {
         return $this->render('AppBundle:Workshop:attendance.html.twig', array(
             'teams' => [
-                'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
-                'teams' => [
-                    [
-                        'name' => 'terminal_noobs',
-                        'members' => [
-                            [
-                                'name' => 'Mantas Narkevicius',
-                                'grades' => [10, 9, 8, 10]
-                            ],
-                            [
-                                'name' => 'Viktorija Razaite',
-                                'grades' => [10, 9, 8, 10]
-                            ],
-                            [
-                                'name' => 'Matas Minelga',
-                                'grades' => [10, 9, 8, 10]
-                            ]
+                [
+                    'name' => 'terminal_noobs',
+                    'members' => [
+                        [
+                            'name' => 'Mantas Narkevicius',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Viktorija Razaite',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Matas Minelga',
+                            'attendances' => [true, true, true, true]
                         ]
-                    ],
-                    [
-                        'name' => 'other_team',
-                        'members' => [
-                            [
-                                'name' => 'Petras Petraitis',
-                                'grades' => [10, 9, 8, 10]
-                            ],
-                            [
-                                'name' => 'Jonas Jonaitis',
-                                'grades' => [10, 9, 8, 10]
-                            ],
-                            [
-                                'name' => 'Justas Justaitis',
-                                'grades' => [10, 9, 8, 10]
-                            ]
+                    ]
+                ],
+                [
+                    'name' => 'other_team',
+                    'members' => [
+                        [
+                            'name' => 'Petras Petraitis',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Jonas Jonaitis',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Justas Justaitis',
+                            'attendances' => [true, true, true, true]
                         ]
                     ]
                 ]
             ]
+
         ));
     }
 
