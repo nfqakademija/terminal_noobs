@@ -2,12 +2,16 @@ body{
 //rodo balta fona
   //background-image:url(/web/images/background.jpg);
   background-image: url(http://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2015/10/Czy-warto-kupi%C4%87.jpg);// no-repeat center center fixed;
-  -moz-background-size: cover;
 
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+
+}
+#container {
+  min-height:100%;
+  position:relative;
 }
 .page{
   margin: 0px;
@@ -57,7 +61,8 @@ body{
 
 //==NAVIGATOR===================================
 .nav{
-  background-color: #B4AEA3;
+  background-color: #222222;
+  color: white;
 }
 .item-a{
   font-size: 20px;
@@ -94,48 +99,13 @@ body{
 }
 
 //==FOOTER===================================
-.footer{
+.footer {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1px;
-  text-align: center;
+  text-align: left;
+  bottom: 0px;
+  width: 100%;
+  height: auto !important;
+  margin: 0 auto -30px;
   background-color: rgba(216, 216, 216, 0.2);
-  height: 170px;
-}
-.contacts{
-  float: inherit;
-  padding-right:  50px;
-  line-height: 18px;
-}
-.contacts img+.vcard{
-  margin: 0;
-}
-.vcard{
-  margin-top: 25px;
-  font-size: 14px;
-  color: #E3E1E1;
-  float: right;
-  width: 240px;
-}
-.vcard strong{
-  //background-color: #F5F5F5;
-  font-size: 14px;
-  display: inline;
-  margin-bottom: 3px;
-  color:#FFFFFF;
-}
-.vcard a{
-  text-decoration: underline;
-  font-size: 14px;
-  color:#FFFFFF;
-}
-.vcard a:hover{
-  text-decoration: underline;
-  font-size: 16px;
-  color: #E36B01;
-}
-.contents{
-
+  color: white;
 }
