@@ -2,16 +2,25 @@
 
 {% block title %}NFQ Lentelės{% endblock %}
 
-
 {% block body %}
+    <script>
+        function disable() {
+                document.getElementById("mySelect").disabled = true;
+        }
+        function enable() {
+            document.getElementById("mySelect").disabled=false;
+        }
+    </script>
     <div class="container">
     {% include "::inc/navGeras.html.twig" %}
 
     <article class="article">
+        <br>
+        <h1 class="acenter">Pažymiai</h1><br>
+        <form>
+            <input class="btn-default" type="button" onclick="enable()" value="Tvarkyti">
+            <input class="btn-default" type="button" onclick="disable()" value="Išsaugoti">
 
-            <br>
-            <h1 class="acenter">Pažymiai</h1><br>
-            <a class="aa" href="#">Edit</a><br>
 
             <table class="table table-hover">
                 <thead>
@@ -28,25 +37,23 @@
                 {% for team in grades.teams %}
                     <tr>
                         <td><b>{{ team.name }}</b></td>
-                        {% for grade in grades.workshops %}
-                            <td><input type="integer" min="0" max="10" size="2" step="1" value=""></td>
-                        {% endfor %}
                     </tr>
                     {% for member in team.members %}
                         <tr>
                             <td>{{ member.name }}</td>
                             {% for grade in member.grades %}
-                                <td><input type="integer" min="0" max="10" step="1" size="2" value="{{ grade }}"></td>
+                                <td><input id="mySelect" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}"></td>
                             {% endfor %}
                         </tr>
                     {% endfor %}
+                    <td></td>
                 {% endfor %}
                 </tbody>
             </table>
 
 
 
-
+        </form>
     </article>
     </div>
 
