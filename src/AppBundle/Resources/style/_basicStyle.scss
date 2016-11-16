@@ -39,10 +39,19 @@ body{
 }
 .image-out img{
   margin: 10px;
-  margin-right: -180px;
+  float:right;
   width: 50px;
   height: 50px;
+}
+.login-as{
+  margin: 10px;
+  font-size: 15px;
   float:right;
+  color: white;
+  background-color: rgba(77, 77, 77, 0.8);
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
 }
 
 //==NAVIGATOR===================================
@@ -56,6 +65,7 @@ body{
 }
 //==ARTICLE===================================
 .article{
+  margin-left: 0px;
   min-height: 400px;
   background-color: rgba(240, 240, 240, 0.8);
 }
@@ -66,9 +76,10 @@ body{
   padding: 10px;
 }
 .aa{
+  float:right;
    text-align: right;
    font-size: 20px;
-   color: #A9A9A9;
+   color: #717171;
    text-decoration: none;
  }
 .aa:hover{
