@@ -8,13 +8,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         function EnableChekboxes() {
-            for (i = 0; i < 16; i++) {
+            for (i = 0; i < 52; i++) {
                 document.getElementById("checkbox" + i).disabled = false;
             }
         }
             function DisableCheckboxes()
             {
-                for (i = 0; i < 16; i++){
+                for (i = 9; i < 10; i++){
                     document.getElementById("checkbox"+i).disabled = true;
                 }
             }
@@ -25,7 +25,6 @@
     {% include "::inc/navGeras.html.twig" %}
 
     <article class="article">
-
 <br>
         <h1 class="acenter">Lankomumas</h1><br>
             <button onclick="EnableChekboxes()">Edit</button>
@@ -43,65 +42,30 @@
             </thead>
 
                 <tbody>
-                <tr>
-                    <td>4. Terminal_noobs</td>
-                    <td>Matas Minelga</td>
-                    <td><input type="checkbox" id="checkbox0" checked disabled = "disabled">
-                        <label for="checkbox0"></label></td>
-                    <td><input type="checkbox" id="checkbox1" checked disabled="disabled">
-                        <label for="checkbox1"></label></td>
-                    <td><input type="checkbox" id="checkbox2" disabled="disabled">
-                        <label for="checkbox2"></label></td>
-                    <td><input type="checkbox" id="checkbox3" disabled="disabled">
-                        <label for="checkbox3"></label></td>
-                </tr>
+                {% for team in teams %}
+                    <tr>
+                        <td><b>{{ team.name }}</b></td>
 
-                <tr>
-                    <td>4. Terminal_noobs</td>
-                    <td>Mantas Narkevičius</td>
-                    <td><input type="checkbox" id="checkbox4" checked disabled = "disabled">
-                        <label for="checkbox4"></label></td>
-                    <td><input type="checkbox" id="checkbox5" checked disabled="disabled">
-                        <label for="checkbox5"></label></td>
-                    <td><input type="checkbox" id="checkbox6" disabled="disabled">
-                        <label for="checkbox6"></label></td>
-                    <td><input type="checkbox" id="checkbox7" disabled="disabled">
-                        <label for="checkbox7"></label></td>
-                </tr>
+                            <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                                <label for="checkbox{{ loop.index-1 }}"></label></td>
+                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                            <label for="checkbox{{ loop.index-1 }}"></label></td>
+                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                            <label for="checkbox{{ loop.index-1 }}"></label></td>
+                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                            <label for="checkbox{{ loop.index-1 }}"></label></td>
 
-                <tr>
-                    <td>4. Terminal_noobs</td>
-                    <td>Viktorija Ražaitė</td>
-                    <td><input type="checkbox" id="checkbox8" checked disabled = "disabled">
-                        <label for="checkbox8"></label></td>
-                    <td><input type="checkbox" id="checkbox9" checked disabled="disabled">
-                        <label for="checkbox9"></label></td>
-                    <td><input type="checkbox" id="checkbox10" disabled="disabled">
-                        <label for="checkbox10"></label></td>
-                    <td><input type="checkbox" id="checkbox11" disabled="disabled">
-                        <label for="checkbox11"></label></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>5. Kita_komanda</td>
-                    <td>Jonas Jonaitis</td>
-                    <td><input type="checkbox" id="checkbox12" checked disabled = "disabled">
-                        <label for="checkbox12"></label></td>
-                    <td><input type="checkbox" id="checkbox13" checked disabled="disabled">
-                        <label for="checkbox13"></label></td>
-                    <td><input type="checkbox" id="checkbox14" disabled="disabled">
-                        <label for="checkbox14"></label></td>
-                    <td><input type="checkbox" id="checkbox15" disabled="disabled">
-                        <label for="checkbox15"></label></td>
-                </tr>
-                <tr>
-                    <td>...</td> <td>...</td> <td>...</td>
-                    <td>...</td> <td>...</td> <td>...</td>
-                </tr>
-
+                    </tr>
+                    {% for member in team.members %}
+                        <tr>
+                            <td>{{ member.name }}</td>
+                            {% for attended in member.attendances %}
+                                <td><input type="checkbox" id="checkbox{{ loop.parent.loop.parent.loop.length + (loop.parent.loop.parent.loop.index-1)*loop.parent.loop.length*(loop.length) + (loop.parent.loop.index-1)*loop.length + loop.index-1  }}" checked=attended  disabled = "disabled"> <!--teams+teamI*members*attendances+memberI*attendances+attendanceI-->
+                                    <label for="checkbox{{ loop.parent.loop.parent.loop.length + (loop.parent.loop.parent.loop.index-1)*loop.parent.loop.length*(loop.length) + (loop.parent.loop.index-1)*loop.length +loop.index-1   }}"></label></td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
                 </tbody>
 
 
