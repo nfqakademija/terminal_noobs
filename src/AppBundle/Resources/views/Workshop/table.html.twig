@@ -42,7 +42,7 @@
                         <tr>
                             <td>{{ member.name }}</td>
                             {% for grade in member.grades %}
-                                <td><input id="mySelect" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}"></td>
+                                <td><input type="integer" id="mySelect" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}"></td>
                             {% endfor %}
                         </tr>
                     {% endfor %}
