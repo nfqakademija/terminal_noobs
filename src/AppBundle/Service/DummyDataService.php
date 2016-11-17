@@ -1,0 +1,229 @@
+<?php
+
+namespace AppBundle\Service;
+
+use Doctrine\ORM\EntityManager;
+
+class DummyDataService
+{
+    /**
+     * @var EntityManager
+     */
+    private $em;
+
+    public function __construct($em)
+    {
+        $this->em = $em;
+    }
+
+    /**
+     * Get workshop data
+     *
+     * @return array
+     */
+    public function getWorkshopData(){
+        return array(
+            'workshops' => [
+                [
+                    'getId' => '1',
+                    'getTitle' => 'Symfony introduction',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Simonas Serlinskas'],
+                    'getDetailDescription' => 'A framework streamlines application development by automating many of the patterns employed for
+                    a given purpose. A framework also adds structure to the code, prompting the developer to write better, more readable, and more
+                    maintainable code. Ultimately, a framework makes programming easier, since it packages complex operations into simple statements.'
+                ],
+                [
+                    'getId' => '2',
+                    'getTitle' => 'MySQL',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Linas Kukulskis'],
+                    'getDetailDescription' => 'A database is a separate application that stores a collection of data. Each database has one or more
+                    distinct APIs for creating, accessing, managing, searching and replicating the data it holds.'
+                ],
+                [
+                    'getId' => '3',
+                    'getTitle' => 'Dizainas',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Darius Bisikirskas'],
+                    'getDetailDescription' => 'pateikti optimalius vizualinės komunikacijos problemos sprendimo būdus tiek komercinėje, tiek nekomercinėje
+                    srityje. Sprendimo būdai ir rezultatai tiesiogiai priklauso nuo kliento suformuluojamos užduoties. Komunikavimui paprastai naudojami
+                    statiniai elementai – žodžiai (tipografija), vaizdai ir kiti grafiniai elementai (vizualinė medžiaga).'
+                ],
+                [
+                    'getId' => '4',
+                    'getTitle' => 'GitHub',
+                    'getDescription' => 'Lorem inpum',
+                    'getLector' => ['getName' => 'Darius Kasiulevicius'],
+                    'getDetailDescription' => 'GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.'
+                ]
+            ]
+
+        );
+    }
+
+    /**
+     * Get grade data
+     *
+     * @return array
+     */
+    public function getGradeData(){
+        return array(
+            'grades' => [
+                'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
+                'teams' => [
+                    [
+                        'name' => 'terminal_noobs',
+                        'members' => [
+                            [
+                                'name' => 'Mantas Narkevicius',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Viktorija Razaite',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Matas Minelga',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'other_team',
+                        'members' => [
+                            [
+                                'name' => 'Petras Petraitis',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Jonas Jonaitis',
+                                'grades' => [10, 9, 8, 5]
+                            ],
+                            [
+                                'name' => 'Justas Justaitis',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'terminal_pros',
+                        'members' => [
+                            [
+                                'name' => 'John Pro',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Sam Win',
+                                'grades' => [10, 5, 8, 10]
+                            ],
+                            [
+                                'name' => 'Jim Crush',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ],
+                    [
+                        'name' => 'code_bugs',
+                        'members' => [
+                            [
+                                'name' => 'Carl Bee',
+                                'grades' => [10, 9, 8, 5]
+                            ],
+                            [
+                                'name' => 'Adam Ant',
+                                'grades' => [10, 9, 8, 10]
+                            ],
+                            [
+                                'name' => 'Rick Roll',
+                                'grades' => [10, 9, 8, 10]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        );
+    }
+
+    /**
+     * Get attendance data
+     *
+     * @return array
+     */
+    public function getAttendanceData()
+    {
+        return array(
+            'teams' => [
+                [
+                    'name' => 'terminal_noobs',
+                    'members' => [
+                        [
+                            'name' => 'Mantas Narkevicius',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Viktorija Razaite',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Matas Minelga',
+                            'attendances' => [true, true, true, true]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'other_team',
+                    'members' => [
+                        [
+                            'name' => 'Petras Petraitis',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Jonas Jonaitis',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Justas Justaitis',
+                            'attendances' => [true, true, true, true]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'terminal_pros',
+                    'members' => [
+                        [
+                            'name' => 'John Pro',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Sam Win',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Jim Crush',
+                            'attendances' => [true, true, true, true]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'code_bugs',
+                    'members' => [
+                        [
+                            'name' => 'Carl Bee',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Adam Ant',
+                            'attendances' => [true, true, true, true]
+                        ],
+                        [
+                            'name' => 'Rick Roll',
+                            'attendances' => [true, true, true, true]
+                        ]
+                    ]
+                ]
+            ]
+
+        );
+    }
+}

@@ -2,7 +2,14 @@
 
 {% block title %}NFQ Lentelės{% endblock %}
 
-{% block body %} <div class="container">
+{% block body %}
+    <script>
+        function save() {
+            document.getElementById("mySelect").disabled = false;
+
+        }
+    </script>
+    <div class="container">
     {% include "::inc/navGeras.html.twig" %}
 
     <article class="article">
@@ -21,8 +28,8 @@
                         <!-- a href="show/{{ item.getId }}"-->
                         <td>
                             <!-- Trigger/Open The Modal -->
-                            <button class="btn-default" id="myBtn">Daugiau info</button>
-
+                            <button class="btn-default" id="myBtn" onclick="enable()">Daugiau info</button>
+                            <form>
                             <!-- The Modal -->
                             <div id="myModal" class="modal">
 
@@ -30,11 +37,14 @@
                                 <div class="modal-content">
                                     <span class="close">×</span>
                                     <h1>Paskaitos tema: {{ item.getTitle }}</h1>
-                                    <p>Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą. </p>
+
+                                    <p>Apie paskaitą:</p>
+                                    <p class="info-about"> {{ item.getDetailDescription }}</p>
+                                    <br>
+                                    <label class="control-label">Pridėti failą</label>
+                                    <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
+                                    <br>
+                                    <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
                                 </div>
 
                             </div>
@@ -61,6 +71,7 @@
                                     }
                                 }
                             </script>
+                            </form>
                         </td>
                     </tr>
                 {% endfor %}

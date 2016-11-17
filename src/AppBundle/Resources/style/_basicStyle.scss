@@ -2,11 +2,12 @@ body{
 //rodo balta fona
   //background-image:url(/web/images/background.jpg);
   background-image: url(http://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2015/10/Czy-warto-kupi%C4%87.jpg);// no-repeat center center fixed;
-
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding:10px;
+  padding-bottom:30px;   /* Height of the footer */
 
 }
 #container {
@@ -16,6 +17,10 @@ body{
 .page{
   margin: 0px;
   max-width: 960px;
+}
+
+#container {
+  height: 100%;
 }
 
 //==HEADER===================================
@@ -71,15 +76,17 @@ body{
 }
 //==ARTICLE===================================
 .article{
+  padding: 20px;
   margin-left: 0px;
   min-height: 400px;
-  background-color: rgba(240, 240, 240, 0.9);
+  background-color: rgba(240, 240, 240, 0.95);
 }
 .acenter{
   margin: auto;
   width: 40%;
-  border: 3px solid #EDE5D5;
+  //border: 3px solid #EDE5D5;
   padding: 10px;
+  text-align: center;
 }
 .aa{
 
@@ -100,7 +107,6 @@ body{
 
 //==FOOTER===================================
 .footer {
-  position: absolute;
   text-align: left;
   bottom: 0px;
   width: 100%;
