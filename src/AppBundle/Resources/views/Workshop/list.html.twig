@@ -7,6 +7,12 @@
         function save() {
             document.getElementById("mySelect").disabled = false;
         }
+        function enable() {
+            type="text/javascript">
+                    $(document).ready(function(){
+                        $("#myForm :input").prop("disabled", false);
+                    });
+        }
     </script>
     <div class="container">
     {% include "::inc/navGeras.html.twig" %}
@@ -27,8 +33,8 @@
                         <!-- a href="show/{{ item.getId }}"-->
                         <td>
                             <!-- Trigger/Open The Modal -->
-                            <button class="btn-default" id="myBtn">Daugiau info</button>
-
+                            <button class="btn-default" id="myBtn" onclick="enable()">Daugiau info</button>
+                            <form id="myForm">
                             <!-- The Modal -->
                             <div id="myModal" class="modal">
 
@@ -36,11 +42,7 @@
                                 <div class="modal-content">
                                     <span class="close">×</span>
                                     <h1>Paskaitos tema: {{ item.getTitle }}</h1>
-                                    <p>Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą.
-                                        Informacija apie paskaitą. Informacija apie paskaitą. </p>
+                                    <p>{{ item.getDetailDescription }}</p>
                                     <br>
                                     <label class="control-label">Pridėti failą</label>
                                     <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
@@ -72,6 +74,7 @@
                                     }
                                 }
                             </script>
+                            </form>
                         </td>
                     </tr>
                 {% endfor %}

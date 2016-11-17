@@ -18,25 +18,29 @@ class WorkshopController extends Controller
                     'getId' => '1',
                     'getTitle' => 'Symfony introduction',
                     'getDescription' => 'Lorem inpum',
-                    'getLector' => ['getName' => 'Simonas Serlinskas']
+                    'getLector' => ['getName' => 'Simonas Serlinskas'],
+                    'getDetailDescription' => 'Visa informacija apie paskaitą'
                 ],
                 [
                     'getId' => '2',
                     'getTitle' => 'MySQL',
                     'getDescription' => 'Lorem inpum',
-                    'getLector' => ['getName' => 'Linas Kukulskis']
+                    'getLector' => ['getName' => 'Linas Kukulskis'],
+                    'getDetailDescription' => 'Visa informacija apie paskaitą'
                 ],
                 [
                     'getId' => '3',
                     'getTitle' => 'Dizainas',
                     'getDescription' => 'Lorem inpum',
-                    'getLector' => ['getName' => 'Darius Bisikirskas']
+                    'getLector' => ['getName' => 'Darius Bisikirskas'],
+                    'getDetailDescription' => 'Visa informacija apie paskaitą'
                 ],
                 [
                     'getId' => '4',
                     'getTitle' => 'GitHub',
                     'getDescription' => 'Lorem inpum',
-                    'getLector' => ['getName' => 'Darius Kasiulevicius']
+                    'getLector' => ['getName' => 'Darius Kasiulevicius'],
+                    'getDetailDescription' => 'Visa informacija apie paskaitą'
                 ]
             ]
 
