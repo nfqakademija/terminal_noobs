@@ -11,3 +11,7 @@ services:
         class: AppBundle\Service\LectorsService
         arguments: ["@doctrine.orm.entity_manager"]
 
+    app.dummy:
+        class: AppBundle\Service\DummyDataService
+        arguments: ["@doctrine.orm.entity_manager"]
+
