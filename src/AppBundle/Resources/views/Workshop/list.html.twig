@@ -6,12 +6,7 @@
     <script>
         function save() {
             document.getElementById("mySelect").disabled = false;
-        }
-        function enable() {
-            type="text/javascript">
-                    $(document).ready(function(){
-                        $("#myForm :input").prop("disabled", false);
-                    });
+        
         }
     </script>
     <div class="container">
@@ -34,7 +29,7 @@
                         <td>
                             <!-- Trigger/Open The Modal -->
                             <button class="btn-default" id="myBtn" onclick="enable()">Daugiau info</button>
-                            <form id="myForm">
+                            <form>
                             <!-- The Modal -->
                             <div id="myModal" class="modal">
 
@@ -42,12 +37,14 @@
                                 <div class="modal-content">
                                     <span class="close">×</span>
                                     <h1>Paskaitos tema: {{ item.getTitle }}</h1>
-                                    <p>{{ item.getDetailDescription }}</p>
+
+                                    <p>Apie paskaitą:</p>
+                                    <p class="info-about"> {{ item.getDetailDescription }}</p>
                                     <br>
                                     <label class="control-label">Pridėti failą</label>
                                     <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
                                     <br>
-                                    <input class="btn-default" type="button" onclick="save()" value="Išsaugoti">
+                                    <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
                                 </div>
 
                             </div>
