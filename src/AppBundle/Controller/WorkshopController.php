@@ -137,15 +137,15 @@ class WorkshopController extends Controller
                     'members' => [
                         [
                             'name' => 'Mantas Narkevicius',
-                            'attendances' => [true, true, true, true]
+                            'attendances' => [true, true, true, false]
                         ],
                         [
                             'name' => 'Viktorija Razaite',
-                            'attendances' => [true, true, true, true]
+                            'attendances' => [true, true, false, true]
                         ],
                         [
                             'name' => 'Matas Minelga',
-                            'attendances' => [true, true, true, true]
+                            'attendances' => [false, true, true, true]
                         ]
                     ]
                 ],
