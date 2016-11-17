@@ -1,15 +1,7 @@
 input[type=integer] {
-  //background-color: transparent;
- // width: 400px;
   border: none;
   color: dimgray;
   box-sizing: border-box;
   border-radius: 4px;
-}
-input[type=integer]:focus {
-  //width: 100%;
-  border: none;
-  color: dimgray;
-  box-sizing: border-box;
-  border-radius: 4px;
+  background-color: transparent;
 }
