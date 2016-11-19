@@ -9,10 +9,23 @@
 
         }
     </script>
-    <div class="container">
-    {% include "::inc/navGeras.html.twig" %}
 
-    <article class="article">
+    <script>
+        function openModal(title, description){
+            $("#modal-title").html(title);
+            $("#modal-description").html(description);
+            $("#myModal").css('display', 'block');
+        }
+
+        function closeModal(){
+            $("#myModal").css('display', 'none');
+        }
+    </script>
+
+    <div class="container">
+        {% include "::inc/navGeras.html.twig" %}
+
+        <article class="article">
 
 
             <br>
@@ -28,56 +41,31 @@
                         <!-- a href="show/{{ item.getId }}"-->
                         <td>
                             <!-- Trigger/Open The Modal -->
-                            <button class="btn-default" id="myBtn" onclick="enable()">Daugiau info</button>
-                            <form>
-                            <!-- The Modal -->
-                            <div id="myModal" class="modal">
-
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">×</span>
-                                    <h1>Paskaitos tema: {{ item.getTitle }}</h1>
-
-                                    <p>Apie paskaitą:</p>
-                                    <p class="info-about"> {{ item.getDetailDescription }}</p>
-                                    <br>
-                                    <label class="control-label">Pridėti failą</label>
-                                    <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
-                                    <br>
-                                    <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
-                                </div>
-
-                            </div>
-
-                            <script>
-                                // Get the modal
-                                var modal = document.getElementById('myModal');
-                                // Get the button that opens the modal
-                                var btn = document.getElementById("myBtn");
-                                // Get the <span> element that closes the modal
-                                var span = document.getElementsByClassName("close")[0];
-                                // When the user clicks the button, open the modal
-                                btn.onclick = function() {
-                                    modal.style.display = "block";
-                                }
-                                // When the user clicks on <span> (x), close the modal
-                                span.onclick = function() {
-                                    modal.style.display = "none";
-                                }
-                                // When the user clicks anywhere outside of the modal, close it
-                                window.onclick = function(event) {
-                                    if (event.target == modal) {
-                                        modal.style.display = "none";
-                                    }
-                                }
-                            </script>
-                            </form>
+                            <button class="btn-default" onclick="openModal('{{ item.getTitle }}', '{{ item.getDescription }}')">Daugiau info</button>
                         </td>
                     </tr>
                 {% endfor %}
             </table>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
 
-    </article>
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="close" onclick="closeModal()">×</span>
+                    <h1 id="modal-title"></h1>
+
+                    <p>Apie paskaitą:</p>
+                    <p id="modal-description" class="info-about"></p>
+                    <br>
+                    <label class="control-label">Pridėti failą</label>
+                    <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
+                    <br>
+                    <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
+                </div>
+
+            </div>
+
+        </article>
     </div>
 
 
