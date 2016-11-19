@@ -16,7 +16,7 @@ class AdminController extends Controller
 {
 
     /**
-     * @Route("/admin/overview")
+     * @Route("/administrator/overview")
      */
     public function overviewAction()
     {
