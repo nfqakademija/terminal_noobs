@@ -15,10 +15,10 @@
                 <li><a href="">Lankomumas</a></li>
             </ul>
         </div>
-        <div class="overview">
+        <div class="overview_grades">
             <script>
                 $(function () {
-                    Highcharts.chart('container', {
+                    Highcharts.chart('grades', {
                         title: {
                             text: 'Paskutinių paskaitų vidurkiai',
                             x: -20 //center,
@@ -28,7 +28,12 @@
                             x: -20
                         },
                         xAxis: {
-                            categories: ['11.06', '11.09', '11.15', '11.20', '11.22', '11.29']
+                            categories: ['11.06', '11.09', '11.15', '11.20', '11.22', '11.29'],
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#100100100'
+                            }]
                         },
                         yAxis: {
                             title: {
@@ -38,7 +43,9 @@
                                 value: 0,
                                 width: 1,
                                 color: '#100100100'
-                            }]
+                            }],
+                            max: 10,
+                            min: 0
                         },
                         chart: {
                             //backgroundColor: '#000000'
@@ -60,7 +67,7 @@
                             data: [2, 1, 5, 8.9, 6.5, 7]
                         }, {
                             name: '2nd Team',
-                            data: [5, 5, 5, 5, 5, 5]
+                            data: [1, 2, 4, 5, 6, 5]
                         }, {
                             name: '1st Team',
                             data: [3.9, 4.2, 5.7, 8.5, 6.6, 4.8]
@@ -68,8 +75,65 @@
                     });
                 });
             </script>
-            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <script>
+                $(function () {
+                    Highcharts.chart('attendance', {
+                        title: {
+                            text: 'Paskutinių paskaitų lankomumas',
+                            x: -20 //center,
+                        },
+                        subtitle: {
+                            text: '2016 Rudens semestras',
+                            x: -20
+                        },
+                        xAxis: {
+                            categories: ['11.06', '11.09', '11.15', '11.20', '11.22', '11.29'],
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#100100100'
+                            }]
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Lankomumas'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#100100100'
+                            }],
+                            max: 100,
+                            min: 0
+                        },
+                        chart: {
+                            //backgroundColor: '#000000'
+                        },
+                        tooltip: {
+                            valueSuffix: '%'
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: 'Kaunas',
+                            data: [100, 95, 80, 85, 93, 97]
+                        },
+                            {
+                                name: 'Vilnius',
+                                data: [97, 85, 65, 93, 78, 43]
+                            }
+                        ]
+                    });
+                });
+            </script>
+            <div id="grades" ></div>
+            <div id="attendance"></div>
         </div>
+
 
     </div>
 {% endblock %}
