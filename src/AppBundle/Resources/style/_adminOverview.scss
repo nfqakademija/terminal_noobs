@@ -1,0 +1,34 @@
+.adminNavBar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  //height: 200px;
+  background-color: #222222;
+  width: 10%;
+  position: fixed;
+  overflow: auto;
+}
+.adminNavBar li a {
+  display: block;
+  color: dimgray;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+.adminNavBar li a.active {
+  background-color: #e37952;
+  color: white;
+}
+
+.adminNavBar li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.overview
+{
+  margin-left:25%;
+  padding:1px 16px;
+  height:700px;
+}

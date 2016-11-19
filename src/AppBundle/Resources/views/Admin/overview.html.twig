@@ -1,0 +1,75 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}NFQ Pagrindinis{% endblock %}
+
+{% block body %}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <div class="container">
+        {% include "::inc/navGeras.html.twig" %}
+        <div class="adminNavBar">
+            <ul>
+                <li><a class="active" href="./overview">Overview</a></li>
+                <li><a href="">Vidurkiai</a></li>
+                <li><a href="">Lankomumas</a></li>
+            </ul>
+        </div>
+        <div class="overview">
+            <script>
+                $(function () {
+                    Highcharts.chart('container', {
+                        title: {
+                            text: 'Paskutinių paskaitų vidurkiai',
+                            x: -20 //center,
+                        },
+                        subtitle: {
+                            text: '2016 Rudens semestras',
+                            x: -20
+                        },
+                        xAxis: {
+                            categories: ['11.06', '11.09', '11.15', '11.20', '11.22', '11.29']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Vidurkiai'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#100100100'
+                            }]
+                        },
+                        chart: {
+                            //backgroundColor: '#000000'
+                        },
+                        tooltip: {
+                            valueSuffix: ''
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: 'Terminal Noobs',
+                            data: [9.5, 8.2, 7.9, 10, 5, 9.5]
+                        }, {
+                            name: '3rd Team',
+                            data: [2, 1, 5, 8.9, 6.5, 7]
+                        }, {
+                            name: '2nd Team',
+                            data: [5, 5, 5, 5, 5, 5]
+                        }, {
+                            name: '1st Team',
+                            data: [3.9, 4.2, 5.7, 8.5, 6.6, 4.8]
+                        }]
+                    });
+                });
+            </script>
+            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+
+    </div>
+{% endblock %}
