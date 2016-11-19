@@ -17,19 +17,19 @@
 
 }
 
-.adminNavBar li a.active {
+.adminNavBar li a.Overview {
   background-color: #e37952;
   color: white;
 }
 
-.adminNavBar li a:hover:not(.active) {
+.adminNavBar li a:hover:not(.Overview) {
   background-color: #555;
   color: white;
 }
 .overview_grades
 {
   margin-left:15%;
-  margin-top: -10%;
+  margin-top: -17%;
   padding:1px 16px;
   height:45%;
 }

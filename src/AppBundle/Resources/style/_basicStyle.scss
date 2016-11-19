@@ -115,3 +115,32 @@ body{
   background-color: rgba(216, 216, 216, 0.2);
   color: white;
 }
+//Admin Navbar
+.adminNavBar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  //heigth: 200px;
+  background-color: #222222;
+  width: 14%;
+  //position: fixed;
+  //overflow: auto;
+}
+.adminNavBar li a {
+  display: block;
+  color: dimgray;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+/*.adminNavBar li a.active {
+  background-color: #e37952;
+  color: white;
+}
+
+.adminNavBar li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}*/
