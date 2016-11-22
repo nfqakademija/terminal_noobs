@@ -3,31 +3,12 @@
 {% block title %}NFQ Lentelės{% endblock %}
 
 {% block body %}
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script>
-        function enable() {
-            type="text/javascript">
-                    $(document).ready(function(){
-                        $("#myForm :input").prop("disabled", false);
-                    });
-        }
-        function disable() {
-            type="text/javascript">
-                    $(document).ready(function(){
-                        $("#myForm :input").prop("disabled", true);
-                    });
-        }
-    </script>
     <div class="container">
         {% include "::inc/navGeras.html.twig" %}
 
         <article class="article">
             <br>
             <h1 class="acenter">Pažymiai</h1><br>
-
-                <button type="button" class="btn btn-default" onclick="enable()" >Edit</button>
-                <button type="button" class="btn btn-default" onclick="disable()" >Save</button>
-                <form id="myForm">
 
                 <table class="table table-hover">
                     <thead>
@@ -49,7 +30,7 @@
                             <tr>
                                 <td>{{ member.name }}</td>
                                 {% for grade in member.grades %}
-                                    <td><input type="integer" id="mySelect" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" disabled ></td>
+                                    <td><input type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
                                 {% endfor %}
                             </tr>
                         {% endfor %}
