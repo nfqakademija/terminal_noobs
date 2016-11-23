@@ -25,9 +25,11 @@
                     {% for team in grades.teams %}
                         <tr>
                             <td><b>{{ team.name }}</b></td>
+                            <td><input min="0" max="10" step="1" maxlength="2" size="2" value="" ></td>
                         </tr>
                         {% for member in team.members %}
                             <tr>
+
                                 <td>{{ member.name }}</td>
                                 {% for grade in member.grades %}
                                     <td><input type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>

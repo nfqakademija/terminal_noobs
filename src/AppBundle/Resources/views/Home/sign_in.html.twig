@@ -1,6 +1,17 @@
 {% extends "::base.html.twig" %}
 
 {% block header %}
+    <script>
+        function notToShow() {
+            document.getElementById("notToShow").style.display="none";
+        }
+        function showReminder(a){
+            if(a==1)
+                document.getElementById("showReminder").style.display="none";
+            else
+                document.getElementById("showReminder").style.display="block";
+        }
+    </script>
 <style>
     #header {display: none}
 </style>
@@ -10,8 +21,8 @@
 {% block body %}
     <div class="image-holder"><img src="{{ asset('images/logo.png') }}"></div>
     <div class="logo" >NFQ Akademija</div>
-
     <!-- LOGIN FORM -->
+    <div id="notToShow">
     <div class="text-center" style="padding:70px 0">
         <div class="login">Prisijungti</div>
         <!-- Main Form -->
@@ -33,20 +44,51 @@
                             <label for="lg_remember">Prisiminti mane</label>
                         </div>
                     </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                    <!--
                     <button type="submit" class="login-button">
                         <a class="fa fa-chevron-right" href="/home">
 
                         </a>
                     </button>
+                    -->
                 </div>
                 <div class="etc-login-form">
-                    <p>Pamiršote staptažodį? <a class="press-here" href="#">spausti čia</a></p>
+                    <p>Pamiršote staptažodį?<a class="press-here" onclick="showReminder(2);notToShow()" href="#">spausti čia</a></p>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+        <!-- end:Main Form -->
+    </div>
+
+    <form id="showReminder" style='display: none'>
+    <!-- FORGOT PASSWORD FORM -->
+        <div class="text-center" style="padding:70px 0">
+        <div class="login">Priminti slaptažodį</div>
+        <!-- Main Form -->
+        <div class="login-form-1">
+            <form id="forgot-password-form" class="text-left">
+                <div class="login-form-main-message"></div>
+                <div class="main-login-form">
+                    <div class="login-group">
+                        <div class="form-group">
+                            <label for="fp_email" class="sr-only">Email address</label>
+                            <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="El. paštas">
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="etc-login-form">
+                    <p>Atsimenate slaptažodį?<a class="press-here" href="/"> prisijungti</a></p>
                 </div>
             </form>
         </div>
         <!-- end:Main Form -->
     </div>
-
+    </form>
+    </form>
 
 
 
