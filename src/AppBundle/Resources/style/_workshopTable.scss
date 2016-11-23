@@ -1,7 +1,22 @@
-input[type=integer] {
-  border: none;
-  color: dimgray;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: transparent;
+.workshop-list {
+  input[type=integer] {
+    border: none;
+    color: dimgray;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: transparent;
+  }
+
+
+  //.table-container {
+  //  min-width: 400px;
+  //  overflow-x: scroll;
+
+  //  table {
+   //   min-width: 800px;
+  //  }
+  //}
 }
+
+
+

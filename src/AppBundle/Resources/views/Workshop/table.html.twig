@@ -3,12 +3,11 @@
 {% block title %}NFQ Lentelės{% endblock %}
 
 {% block body %}
-{% include "::inc/navGeras.html.twig" %}
-
-<article class="article">
+<article class="article workshop-list">
     <br>
     <h1 class="acenter">Pažymiai</h1><br>
 
+    <div class="table-container">
         <table class="table table-hover">
             <thead>
             <tr class="table-header">
@@ -39,7 +38,7 @@
             {% endfor %}
             </tbody>
         </table>
-
+    </div>
 
 
     </form>

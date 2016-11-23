@@ -1,14 +1,5 @@
-body{
-//rodo balta fona
-  background-image:url(/images/background.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding:10px;
-  padding-bottom:30px;   /* Height of the footer */
-
-}
+body{}
+/*
 #container {
   min-height:100%;
   position:relative;
@@ -21,64 +12,32 @@ body{
 #container {
   height: 100%;
 }
-
+*/
 //==HEADER===================================
-.header{}
-.logo{
-  margin-left: 10px;
-  font-size: 20px;
-  color: white;
-  font-weight: normal;
-  padding: 0px;
-}
-.logo:hover{
-  margin-left: 10px;
-  font-size: 20px;
-  color: white;
-  font-weight: normal;
-  padding: 0px;
-  text-decoration: none;
-}
-
-.image-holder img {
-  margin: 10px;
-  width: 150px;
-  height: 150px;
-
-}
-.image-out img{
-  margin: 10px;
-  float:right;
-  width: 50px;
-  height: 50px;
-}
-.login-as{
-  margin: 10px;
-  font-size: 15px;
-  float:right;
-  color: white;
-  background-color: rgba(77, 77, 77, 0.8);
-  border-radius: 25px;
-  padding: 10px 20px;
-  margin-bottom: 5px;
+.header{
+  .navbar-inverse{
+      background-color: #322F2B;
+    .image-holder img {
+      //margin: 10px 0 30px 0px;
+      width: 50px;
+      height: 50px;
+    }
+    .item-a{
+      margin-top: 10px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #B6ADA5;
+    }
+  }
 }
 
-//==NAVIGATOR===================================
-.nav{
-  background-color: #222222;
-  color: white;
-}
-.item-a{
-  font-size: 20px;
-  text-decoration: none;
-  color: dimgray;
-}
 //==ARTICLE===================================
+
 .article{
   padding: 20px;
   margin-left: 0px;
   min-height: 400px;
-  background-color: rgba(240, 240, 240, 0.95);
+  background-color: #F6F4F1;
 }
 .acenter{
   margin: auto;
@@ -105,6 +64,7 @@ body{
 }
 
 //==FOOTER===================================
+/*
 .footer {
   text-align: left;
   bottom: 0px;
@@ -133,7 +93,7 @@ body{
   font-size: 17px;
 
 }
-
+*/
 /*.adminNavBar li a.active {
   background-color: #e37952;
   color: white;
