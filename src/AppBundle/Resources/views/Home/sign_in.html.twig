@@ -11,6 +11,35 @@
             else
                 document.getElementById("showReminder").style.display="block";
         }
+        function chose() {
+            var username = document.getElementById("lg_username").value;
+            var password = document.getElementById("lg_password").value;
+            if ( username == "admin" && password == "admin"){
+                window.location = '/home'; // Redirecting to other page.
+            }
+            if ( username == "lector" && password == "lector"){
+                window.location = '/home'; // Redirecting to other page.
+            }
+            if ( username == "mentor" && password == "mentor"){
+                window.location = '/home'; // Redirecting to other page.
+            }
+            if ( username == "student" && password == "student"){
+                window.location = '/home'; // Redirecting to other page.
+            }
+            /*
+            else{
+                attempt --;// Decrementing by one.
+                alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+                if( attempt == 0){
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                    return false;
+                }
+                */
+
+        }
     </script>
 <style>
     #header {display: none}
@@ -32,6 +61,7 @@
                 <div class="main-login-form">
                     <div class="login-group">
                         <div class="form-group">
+
                             <label for="lg_username" class="sr-only">Username</label>
                             <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="El. paštas" required>
                         </div>
@@ -44,14 +74,7 @@
                             <label for="lg_remember">Prisiminti mane</label>
                         </div>
                     </div>
-                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-                    <!--
-                    <button type="submit" class="login-button">
-                        <a class="fa fa-chevron-right" href="/home">
-
-                        </a>
-                    </button>
-                    -->
+                    <button type="submit" class="login-button" onclick=chose()><i class="fa fa-chevron-right"></i></button>
                 </div>
                 <div class="etc-login-form">
                     <p>Pamiršote staptažodį?<a class="press-here" onclick="showReminder(2);notToShow()" href="#">spausti čia</a></p>
@@ -75,7 +98,7 @@
                     <div class="login-group">
                         <div class="form-group">
                             <label for="fp_email" class="sr-only">Email address</label>
-                            <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="El. paštas">
+                            <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="El. paštas" required>
                         </div>
                     </div>
                     <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
