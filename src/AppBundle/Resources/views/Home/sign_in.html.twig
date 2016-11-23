@@ -1,51 +1,9 @@
 {% extends "::base.html.twig" %}
 
-{% block header %}
-    <script>
-        function notToShow() {
-            document.getElementById("notToShow").style.display="none";
-        }
-        function showReminder(a){
-            if(a==1)
-                document.getElementById("showReminder").style.display="none";
-            else
-                document.getElementById("showReminder").style.display="block";
-        }
-        function chose() {
-            var username = document.getElementById("lg_username").value;
-            var password = document.getElementById("lg_password").value;
-            if ( username == "admin" && password == "admin"){
-                window.location = '/home'; // Redirecting to other page.
-            }
-            if ( username == "lector" && password == "lector"){
-                window.location = '/home'; // Redirecting to other page.
-            }
-            if ( username == "mentor" && password == "mentor"){
-                window.location = '/home'; // Redirecting to other page.
-            }
-            if ( username == "student" && password == "student"){
-                window.location = '/home'; // Redirecting to other page.
-            }
-            /*
-            else{
-                attempt --;// Decrementing by one.
-                alert("You have left "+attempt+" attempt;");
-// Disabling fields after 3 attempts.
-                if( attempt == 0){
-                    document.getElementById("username").disabled = true;
-                    document.getElementById("password").disabled = true;
-                    document.getElementById("submit").disabled = true;
-                    return false;
-                }
-                */
-
-        }
-    </script>
-<style>
-    #header {display: none}
-</style>
-{% endblock %}
 {% block title %}NFQ Prisijungti{% endblock %}
+
+{% block navigation %}
+{% endblock %}
 
 {% block body %}
     <div class="image-holder"><img src="{{ asset('images/logo.png') }}"></div>
@@ -111,7 +69,4 @@
         <!-- end:Main Form -->
     </div>
     </form>
-
-
-
 {% endblock %}

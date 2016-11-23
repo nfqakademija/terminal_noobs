@@ -3,18 +3,13 @@
 {% block title %}NFQ Pagrindinis{% endblock %}
 
 {% block body %}
-<div class="container">
-    {% include "::inc/navGeras.html.twig" %}
+<article class="article">
+    <div class="center">
+        <p>
+            <div class="image-hello"><img src="{{ asset('images/hello.png') }}"></div>
 
-    <article class="article">
-        <div class="center">
-            <p>
-                <div class="image-hello"><img src="{{ asset('images/hello.png') }}"></div>
-
-            </p>
-            <h1>Sveiki atvykę į NFQ akademiją!!!</h1>
-        </div>
-
-    </article>
-</div>
+        </p>
+        <h1>Sveiki atvykę į NFQ akademiją!!!</h1>
+    </div>
+</article>
 {% endblock %}

@@ -3,77 +3,49 @@
 {% block title %}NFQ Lentelės{% endblock %}
 
 {% block body %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>
-        function EnableChekboxes() {
-            for (i = 0; i < 52; i++) {
-                document.getElementById("checkbox" + i).disabled = false;
-            }
-        }
-            function DisableCheckboxes()
-            {
-                for (i = 0; i < 52; i++){
-                    document.getElementById("checkbox"+i).disabled = true;
-                }
-            }
-
-
-    </script>
-    <div class="container">
-    {% include "::inc/navGeras.html.twig" %}
-
-    <article class="article">
+<article class="article">
 <br>
-        <h1 class="acenter">Lankomumas</h1><br>
-            <button class="btn btn-default"  onclick="EnableChekboxes()">Edit</button>
-            <button class="btn btn-default"  onclick="DisableCheckboxes()">Save</button>
-        <table class="table table-striped table-hover ">
-            <thead>
-            <tr class="table-header">
-                <th></th>
-                <th>Dizainas</th>
-                <th>Planavimas</th>
-                <th>MySQL</th>
-                <th>GitHub</th>
-            </tr>
-            </thead>
+    <h1 class="acenter">Lankomumas</h1><br>
+    <button class="btn btn-default"  onclick="EnableChekboxes()">Edit</button>
+    <button class="btn btn-default"  onclick="DisableCheckboxes()">Save</button>
+    <table class="table table-striped table-hover ">
+        <thead>
+        <tr class="table-header">
+            <th></th>
+            <th>Dizainas</th>
+            <th>Planavimas</th>
+            <th>MySQL</th>
+            <th>GitHub</th>
+        </tr>
+        </thead>
 
-                <tbody>
-                {% for team in teams %}
+            <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td><b>{{ team.name }}:</b> </td>
+
+                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                            <label for="checkbox{{ loop.index-1 }}"></label></td>
+                    <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                        <label for="checkbox{{ loop.index-1 }}"></label></td>
+                    <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                        <label for="checkbox{{ loop.index-1 }}"></label></td>
+                    <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
+                        <label for="checkbox{{ loop.index-1 }}"></label></td>
+
+                </tr>
+                {% for member in team.members %}
                     <tr>
-                        <td><b>{{ team.name }}:</b> </td>
-
-                            <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
-                                <label for="checkbox{{ loop.index-1 }}"></label></td>
-                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
-                            <label for="checkbox{{ loop.index-1 }}"></label></td>
-                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
-                            <label for="checkbox{{ loop.index-1 }}"></label></td>
-                        <td><input type="checkbox" id="checkbox{{ loop.index-1 }}" checked=true  disabled = "disabled">
-                            <label for="checkbox{{ loop.index-1 }}"></label></td>
-
+                        <td>{{ member.name }}</td>
+                        {% for attended in member.attendances %}
+                            <td><input type="checkbox" id="checkbox{{ loop.parent.loop.parent.loop.length + (loop.parent.loop.parent.loop.index-1)*loop.parent.loop.length*(loop.length) + (loop.parent.loop.index-1)*loop.length + loop.index-1  }}" checked=attended  disabled = "disabled"> <!--teams+teamI*members*attendances+memberI*attendances+attendanceI-->
+                                <label for="checkbox{{ loop.parent.loop.parent.loop.length + (loop.parent.loop.parent.loop.index-1)*loop.parent.loop.length*(loop.length) + (loop.parent.loop.index-1)*loop.length +loop.index-1   }}"></label></td>
+                        {% endfor %}
                     </tr>
-                    {% for member in team.members %}
-                        <tr>
-                            <td>{{ member.name }}</td>
-                            {% for attended in member.attendances %}
-                                <td><input type="checkbox" id="checkbox{{ loop.parent.loop.parent.loop.length + (loop.parent.loop.parent.loop.index-1)*loop.parent.loop.length*(loop.length) + (loop.parent.loop.index-1)*loop.length + loop.index-1  }}" checked=attended  disabled = "disabled"> <!--teams+teamI*members*attendances+memberI*attendances+attendanceI-->
-                                    <label for="checkbox{{ loop.parent.loop.parent.loop.length + (loop.parent.loop.parent.loop.index-1)*loop.parent.loop.length*(loop.length) + (loop.parent.loop.index-1)*loop.length +loop.index-1   }}"></label></td>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
                 {% endfor %}
-                </tbody>
-
-
-
-
-        </table>
-
-
-        </article>
-    </div>
+            {% endfor %}
+            </tbody>
+    </table>
+</article>
 
 {% endblock %}

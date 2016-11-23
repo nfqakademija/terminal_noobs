@@ -24,6 +24,8 @@ gulp.task('scripts', function() {
             dir.npm + 'jquery/dist/jquery.min.js',
             dir.npm + 'bootstrap-sass/assets/javascripts/bootstrap.min.js',
 
+            dir.assets + 'scripts/widgets/*',
+
             // Main JS file
             dir.assets + 'scripts/main.js'
         ])

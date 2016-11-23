@@ -14,7 +14,9 @@
                 <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
                 <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
                 <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
-                <li><a class="item-a" href="/administrator/overview">Admin</a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a class="item-a" href="/administrator/overview">Admin</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
