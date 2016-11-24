@@ -19,10 +19,18 @@
                         <li class="item-a" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peržiūra<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="item-a"><a href="/administrator/overview">Bendra analizė</a></li>
+                                <li class="divider"></li>
                                 <li class="item-a"><a href="#">Lankomumo analizė</a></li>
-                                <li class="item-a"><a href="#">...</a></li>
+                                <li class="item-a"><a href="#">Vidurkių analizė</a></li>
                             </ul>
                         </li>
+                            <li class="item-a" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tvarkyti<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="item-a"><a href="/team/create">Komandos</a></li>
+                                    {#<li class="item-a"><a href="/team/list">Komandos List</a></li>#}
+                                    <li class="item-a"><a href="/lectors/create">Lektoriai</a></li>
+                                </ul>
+                            </li>
                         {% endif %}
                         <!-- Bendri laukai-->
                         <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
@@ -35,7 +43,7 @@
                                 <li class="item-a"><a href="/administrator/overview">Keisti slaptažodį</a></li>
                                 <li class="item-a"><a href="#">Daugiau info</a></li>
                                 <li class="divider"></li>
-                                <li class="item-a"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                                <li class="item-a"><a href="/login"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </li>
                     </ul>
