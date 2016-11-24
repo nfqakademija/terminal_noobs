@@ -30,110 +30,162 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
      */
     public function load(ObjectManager $manager)
     {
-
-        $userManager = $this->container->get('fos_user.user_manager');
-
-        /*
-         * Admin login
-         */
-        $user = $userManager->createUser();
-        $user->setUsername('admin');
-        $user->setEmail('admin@admin.com');
-        $user->setPlainPassword('password');
-        $user->setEnabled(true);
-        $user->setRoles(array('ROLE_ADMIN'));
-        $userManager->updateUser($user, true);
-        /*
-         * Setting up lector logins
-         */
-
-
-
-        $user = $userManager->createUser();
-        $user->setUsername('darkas');
-        $user->setEmail('darius.kasiulevicius@nfq.lt');
-        $user->setPlainPassword('password');
-        $user->setEnabled(true);
-        $user->setRoles(array('ROLE_USER'));
-        $userManager->updateUser($user, true);
-
-        $user = $userManager->createUser();
-        $user->setUsername('simser');
-        $user->setEmail('simonas.serlinskas@nfq.com');
-        $user->setPlainPassword('password');
-        $user->setEnabled(true);
-        $user->setRoles(array('ROLE_USER'));
-        $userManager->updateUser($user, true);
-
-        $user = $userManager->createUser();
-        $user->setUsername('darbis');
-        $user->setEmail('dariusb@nfq.lt');
-        $user->setPlainPassword('password');
-        $user->setEnabled(true);
-        $user->setRoles(array('ROLE_USER'));
-        $userManager->updateUser($user, true);
-
-
-
-        /*
-         * Setting up mentors
-         */
-
         $userInfo = [
             [
-                'username' => 'gievic',
-                'email'    => 'giedrius.vickus@nfq.lt',
-                'password' => 'demo'
+            /* Admin logins */
+                'username' => 'admin',
+                'email'    => 'admin@admin.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_ADMIN', 'ROLE_USER']
+            ],
+            /* Lector logins */
+            [
+                'username' => 'darkas',
+                'email'    => 'darius.kasiulevicius@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
+            ],
+            [
+                'username' => 'simser',
+                'email'    => 'simonas.serlinskas@nfq.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
+            ],
+            [
+                'username' => 'darbis',
+                'email'    => 'dariusb@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
+            ],
+            [
+                'username' => 'linkuk',
+                'email'    => '	linas.kukulskis@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
             ],
             [
                 'username' => 'manurn',
                 'email'    => 'mantas.urnieza@nfq.lt',
-                'password' => 'demo'
-            ]
-        ];
-
-        foreach ($userInfo as $info){
-                $user = $userManager->createUser();
-                $user->setUsername($info['username']);
-                $user->setEmail($info['email']);
-                $user->setPlainPassword($info['password']);
-                $user->setEnabled(true);
-                $user->setRoles(array('ROLE_USER'));
-                $userManager->updateUser($user, true);
-        }
-
-        /*
-         * Setting up students
-         */
-
-        $userInfo = [
+                'password' => 'demo',
+                'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
+            ],
+            /* Mentor logins */
+            [
+                'username' => 'gievic',
+                'email'    => 'giedrius.vickus@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
+            ],
+            [
+                'username' => 'podmen',
+                'email'    => 'podelis.mentorius@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
+            ],
+            [
+                'username' => 'edumen',
+                'email'    => 'edukodas.mentorius@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
+            ],
+            /* Student logins */
+            /* terminal_noobs */
             [
                 'username' => 'mannar',
                 'email'    => 'manttassn@gmail.com',
-                'password' => 'demo'
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
                 'username' => 'vikraz',
                 'email'    => 'viktorija.razaite@gmail.com',
-                'password' => 'demo'
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
                 'username' => 'matmin',
                 'email'    => 'minematas@gmail.com',
-                'password' => 'demo'
-            ]
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+            ],
+            /* podelis */
+            [
+                'username' => 'danstr',
+                'email'    => 'danstr@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+            ],
+            [
+                'username' => 'eimmar',
+                'email'    => 'eimmar@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+            ],
+            [
+                'username' => 'sarvab',
+                'email'    => 'sarvab@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            /* Edukodas */
+            [
+                'username' => 'genboj',
+                'email'    => 'genboj@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            [
+                'username' => 'lukcep',
+                'email'    => 'lukcep@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            [
+                'username' => 'dompet',
+                'email'    => 'dompet@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            /* Copy_Paste */
+            [
+                'username' => 'robnor',
+                'email'    => 'robnor@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+            ],
+            [
+                'username' => 'gedluk',
+                'email'    => 'gedluk@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            [
+                'username' => 'zilnav',
+                'email'    => 'zilnav@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
         ];
+        $this->loadUsers($userInfo);
+    }
 
+    public function loadUsers($userInfo){
+        $userManager = $this->container->get('fos_user.user_manager');
         foreach ($userInfo as $info){
-                $user = $userManager->createUser();
-                $user->setUsername($info['username']);
-                $user->setEmail($info['email']);
-                $user->setPlainPassword($info['password']);
-                $user->setEnabled(true);
-                $user->setRoles(array('ROLE_USER'));
-                $userManager->updateUser($user, true);
+            $user = $userManager->createUser();
+            $user->setUsername($info['username']);
+            $user->setEmail($info['email']);
+            $user->setPlainPassword($info['password']);
+            $user->setEnabled(true);
+            $user->setRoles($info['roles']);
+            $userManager->updateUser($user, true);
         }
-
     }
 
     /**
