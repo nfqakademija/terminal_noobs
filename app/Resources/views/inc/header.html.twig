@@ -1,87 +1,4 @@
 <header class="header">
-{#
-        <a class="image-out" href="/" id="/" onclick="window.location = '/login';" >logout</a>
-
-        <a class="image-holder" href="/home" id="home" onclick="window.location = '/';" >
-            <img src="{{ asset('images/logo.png') }}">
-        </a>
-
-
-        <li><a class="item-a" href="/home">Pagrindinis</a></li>
-        <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-        <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
-        <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
-        {% if is_granted('ROLE_ADMIN') %}
-            <li><a class="item-a" href="/administrator/overview">Admin</a></li>
-        {% endif %}
-
-
-        nav geras
-        <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a class="item-a" href="/home">Pagrindinis</a></li>
-                <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
-                <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li><a class="item-a" href="/administrator/overview">Admin</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</nav>
-
-nav
-<nav class="navbar navbar-default" class="nav">
-    <div class="nav"class="container-fluid" >
-        <div class="navbar-header">
-            <ul class="btn-group">
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-
-                        <li><a class="item-a" href="/home">Pagrindinis</a></li>
-                        <!-- Lentelės -->
-                        <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                        <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
-                        <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
-
-                        <!-- Komandos -->
-                        <li class="dropdown">
-                            <a href="#" class="item-a" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Komandos <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="item-a" href="/team/list">Peržiūrėti</a></li>
-                                <li class="divider"></li>
-                                <li><a class="item-a" href="/team/create">Tvarkyti</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Lektoriai -->
-                        <li class="dropdown">
-                            <a href="#" class="item-a" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lektoriai <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="item-a" href="#">Peržiūrėti (neveikia nuorod.)</a></li>
-                                <li class="divider"></li>
-                                <li><a class="item-a" href="/lectors/create">Tvarkyti</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </ul>
-        </div>
-    </div>
-
-</nav>
-        #}
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -90,7 +7,7 @@ nav
                     </a>
                 </div>
                 <ul class="nav navbar-nav">
-                <!-- Admino laukai--  >
+                <!-- Admino laukai-->
                     {% if is_granted('ROLE_ADMIN') %}
                     <li class="item-a" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peržiūra<span class="caret"></span></a>
                         <ul class="dropdown-menu">

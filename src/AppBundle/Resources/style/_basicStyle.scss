@@ -1,18 +1,5 @@
 body{}
-/*
-#container {
-  min-height:100%;
-  position:relative;
-}
-.page{
-  margin: 0px;
-  max-width: 960px;
-}
 
-#container {
-  height: 100%;
-}
-*/
 //==HEADER===================================
 .header{
   .navbar-inverse{
@@ -32,35 +19,12 @@ body{}
 }
 
 //==ARTICLE===================================
-
 .article{
   padding: 20px;
   margin-left: 0px;
   min-height: 400px;
   background-color: #F6F4F1;
-}
-.acenter{
-  margin: auto;
-  width: 40%;
-  //border: 3px solid #EDE5D5;
-  padding: 10px;
-  text-align: center;
-}
-.aa{
 
-   text-align: right;
-   font-size: 20px;
-   color: #717171;
-   text-decoration: none;
- }
-.aa:hover{
-  text-align: right;
-  font-size: 20px;
-  color: orange;
-  text-decoration: none;
-}
-.width-item{
-  list-style-type: none;
 }
 
 //==FOOTER===================================

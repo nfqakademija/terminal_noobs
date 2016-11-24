@@ -1,290 +1,118 @@
-/**/
-.logo{
-  margin-left: 10px;
-  font-size: 20px;
-  color: white;
-  font-weight: normal;
-  padding: 0px;
+body {
+  background-color:#F6F4F1;
 }
-
-.image-holder img {
-  margin: 10px;
-  width: 150px;
-  height: 150px;
-
+.content {
+  width:680px;
+  height:320px;
+  margin:50px auto;
 }
-/*=== 2. Anchor Link ===*/
-
-.press-here {
-  color: #CCCCCC;
-  transition: all ease-in-out 200ms;
-  font-size: 12px;
-  text-decoration: none;
-}
-.press-here:hover {
-  color: #FF9900;
-  font-size: 15px;
-  text-decoration: none;
-}
-/*=== 3. Text Outside the Box ===*/
-.etc-login-form {
-  color: white;
-  background-color: rgba(77, 77, 77, 0.8);
-  border-radius: 25px;
-  padding: 10px 20px;
-}
-.etc-login-form p {
-  margin-bottom: 5px;
-}
-/*=== 4. Main Form ===*/
-.login-form-1 {
-  width: 300px;
-  border-radius: 5px;
-  display: inline-block;
-}
-.main-login-form {
-  position: relative;
-}
-.login-form-1 .form-control {
-  border: 0;
-  box-shadow: 0 0 0;
-  border-radius: 0;
-  background: transparent;
-  color: #555555;
-  padding: 7px 0;
-  font-weight: bold;
+.form-wrapper {
+  margin:32px auto;
+  width:264px;
   height:auto;
+  position:relative;
+  border:1px solid rgb(197,200,204);
+  background-color:rgb(248,249,250);
+  text-align:center;
+  border-radius:5px;
+  box-shadow:0 1px 0 rgb(255,255,255), 0 2px 0 rgb(197,200,204), 0 3px 0 rgb(255,255,255), 0 4px 0 rgb(197,200,204);
 }
-.login-form-1 .form-control::-webkit-input-placeholder {
-  color: #999999;
+.form-wrapper:before {
+  content:"";
+  display:block;
+  height:37px;
+  border-bottom:1px solid rgb(197,200,204);
+  border-radius:5px 5px 0 0;
+  box-shadow:inset 2px 2px 0 rgb(255,255,255);
 }
-.login-form-1 .form-control:-moz-placeholder,
-.login-form-1 .form-control::-moz-placeholder,
-.login-form-1 .form-control:-ms-input-placeholder {
-  color: #999999;
+.form-wrapper .login-form {
+  padding-top:40px;
+  box-shadow:inset 2px 0 0 rgb(255,255,255);
 }
-.login-form-1 .form-group {
-  margin-bottom: 0;
-  border-bottom: 2px solid #efefef;
-  padding-right: 20px;
-  position: relative;
-
+.form-wrapper input[name="_username"],
+.form-wrapper input[name="_password"] {
+  height:40px;
+  width: 200px;
+  margin:0 auto;
+  padding-left:15px;
+  display:block;
+  border:1px solid rgb(197,200,204);
+  background-color:rgb(228,230,233);
 }
-.login-form-1 .form-group:last-child {
-  border-bottom: 0;
+.form-wrapper input[name="_username"]{
+  border-bottom:none;
+  border-radius:5px 5px 0 0;
+  box-shadow:inset 0 1px 0 rgb(212,214,217);
 }
-.login-group {
-  background: #ffffff;
-  color: #999999;
-  border-radius: 8px;
-  padding: 10px 20px;
+.form-wrapper input[name="_password"] {
+  border-radius:0 0 5px 5px;
 }
-.login-group-checkbox {
-  padding: 5px 0;
+.form-wrapper input[type="submit"] {
+  margin-top:25px;
+  width:215px;
+  height:44px;
+  color:#fff;
+  font-size:20px;
+  border:none;
+  border-top:1px solid rgb(190,143,48);
+  position:relative;
+  background: #F36B21;
+  background-size:213px 41px,215px 43px;
+  border-radius:5px;
+  box-shadow:inset 0 1px 0 rgb(242,220,175);
+  text-shadow:1px 1px 0 rgb(138,100,50);
+  transition:color 300ms linear;
 }
-.fa-chevron-right{
-  position: absolute;
-  top: 0%;
-  padding: 13px 11px 11px 11px;
-  right: -5px;
-  width: 50px;
-  height: 50px;
+.form-wrapper .linker {
+  position:absolute;
+  width:240px;
+  height:40px;
+  top:18px;
+  left:10px;
 }
-/*=== 5. Login Button ===*/
-.login-form-1 .login-button {
-  position: absolute;
-  right: -25px;
-  top: 50%;
-  background: #FF9900;
-  color: #999999;
-  padding: 11px 0;
-  width: 50px;
-  height: 50px;
-  margin-top: -25px;
-  border: 5px solid #efefef;
-  border-radius: 50%;
-  transition: all ease-in-out 500ms;
+.linker .ring {
+  position:relative;
+  display:inline-block;
+  border:1px solid rgb(163,164,167);
+  background-color:rgb(220,222,225);
+  height:12px;
+  width:12px;
+  border-radius: 6px;
+  margin-right:33px;
 }
-.login-form-1 .login-button:hover {
-  color: #555555;
-  transform: rotate(90deg);
+.linker .ring:last-child {
+  margin-right:0;
 }
-.login-form-1 .login-button.clicked {
-  color: #555555;
+.linker .ring:before {
+  content:"";
+  position:absolute;
+  bottom:-25px;
+  left:-1px;
+  border:1px solid rgb(163,164,167);
+  background-color:rgb(220,222,225);
+  height:12px;
+  width:12px;
+  border-radius: 6px;
 }
-.login-form-1 .login-button.clicked:hover {
-  transform: none;
-}
-.login-form-1 .login-button.clicked.success {
-  color: #2ecc71;
-}
-.login-form-1 .login-button.clicked.error {
-  color: #e74c3c;
-}
-/*=== 6. Form Invalid ===*/
-label.form-invalid {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 5;
-  display: block;
-  margin-top: -25px;
-  padding: 7px 9px;
-  background: #777777;
-  color: #ffffff;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 11px;
-}
-label.form-invalid:after {
-  top: 100%;
-  right: 10px;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-color: transparent;
-  border-top-color: #777777;
-  border-width: 6px;
-}
-/*=== 7. Form - Main Message ===*/
-.login-form-main-message {
-  background: #ffffff;
-  color: #999999;
-  border-left: 3px solid transparent;
-  border-radius: 3px;
-  margin-bottom: 8px;
-  font-weight: bold;
-  height: 0;
-  padding: 0 20px 0 17px;
-  opacity: 0;
-  transition: all ease-in-out 200ms;
-}
-.login-form-main-message.show {
-  height: auto;
-  opacity: 1;
-  padding: 10px 20px 10px 17px;
-}
-.login-form-main-message.success {
-  border-left-color: #2ecc71;
-}
-.login-form-main-message.error {
-  border-left-color: #e74c3c;
-}
-/*=== 8. Custom Checkbox & Radio ===*/
-/* Base for label styling */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked,
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
-  position: absolute;
-  left: -9999px;
-}
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label,
-[type="radio"]:not(:checked) + label,
-[type="radio"]:checked + label {
-  position: relative;
-  padding-left: 25px;
-  padding-top: 1px;
-  cursor: pointer;
-}
-/* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before,
-[type="radio"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 17px;
-  height: 17px;
-  border: 0px solid #aaa;
-  background: #f0f0f0;
-  border-radius: 3px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-/* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after,
-[type="radio"]:checked + label:after {
-  position: absolute;
-  color: #555555;
-  transition: all .2s;
-}
-/* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after,
-[type="radio"]:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0);
-}
-[type="checkbox"]:checked + label:after,
-[type="radio"]:checked + label:after {
-  opacity: 1;
-  transform: scale(1);
-}
-/* disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before,
-[type="radio"]:disabled:not(:checked) + label:before,
-[type="radio"]:disabled:checked + label:before {
-  box-shadow: none;
-  border-color: #8c8c8c;
-  background-color: #878787;
-}
-[type="checkbox"]:disabled:checked + label:after,
-[type="radio"]:disabled:checked + label:after {
-  color: #555555;
-}
-[type="checkbox"]:disabled + label,
-[type="radio"]:disabled + label {
-  color: #8c8c8c;
-}
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before,
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  border: 1px dotted #f6f6f6;
-}
-/* hover style just for information */
-label:hover:before {
-  border: 1px solid #f6f6f6 !important;
-}
-/*=== Customization ===*/
-/* radio aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+.linker .ring:after{
+  content:"";
+  position:absolute;
+  top:2px;
+  left:2px;
+  width:6px;
+  height:30px;
+  border:1px solid rgb(202,202,202);
+  background-color:rgb(255,255,255);
   border-radius: 3px;
 }
-[type="radio"]:not(:checked) + label:before,
-[type="radio"]:checked + label:before {
-  border-radius: 35px;
+.label-forgot-password{
+  text-align: center;
+  margin-top: -20px;
+  a:hover{
+    text-decoration: none;
+    color: #F36B21;
+  }
 }
-/* selected mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: '✔';
-  top: 0;
-  left: 2px;
-  font-size: 14px;
-}
-[type="radio"]:not(:checked) + label:after,
-[type="radio"]:checked + label:after {
-  content: '\2022';
-  top: 0;
-  left: 3px;
-  font-size: 30px;
-  line-height: 25px;
-}
-/*=== 9. Misc ===*/
-.login {
-  padding: 15px 0;
-  font-size: 25px;
-  color: white;
-  font-weight: bold;
+.checkbox-remember-me{
+  margin-top: 10px;
 }
