@@ -3,74 +3,60 @@
 {% block title %}NFQ Komandos{% endblock %}
 
 {% block body %}
-<div class="container">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<article class="article">
+    <br>
+    <h1 class="acenter">Komandų tvarkymas</h1>
+        <br>
+        <table class="table">
+            <tr>
+                <th>Pavadinimas</th>
+                <th>Mentorius</th>
+                <th>Nariai</th>
+            </tr>
+            {% for item in teams %}
+                <tr>
+                    <td>{{ item.getId }} {{ item.getName }}</td>
+                    <td>{{ item.getMentor.getName }}</td>
+                    <td></td>
+                    <td>
+                        <button  class="btn-default" data-toggle="modal" data-target="#myModal">daugiau</button>
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-    {% include "::inc/navGeras.html.twig" %}
-        <article class="article">
-            <br>
-        <h1 class="acenter">Komandų tvarkymas</h1>
-            <br>
-
-
-                    <table class="table">
-                        <th>Pavadinimas</th><th>Mentorius</th><th>Nariai</th>
-                        {% for item in teams %}
-                            <tr>
-                                <td>{{ item.getId }} {{ item.getName }}</td>
-                                <td>{{ item.getMentor.getName }}</td>
-                                <td></td>
-
-                                <!-- a href="show/{{ item.getId }}"-->
-
-
-                                <td>
-                                    <button  class="btn-default" data-toggle="modal" data-target="#myModal">daugiau</button>
-                                    <div class="modal fade" id="myModal" role="dialog">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                                    <h2 class="modal-title"><input type="text" value="{{ item.getName }}"></h2>
-                                                </div>
-
-                                                    <p class="modal-title">Mentorius:</p>
-                                                    <p class="modal-member"><input type="text" value="{{ item.getMentor.getName }}"></p><br>
-
-                                                    <span class="modal-title">Nariai</span>
-                                                    {% for temp in  teams %}
-                                                        {% for memb in temp.getMembers %}
-                                                            <p class="modal-member"><input type="text" value="{{ memb.getName   }}"></p>
-                                                        {% endfor %}
-                                                    {% endfor %}
-
-
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Atšaukti</button>
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Išsaugoti</button>
-                                                </div>
-
-                                        </div>
+                                        <h2 class="modal-title"><input type="text" value="{{ item.getName }}"></h2>
                                     </div>
-                                </td>
 
-                                {% for member in item.getMembers %}
-                                    <tr>
-                                        <td></td><td></td>
-                                        <td>{{ member.getName }}</td>
-                                    </tr>
-                                {% endfor %}
+                                        <p class="modal-title">Mentorius:</p>
+                                        <p class="modal-member"><input type="text" value="{{ item.getMentor.getName }}"></p><br>
 
-                                <br>
-                            </tr>
+                                        <span class="modal-title">Nariai</span>
+                                        {% for temp in  teams %}
+                                            {% for memb in temp.getMembers %}
+                                                <p class="modal-member"><input type="text" value="{{ memb.getName   }}"></p>
+                                            {% endfor %}
+                                        {% endfor %}
 
-                    </table>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Atšaukti</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Išsaugoti</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <br>
+                </tr>
+                {% for member in item.getMembers %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ member.getName }}</td>
+                    </tr>
                 {% endfor %}
-
-
-        </article> </div>
+            {% endfor %}
+        </table>
+</article>
 {% endblock %}

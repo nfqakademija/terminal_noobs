@@ -1,110 +1,33 @@
-body{
-//rodo balta fona
-  background-image: url(/images/background.jpg);
-  //background-image: url(http://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2015/10/Czy-warto-kupi%C4%87.jpg);// no-repeat center center fixed;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding:10px;
-  padding-bottom:30px;   /* Height of the footer */
-
+body{}
+.container{
+  min-width: 400px;
+  margin-bottom: 0;
+  min-height: 30px !important;
 }
-#container {
-  min-height:100%;
-  position:relative;
-}
-.page{
-  margin: 0px;
-  max-width: 960px;
-}
-
-#container {
-  height: 100%;
-}
-
 //==HEADER===================================
-.header{}
-.logo{
-  margin-left: 10px;
-  font-size: 20px;
-  color: white;
-  font-weight: normal;
-  padding: 0px;
-}
-.logo:hover{
-  margin-left: 10px;
-  font-size: 20px;
-  color: white;
-  font-weight: normal;
-  padding: 0px;
-  text-decoration: none;
-}
-
-.image-holder img {
-  margin: 10px;
-  width: 150px;
-  height: 150px;
-
-}
-.image-out img{
-  margin: 10px;
-  float:right;
-  width: 50px;
-  height: 50px;
-}
-.login-as{
-  margin: 10px;
-  font-size: 15px;
-  float:right;
-  color: white;
-  background-color: rgba(77, 77, 77, 0.8);
-  border-radius: 25px;
-  padding: 10px 20px;
-  margin-bottom: 5px;
-}
-
-//==NAVIGATOR===================================
-.nav{
-  background-color: #222222;
-  color: white;
-}
-.item-a{
-  font-size: 20px;
-  text-decoration: none;
-  color: dimgray;
+.header{
+  .navbar-inverse{
+      background-color: #322F2B;
+    .image-holder img {
+      margin: 10px 0 10px 10px;
+      width: 50px;
+      height: 50px;
+    }
+    .item-a{
+      margin-top: 10px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #B6ADA5;
+    }
+  }
 }
 //==ARTICLE===================================
 .article{
   padding: 20px;
   margin-left: 0px;
   min-height: 400px;
-  background-color: rgba(240, 240, 240, 0.95);
+  background-color: #F6F4F1;
 }
-.acenter{
-  margin: auto;
-  width: 40%;
-  //border: 3px solid #EDE5D5;
-  padding: 10px;
-  text-align: center;
-}
-.aa{
-
-   text-align: right;
-   font-size: 20px;
-   color: #717171;
-   text-decoration: none;
- }
-.aa:hover{
-  text-align: right;
-  font-size: 20px;
-  color: orange;
-  text-decoration: none;
-}
-.width-item{
-  list-style-type: none;
-}
-
 //==FOOTER===================================
 .footer {
   text-align: left;
@@ -114,25 +37,6 @@ body{
   margin: 0 auto -30px;
   background-color: rgba(216, 216, 216, 0.2);
   color: white;
-}
-//Admin Navbar
-.adminNavBar ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  //heigth: 200px;
-  background-color: #222222;
-  width: 14%;
-  //position: fixed;
-  //overflow: auto;
-}
-.adminNavBar li a {
-  display: block;
-  color: dimgray;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-size: 17px;
-
 }
 
 /*.adminNavBar li a.active {

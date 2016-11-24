@@ -3,85 +3,48 @@
 {% block title %}NFQ Komandos{% endblock %}
 
 {% block body %}
-    <div class="container">
-    {% include "::inc/navGeras.html.twig" %}
+<article class="article">
+<br>
+    <h1 class="acenter">Komandų informacija</h1><br>
+    <table class="table">
+        <th>ID</th><th>Nr.</th><th>Pavadinimas</th><th>Mentorius</th><th></th>
+        {% for item in teams %}
+            <tr>
+                <td>{{ item.getId }}</td>
+                <td>4</td>
+                <td>{{ item.getName }}</td>
+                <td>{{ item.getMentor.getName }}</td>
 
+                <!-- a href="show/{{ item.getId }}"-->
+                <td>
+                    <!-- Trigger/Open The Modal -->
+                    <button class="btn-default" id="myBtn">daugiau info</button>
 
-        <article class="article">
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
 
-            <a class="aa" href="#">&plus;</a>
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">×</span>
+                            <h1>Komandos pavadinimas: {{ item.getName }}</h1>
+                            <p>Informacija apie komandukę. </p>
+                        </div>
 
-        <br>
-            <h1 class="acenter">Komandų informacija</h1><br>
-            <table class="table">
-                <th>ID</th><th>Nr.</th><th>Pavadinimas</th><th>Mentorius</th><th></th>
-                {% for item in teams %}
-                    <tr>
-                        <td>{{ item.getId }}</td>
-                        <td>4</td>
-                        <td>{{ item.getName }}</td>
-                        <td>{{ item.getMentor.getName }}</td>
+                    </div>
+                </td>
+            </tr>
+            <th>Nariai:</th><th>ID</th>><th>Vardas</th><th></th>
+            {% for member in item.getMembers %}
+                <tr>
+                    <td></td>
+                    <td>{{ member.getId }}</td>
+                    <td>{{ member.getName }}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
 
-                        <!-- a href="show/{{ item.getId }}"-->
-                        <td>
-                            <!-- Trigger/Open The Modal -->
-                            <button class="btn-default" id="myBtn">daugiau info</button>
-
-                            <!-- The Modal -->
-                            <div id="myModal" class="modal">
-
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">×</span>
-                                    <h1>Komandos pavadinimas: {{ item.getName }}</h1>
-                                    <p>Informacija apie komandukę. </p>
-                                </div>
-
-                            </div>
-
-                            <script>
-                                // Get the modal
-                                var modal = document.getElementById('myModal');
-
-                                // Get the button that opens the modal
-                                var btn = document.getElementById("myBtn");
-
-                                // Get the <span> element that closes the modal
-                                var span = document.getElementsByClassName("close")[0];
-
-                                // When the user clicks the button, open the modal
-                                btn.onclick = function() {
-                                    modal.style.display = "block";
-                                }
-
-                                // When the user clicks on <span> (x), close the modal
-                                span.onclick = function() {
-                                    modal.style.display = "none";
-                                }
-
-                                // When the user clicks anywhere outside of the modal, close it
-                                window.onclick = function(event) {
-                                    if (event.target == modal) {
-                                        modal.style.display = "none";
-                                    }
-                                }
-                            </script>
-                        </td>
-                    </tr>
-                    <th>Nariai:</th><th>ID</th>><th>Vardas</th><th></th>
-                    {% for member in item.getMembers %}
-                        <tr>
-                            <td></td>
-                            <td>{{ member.getId }}</td>
-                            <td>{{ member.getName }}</td>
-                            <td></td>
-                        </tr>
-                    {% endfor %}
-                {% endfor %}
-            </table>
-
-        </article>
-    </div>
-
+</article>
 
 {% endblock %}

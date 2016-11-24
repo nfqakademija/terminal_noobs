@@ -3,65 +3,44 @@
 {% block title %}NFQ Lentelės{% endblock %}
 
 {% block body %}
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script>
-        function enable() {
-            type="text/javascript">
-                    $(document).ready(function(){
-                        $("#myForm :input").prop("disabled", false);
-                    });
-        }
-        function disable() {
-            type="text/javascript">
-                    $(document).ready(function(){
-                        $("#myForm :input").prop("disabled", true);
-                    });
-        }
-    </script>
-    <div class="container">
-        {% include "::inc/navGeras.html.twig" %}
+<article class="article workshop-list">
+    <br>
+    <h1 class="acenter">Pažymiai</h1><br>
 
-        <article class="article">
-            <br>
-            <h1 class="acenter">Pažymiai</h1><br>
+    <div class="table-container">
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th><!--Vardas, Pavardė--></th>
+                <th>Dizainas</th>
+                <th>Planavimas</th>
+                <th>MySQL</th>
+                <th>GitHub</th>
+            </tr>
+            </thead>
 
-                <button type="button" class="btn btn-default" onclick="enable()" >Edit</button>
-                <button type="button" class="btn btn-default" onclick="disable()" >Save</button>
-                <form id="myForm">
+            <tbody>
+            {% for team in grades.teams %}
+                <tr>
+                    <td><b>{{ team.name }}</b></td>
+                    <td><input min="0" max="10" step="1" maxlength="2" size="2" value="" ></td>
+                </tr>
+                {% for member in team.members %}
+                    <tr>
 
-                <table class="table table-hover">
-                    <thead>
-                    <tr class="table-header">
-                        <th><!--Vardas, Pavardė--></th>
-                        <th>Dizainas</th>
-                        <th>Planavimas</th>
-                        <th>MySQL</th>
-                        <th>GitHub</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    {% for team in grades.teams %}
-                        <tr>
-                            <td><b>{{ team.name }}</b></td>
-                        </tr>
-                        {% for member in team.members %}
-                            <tr>
-                                <td>{{ member.name }}</td>
-                                {% for grade in member.grades %}
-                                    <td><input type="integer" id="mySelect" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" disabled ></td>
-                                {% endfor %}
-                            </tr>
+                        <td>{{ member.name }}</td>
+                        {% for grade in member.grades %}
+                            <td><input type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
                         {% endfor %}
-                        <td></td>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                    </tr>
+                {% endfor %}
 
-
-
-            </form>
-        </article>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 
+
+    </form>
+</article>
 {% endblock %}

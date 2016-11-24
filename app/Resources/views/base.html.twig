@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}{{ "My project" }}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
@@ -14,20 +12,14 @@
     {% block canonical_meta %}{% endblock %}
 </head>
 <body>
+{% block header %}
+    {% include "::inc/header.html.twig" %}
+{% endblock %}
 <div class="container">
     {% block container %}
-        {% block header %}
-
-            {% include "::inc/header.html.twig" %}
-        {% endblock %}
         <div class="contents">
-        {% block body %}
-            <!-- All the files that are required -->
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-            <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        {% endblock %}
+
+            {% block body %}{% endblock %}
         </div>
     {% endblock %}
 </div>
