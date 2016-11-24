@@ -77,15 +77,15 @@ class DummyDataService
                         'members' => [
                             [
                                 'name' => 'Mantas Narkevicius',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [10, 9, 8, 10, 7, 8]
                             ],
                             [
                                 'name' => 'Viktorija Razaite',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [10, 9, 8, 10, 6, 9]
                             ],
                             [
                                 'name' => 'Matas Minelga',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [10, 9, 8, 10, 2, 1]
                             ]
                         ]
                     ],
@@ -94,15 +94,15 @@ class DummyDataService
                         'members' => [
                             [
                                 'name' => 'Petras Petraitis',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [1, 3, 10, 9, 8, 10]
                             ],
                             [
                                 'name' => 'Jonas Jonaitis',
-                                'grades' => [10, 9, 8, 5]
+                                'grades' => [10, 9, 2, 4, 8, 5]
                             ],
                             [
                                 'name' => 'Justas Justaitis',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [10, 9, 8, 4, 7, 10]
                             ]
                         ]
                     ],
@@ -111,15 +111,15 @@ class DummyDataService
                         'members' => [
                             [
                                 'name' => 'John Pro',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [1, 2, 2, 9, 8, 10]
                             ],
                             [
                                 'name' => 'Sam Win',
-                                'grades' => [10, 5, 8, 10]
+                                'grades' => [10, 5, 4, 4, 8, 10]
                             ],
                             [
                                 'name' => 'Jim Crush',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [3, 2, 5, 9, 8, 10]
                             ]
                         ]
                     ],
@@ -128,15 +128,15 @@ class DummyDataService
                         'members' => [
                             [
                                 'name' => 'Carl Bee',
-                                'grades' => [10, 9, 8, 5]
+                                'grades' => [6, 6, 6, 9, 8, 5]
                             ],
                             [
                                 'name' => 'Adam Ant',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [6, 6, 6, 9, 8, 10]
                             ],
                             [
                                 'name' => 'Rick Roll',
-                                'grades' => [10, 9, 8, 10]
+                                'grades' => [7, 7, 8, 9, 8, 10]
                             ]
                         ]
                     ]

@@ -20,8 +20,9 @@ class AdminController extends Controller
      */
     public function overviewAction()
     {
-        return $this->render('AppBundle:Admin:overview.html.twig', array(
-            // ...
-        ));
+        return $this->render('AppBundle:Admin:overview.html.twig',
+
+            $this->get('app.dummy')->getGradeData()
+    );
     }
 }
