@@ -25,4 +25,25 @@ class AdminController extends Controller
             $this->get('app.dummy')->getGradeData()
     );
     }
+
+    /**
+     * @Route("/administrator/attendanceOverview")
+     */
+    public function attendanceOerviewAction()
+    {
+        return $this->render('AppBundle:Admin:overview.html.twig',
+
+            $this->get('app.dummy')->getGradeData()
+        );
+    }
+    /**
+     * @Route("/administrator/gradesOverview")
+     */
+    public function gradesOverviewAction()
+    {
+        return $this->render('AppBundle:Admin:overview.html.twig',
+
+            $this->get('app.dummy')->getGradeData()
+        );
+    }
 }
