@@ -31,9 +31,9 @@ class AdminController extends Controller
      */
     public function attendanceOerviewAction()
     {
-        return $this->render('AppBundle:Admin:overview.html.twig',
+        return $this->render('AppBundle:Admin:attendanceOverview.html.twig',
 
-            $this->get('app.dummy')->getGradeData()
+            $this->get('app.dummy')->getAttendanceDataTest()
         );
     }
     /**

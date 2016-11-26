@@ -17,74 +17,39 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script>
-        $(function () {
-            Highcharts.chart('grades', {
-                title: {
-                    text: 'Paskutinių paskaitų vidurkiai',
-                    x: -20 //center,
-                },
-                subtitle: {
-                    text: '2016 Rudens semestras',
-                    x: -20
-                },
-                xAxis: {
-                    categories: ['11.06', '11.09', '11.15', '11.20', '11.22', '11.29'],
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#100100100'
-                    }]
-                },
-                yAxis: {
-                    title: {
-                        text: 'Vidurkiai'
-                    },
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#100100100'
-                    }],
-                    max: 10,
-                    min: 0
-                },
-                chart: {
-                    //backgroundColor: '#000000'
-                },
-                tooltip: {
-                    valueSuffix: ''
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-                },
-                plotOptions: {
-                    line: {
-                        dataLabels: {
-                            enabled: true
-                        },
-                        enableMouseTracking: false
+        function getAttendanceAverages(workshopId, teams)
+        {
+            var average = 0;
+            var count = 0;
+            for (i = 0; i < teams.length; i++)
+            {
+                for (j = 0; j < teams[i].members.length; j++)
+                {
+                    for (k = 0; k < teams[i].members[j].attendances.length; k++)
+                    {
+                        if (teams[i].members[j].attendances[k].workshopId == workshopId)
+                        {
+                            count++;
+                            if(teams[i].members[j].attendances[k].attended) {
+                                average++;
+                            }
+                        }
                     }
-                },
-                series: [{
-                    name: 'Terminal Noobs',
-                    data: [9.5, 8.2, 7.9, 10, 5, 9.5]
-                }, {
-                    name: '3rd Team',
-                    data: [2, 1, 5, 8.9, 6.5, 7]
-                }, {
-                    name: '2nd Team',
-                    data: [1, 2, 4, 5, 6, 5]
-                }, {
-                    name: '1st Team',
-                    data: [3.9, 4.2, 5.7, 8.5, 6.6, 4.8]
-                }]
-            })
+                }
+            }
+            average = average/count;
+            return average;
+        }
+    </script>
+    <script>
+        var teams = {{ teams|json_encode() | raw()}};
 
-        });
-
-        $(function () {
+        //document.write(window.teams.toString());
+        var av1 = getAttendanceAverages(1, window.teams);
+        var av2 = getAttendanceAverages(2, window.teams);
+        var av3 = getAttendanceAverages(3, window.teams);
+        var av4 = getAttendanceAverages(4, window.teams);
+               $(function () {
             Highcharts.chart('attendance', {
                 title: {
                     text: 'Paskutinių paskaitų lankomumas',
@@ -95,7 +60,7 @@
                     x: -20
                 },
                 xAxis: {
-                    categories: ['11.06', '11.09', '11.15', '11.20', '11.22', '11.29'],
+                    categories: ['11.06', '11.09'],
                     plotLines: [{
                         value: 0,
                         width: 1,
@@ -130,11 +95,11 @@
 
                 series: [{
                     name: 'Kaunas',
-                    data: [100, 95, 80, 85, 93, 97]
+                    data: [window.av1*100, window.av2*100]
                 },
                     {
                         name: 'Vilnius',
-                        data: [97, 85, 65, 93, 78, 43]
+                        data: [window.av3*100,  window.av4*100]
                     }
                 ]
             });
