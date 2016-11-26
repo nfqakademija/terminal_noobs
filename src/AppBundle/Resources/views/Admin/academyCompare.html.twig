@@ -17,7 +17,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script>
-        function getAttendanceWorkshopAverage(workshopId, teams)
+        function getAttendanceAverages(workshopId, teams)
         {
             var average = 0;
             var count = 0;
@@ -38,29 +38,17 @@
                 }
             }
             average = average/count;
-            return average*100;
+            return average;
         }
-        function getTeamsFromSelectedAcademy(academy, teamsAll)
-        {
-            var teams = [];
-            n = 0;
-            for (i = 0; i < teamsAll.length; i++)
-            {
-                if (teamsAll[i].academy == academy) {
-                    teams[n]=teamsAll[i];
-                    n++;
-                }
-            }
-            return teams;
-        }
-
     </script>
     <script>
-        var Allteams = {{ teams.teams|json_encode() | raw()}};
-        //document.write(window.teams.toString());
-        var reqiuredTeams = getTeamsFromSelectedAcademy(1, Allteams);
-        var averages = [getAttendanceWorkshopAverage(1, reqiuredTeams), getAttendanceWorkshopAverage(2, reqiuredTeams), getAttendanceWorkshopAverage(3, reqiuredTeams), getAttendanceWorkshopAverage(4, reqiuredTeams)]
+        var teams = {{ teams.teams|json_encode() | raw()}};
 
+        //document.write(window.teams.toString());
+        var av1 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+        var av2 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+        var av3 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+        var av4 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
                $(function () {
             Highcharts.chart('attendance', {
                 title: {
@@ -107,11 +95,11 @@
 
                 series: [{
                     name: 'Kaunas',
-                    data: [window.averages[0], window.averages[1]]
+                    data: [window.av1*100, window.av2*100]
                 },
                     {
                         name: 'Vilnius',
-                        data: [window.averages[2], window.averages[3]]
+                        data: [window.av3*100,  window.av4*100]
                     }
                 ]
             });
