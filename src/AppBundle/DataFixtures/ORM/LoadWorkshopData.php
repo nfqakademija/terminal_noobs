@@ -13,10 +13,15 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Workshop;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterface
+class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-
+    /**
+     * @var ContainerInterface $container
+     */
+    private $container;
     /**
      * Load data fixtures with the passed EntityManager
      *
@@ -24,36 +29,34 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        /*$workshop = new Workshop();
+        $workshopInfo = [
+            [
+                'title'  => 'Design patterns',
+                'lector' => 'simser',
+                'description' => 'Description of the design pattern workshop'
+            ],
+            [
+                'title'  => 'Introduction to symfony',
+                'lector' => 'simser',
+                'description' => 'Description of the symfony introduction workshop'
+            ],
+            [
+                'title'  => 'Design',
+                'lector' => 'simser',
+                'description' => 'Description of the design workshop'
+            ]
+        ];
 
-        $workshop
-            ->setId(1)
-            ->setTitle("Design patterns")
-            ->setDescription("Description of the design pattern workshop")
-            ->setLector($this->getReference('lector_simonas'));
-
-        $manager->persist($workshop);
-
-        $workshop = new Workshop();
-
-        $workshop
-            ->setId(2)
-            ->setTitle("Introduction to symfony")
-            ->setDescription("Description of the introduction workshop")
-            ->setLector($this->getReference('lector_simonas'));
-        $manager->persist($workshop);
-
-        $workshop
-            ->setId(3)
-        ->setTitle("Design")
-        ->setDescription("Description of the introduction workshop")
-        ->setLector($this->getReference('lector_darius'));
-        $manager->persist($workshop);
-
-        $manager->flush();*/
-
-
+        foreach($workshopInfo as $info){
+            $workshop = new Workshop();
+            $workshop->setTitle($info['title']);
+            $workshop->setDescription($info['description']);
+            $workshop->setLector($this->container->get('fos_user.user_manager')->findUserByUsername($info['lector']));
+            $manager->persist($workshop);
+        }
+        $manager->flush();
     }
+
 
     /**
      * Get the order of this fixture
@@ -63,5 +66,10 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
     public function getOrder()
     {
         return 2;
+    }
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
     }
 }
