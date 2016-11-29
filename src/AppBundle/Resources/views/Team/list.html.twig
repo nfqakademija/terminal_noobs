@@ -8,14 +8,14 @@
     <h1 class="acenter">Komandų informacija</h1><br>
     <table class="table">
         <th>ID</th><th>Nr.</th><th>Pavadinimas</th><th>Mentorius</th><th></th>
-        {% for item in teams %}
+        {% for team in teams %}
             <tr>
-                <td>{{ item.getId }}</td>
+                <td>{{ team.getId }}</td>
                 <td>4</td>
-                <td>{{ item.getName }}</td>
-                <td>{{ item.getMentor.getName }}</td>
+                <td>{{ team.getTitle }}</td>
+                
 
-                <!-- a href="show/{{ item.getId }}"-->
+                <!-- a href="show/{{ team.getId }}"-->
                 <td>
                     <!-- Trigger/Open The Modal -->
                     <button class="btn-default" id="myBtn">daugiau info</button>
@@ -26,7 +26,7 @@
                         <!-- Modal content -->
                         <div class="modal-content">
                             <span class="close">×</span>
-                            <h1>Komandos pavadinimas: {{ item.getName }}</h1>
+                            <h1>Komandos pavadinimas: {{ team.getTitle }}</h1>
                             <p>Informacija apie komandukę. </p>
                         </div>
 
@@ -34,11 +34,10 @@
                 </td>
             </tr>
             <th>Nariai:</th><th>ID</th>><th>Vardas</th><th></th>
-            {% for member in item.getMembers %}
+            {% for student in team.getStudents %}
                 <tr>
                     <td></td>
-                    <td>{{ member.getId }}</td>
-                    <td>{{ member.getName }}</td>
+                    <td>{{ student.getName }}</td>
                     <td></td>
                 </tr>
             {% endfor %}
