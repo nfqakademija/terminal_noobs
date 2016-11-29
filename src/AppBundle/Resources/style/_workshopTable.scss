@@ -6,16 +6,13 @@
     border-radius: 4px;
     background-color: transparent;
   }
-
-
-  //.table-container {
-  //  min-width: 400px;
-  //  overflow-x: scroll;
-
-  //  table {
-   //   min-width: 800px;
-  //  }
-  //}
+  .table-container {
+    min-width: 400px;
+    overflow-x: scroll;
+    table {
+      min-width: 800px;
+   }
+  }
 }
 
 
