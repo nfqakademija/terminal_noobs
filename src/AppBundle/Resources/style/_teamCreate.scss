@@ -1,38 +1,37 @@
-.underline{
-  text-decoration: underline;
-  font-weight: bold;
-}
+.team-create{
+  .underline{
+    text-decoration: underline;
+    font-weight: bold;
+  }
 
-.modal-header{
-  background-color: orange;
-  color: dimgray;
-}
+  .modal-header{
+    background-color: orange;
+    color: dimgray;
+  }
 
-.modal-title{
-  font-weight: bold;
-}
+  .modal-title{
+    font-weight: bold;
+  }
 
-.modal-footer{
-  background-color:#E4E4E4;
-  color: white;
-}
-.modal-member{
-  padding-left: 80px;
-  color: dimgray;
-}
-input[type=text] {
-  background-color: transparent;
-   width: 400px;
-   border: none;
-   color: dimgray;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-image:url('/web/images/edit.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
- }
-input[type=text]:focus {
-  width: 100%;
+  .modal-footer{
+    background-color:#E4E4E4;
+    color: white;
+  }
+  .modal-member{
+    padding-left: 80px;
+    color: dimgray;
+  }
+  input[type=text] {
+    background-color: transparent;
+     width: 400px;
+     border: none;
+     color: dimgray;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    box-sizing: border-box;
+    border-radius: 4px;
+   }
+  input[type=text]:focus {
+    width: 100%;
+  }
 }

@@ -226,4 +226,301 @@ class DummyDataService
 
         );
     }
+    /**
+     * Get attendance data
+     *
+     * @return array
+     */
+    public function getAttendanceDataTest()
+    {
+        return array(
+            'teams' => [
+                [
+                    'name' => 'terminal_noobs',
+                    'academy'=> 1,
+                    'members' => [
+                        [
+                            'name' => 'Mantas Narkevicius',
+                            'attendances' => [
+                                    [
+                                        'attended' => true,
+                                        'workshopId'=>1
+                                    ],
+                                    [
+                                        'attended' => false,
+                                        'workshopId'=>2
+                                    ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ],
+                        [
+                            'name' => 'Viktorija Razaite',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ],
+                        [
+                            'name' => 'Matas Minelga',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'other_team',
+                    'academy'=> 1,
+                    'members' => [
+                        [
+                            'name' => 'Petras Petraitis',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ],
+                        [
+                            'name' => 'Jonas Jonaitis',
+                            'attendances' => [
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ],
+                        [
+                            'name' => 'Justas Justaitis',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'terminal_pros',
+                    'academy'=> 1,
+                    'members' => [
+                        [
+                            'name' => 'John Pro',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ],
+                        [
+                            'name' => 'Sam Win',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]
+                        ],
+                        [
+                            'name' => 'Jim Crush',
+                            'attendances' => [
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]                        ]
+                    ]
+                ],
+                [
+                    'name' => 'code_bugs',
+                    'academy'=> 1,
+                    'members' => [
+                        [
+                            'name' => 'Carl Bee',
+                            'attendances' => [
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>4
+                                ],
+
+                            ]                        ],
+                        [
+                            'name' => 'Adam Ant',
+                            'attendances' => [
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]                        ],
+                        [
+                            'name' => 'Rick Roll',
+                            'attendances' => [
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>1
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>2
+                                ],
+                                [
+                                    'attended' => false,
+                                    'workshopId'=>3
+                                ],
+                                [
+                                    'attended' => true,
+                                    'workshopId'=>4
+                                ],
+
+                            ]                        ]
+                    ]
+                ]
+            ]
+
+        );
+    }
 }

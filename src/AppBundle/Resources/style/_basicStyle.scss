@@ -7,7 +7,12 @@ body{}
 //==HEADER===================================
 .header{
   .navbar-inverse{
-      background-color: #322F2B;
+    background-color: #322F2B;
+    border-radius: 0px;
+    .navbar-toggle {
+      border-color: #333;
+      margin-top: 18px;
+    }
     .image-holder img {
       margin: 10px 0 10px 10px;
       width: 50px;
@@ -18,6 +23,9 @@ body{}
       font-size: 20px;
       text-decoration: none;
       color: #B6ADA5;
+    }
+    .icon-bar{
+      vertical-align: middle;
     }
   }
 }

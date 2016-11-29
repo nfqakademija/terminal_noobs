@@ -1,0 +1,109 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}NFQ Pagrindinis{% endblock %}
+
+{% block body %}
+    <article class="article">
+    <div class="overview_grades">
+        <div id="grades" ></div>
+        <div id="attendance"></div>
+    </div>
+
+</article>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script>
+        function getAttendanceAverages(workshopId, teams)
+        {
+            var average = 0;
+            var count = 0;
+            for (i = 0; i < teams.length; i++)
+            {
+                for (j = 0; j < teams[i].members.length; j++)
+                {
+                    for (k = 0; k < teams[i].members[j].attendances.length; k++)
+                    {
+                        if (teams[i].members[j].attendances[k].workshopId == workshopId)
+                        {
+                            count++;
+                            if(teams[i].members[j].attendances[k].attended) {
+                                average++;
+                            }
+                        }
+                    }
+                }
+            }
+            average = average/count;
+            return average;
+        }
+    </script>
+    <script>
+        var teams = {{ teams.teams|json_encode() | raw()}};
+
+        //document.write(window.teams.toString());
+        var av1 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+        var av2 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+        var av3 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+        var av4 = getAttendanceAverages(window.teams[0].members[0].attendances.length-1, window.teams);
+               $(function () {
+            Highcharts.chart('attendance', {
+                title: {
+                    text: 'Paskutinių paskaitų lankomumas',
+                    x: -20 //center,
+                },
+                subtitle: {
+                    text: '2016 Rudens semestras',
+                    x: -20
+                },
+                xAxis: {
+                    categories: ['11.06', '11.09'],
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#100100100'
+                    }]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Lankomumas'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#100100100'
+                    }],
+                    max: 100,
+                    min: 0
+                },
+                chart: {
+                    //backgroundColor: '#000000'
+                    type: "column"
+                },
+                tooltip: {
+                    valueSuffix: '%'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+
+                series: [{
+                    name: 'Kaunas',
+                    data: [window.av1*100, window.av2*100]
+                },
+                    {
+                        name: 'Vilnius',
+                        data: [window.av3*100,  window.av4*100]
+                    }
+                ]
+            });
+        });
+    </script>
+
+{% endblock %}
