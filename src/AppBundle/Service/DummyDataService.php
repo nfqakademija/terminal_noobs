@@ -17,6 +17,73 @@ class DummyDataService
     }
 
     /**
+     * get Team data
+     *
+     * @return array
+     */
+    public function getTeamData()
+    {
+        return array(
+            'teams' => [
+                [
+                    'getId' => '1',
+                    'getName' => 'terminal_noobs',
+                    'getMentor' => ['getName' => 'Giedriukas'],
+                    'getMembers' => [
+                        'getName' => 'Mantas Narkevicius',
+                        'getUserId' => 1
+                        ],
+                        [
+                            'getName' => 'Viktorija Razaite',
+                            'getUserId' => 2
+                        ],
+                        [
+                            'getName' => 'Matas Minelga',
+                            'getUserId' => 3
+                        ]
+
+                 ],
+                [
+                    'getId' => '2',
+                    'getName' => 'xxxx',
+                    'getMentor' => ['getName' => 'Giedriukas'],
+                    'getMembers' => [
+                        'getName' => 'Mantas Narkevicius',
+                        'getUserId' => 1
+                    ],
+                    [
+                        'getName' => 'Viktorija Razaite',
+                        'getUserId' => 2
+                    ],
+                    [
+                        'getName' => 'Matas Minelga',
+                        'getUserId' => 3
+                    ]
+
+                ],
+                [
+                    'getId' => '3',
+                    'getName' => 'yyyy',
+                    'getMentor' => ['getName' => 'Giedriukas'],
+                    'getMembers' => [
+                        'getName' => 'Mantas Narkevicius',
+                        'getUserId' => 1
+                    ],
+                    [
+                        'getName' => 'Viktorija Razaite',
+                        'getUserId' => 2
+                    ],
+                    [
+                        'getName' => 'Matas Minelga',
+                        'getUserId' => 3
+                    ]
+
+                ]
+                ]
+        );
+    }
+
+    /**
      * Get workshop data
      *
      * @return array

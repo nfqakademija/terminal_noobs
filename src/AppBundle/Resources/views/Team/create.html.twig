@@ -13,10 +13,10 @@
                 <th>Mentorius</th>
                 <th>Nariai</th>
             </tr>
-            {% for item in teams %}
+            {% for team in teams %}
                 <tr>
-                    <td>{{ item.getId }} {{ item.getName }}</td>
-                    <td>{{ item.getMentor.getName }}</td>
+                    <td>{{ team.getId }} {{ team.getName }}</td>
+                    <td>{{ team.getMentor.getName }}</td>
                     <td></td>
                     <td>
                         <button  class="btn-default" data-toggle="modal" data-target="#myModal">daugiau</button>
@@ -26,18 +26,18 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h2 class="modal-title"><input type="text" value="{{ item.getName }}"></h2>
+                                        <h2 class="modal-title"><input type="text" value="{{ team.getName }}"></h2>
                                     </div>
 
                                         <p class="modal-title">Mentorius:</p>
-                                        <p class="modal-member"><input type="text" value="{{ item.getMentor.getName }}"></p><br>
+                                        <p class="modal-member"><input type="text" value="{{ team.getMentor.getName }}"></p><br>
 
                                         <span class="modal-title">Nariai</span>
-                                        {% for temp in  teams %}
-                                            {% for memb in temp.getMembers %}
-                                                <p class="modal-member"><input type="text" value="{{ memb.getName   }}"></p>
+
+                                            {% for member in team.getMembers %}
+                                                <p class="modal-member"><input type="text" value="{{ member.getName }}"></p>
                                             {% endfor %}
-                                        {% endfor %}
+
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Atšaukti</button>
@@ -53,7 +53,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>{{ member.getName }}</td>
+                        <td>{{ member }}</td>
                     </tr>
                 {% endfor %}
             {% endfor %}
