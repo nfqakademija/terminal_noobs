@@ -25,6 +25,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "codeception/codeception": "^2.2"
+        "codeclimate/php-test-reporter": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "*",

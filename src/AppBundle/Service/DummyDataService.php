@@ -26,60 +26,63 @@ class DummyDataService
         return array(
             'teams' => [
                 [
-                    'getId' => '1',
-                    'getName' => 'terminal_noobs',
-                    'getMentor' => ['getName' => 'Giedriukas'],
-                    'getMembers' => [
-                        'getName' => 'Mantas Narkevicius',
-                        'getUserId' => 1
+                    'id' => '1',
+                    'name' => 'terminal_noobs',
+                    'mentor' => ['name' => 'Giedriukas'],
+                    'members' => [
+                        [
+                            'name' => 'Mantas Narkevicius',
+                            'userId' => 1
                         ],
                         [
-                            'getName' => 'Viktorija Razaite',
-                            'getUserId' => 2
+                            'name' => 'Viktorija Razaite',
+                            'userId' => 2
                         ],
                         [
-                            'getName' => 'Matas Minelga',
-                            'getUserId' => 3
+                            'name' => 'Matas Minelga',
+                            'userId' => 3
                         ]
-
-                 ],
-                [
-                    'getId' => '2',
-                    'getName' => 'xxxx',
-                    'getMentor' => ['getName' => 'Giedriukas'],
-                    'getMembers' => [
-                        'getName' => 'Mantas Narkevicius',
-                        'getUserId' => 1
-                    ],
-                    [
-                        'getName' => 'Viktorija Razaite',
-                        'getUserId' => 2
-                    ],
-                    [
-                        'getName' => 'Matas Minelga',
-                        'getUserId' => 3
                     ]
-
                 ],
                 [
-                    'getId' => '3',
-                    'getName' => 'yyyy',
-                    'getMentor' => ['getName' => 'Giedriukas'],
-                    'getMembers' => [
-                        'getName' => 'Mantas Narkevicius',
-                        'getUserId' => 1
-                    ],
-                    [
-                        'getName' => 'Viktorija Razaite',
-                        'getUserId' => 2
-                    ],
-                    [
-                        'getName' => 'Matas Minelga',
-                        'getUserId' => 3
+                    'id' => '2',
+                    'name' => 'xxxx',
+                    'mentor' => ['name' => 'neGiedriukas'],
+                    'members' => [
+                        [
+                            'name' => 'Mantas Narkevicius',
+                            'userId' => 1
+                        ],
+                        [
+                            'name' => 'Viktorija Razaite',
+                            'userId' => 2
+                        ],
+                        [
+                            'name' => 'Matas Minelga',
+                            'userId' => 3
+                        ]
                     ]
-
+                ],
+                [
+                    'id' => '3',
+                    'name' => 'yyyyy',
+                    'mentor' => ['name' => 'neGiedriukas2'],
+                    'members' => [
+                        [
+                            'name' => 'Mantas Narkevicius',
+                            'userId' => 1
+                        ],
+                        [
+                            'name' => 'Viktorija Razaite',
+                            'userId' => 2
+                        ],
+                        [
+                            'name' => 'Matas Minelga',
+                            'userId' => 3
+                        ]
+                    ]
                 ]
-                ]
+            ]
         );
     }
 
@@ -158,9 +161,27 @@ class DummyDataService
     public function getGradeData(){
         return array(
             'grades' => [
-                'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
+                'workshops' => [
+                    [
+                        'id' => 1,
+                        'name' => 'Symfony introduction'
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'MySQL'
+                    ],
+                    [
+                        'id' => 3,
+                        'name' => 'Dizainas'
+                    ],
+                    [
+                        'id' => 4,
+                        'name' => 'GitHub'
+                    ]
+                ],
                 'teams' => [
                     [
+                        'id' => 1,
                         'name' => 'terminal_noobs',
                         'members' => [
                             [
@@ -178,6 +199,7 @@ class DummyDataService
                         ]
                     ],
                     [
+                        'id' => 2,
                         'name' => 'other_team',
                         'members' => [
                             [
@@ -195,6 +217,7 @@ class DummyDataService
                         ]
                     ],
                     [
+                        'id' => 3,
                         'name' => 'terminal_pros',
                         'members' => [
                             [
@@ -212,6 +235,7 @@ class DummyDataService
                         ]
                     ],
                     [
+                        'id' => 4,
                         'name' => 'code_bugs',
                         'members' => [
                             [
