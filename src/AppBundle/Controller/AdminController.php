@@ -52,9 +52,12 @@ class AdminController extends Controller
     public function academyCompareAction()
     {
 
-        return $this->render('AppBundle:Admin:overview.html.twig',
-
-            $this->get('app.dummy')->getGradeData()
-        );
+        return $this->render('AppBundle:Admin:academyCompare.html.twig',
+        [
+            'teams' =>$this->get('app.dummy')->getAttendanceDataTest(),
+            'grades' => $this->get('app.dummy')->getGradeData(),
+            'academies'=>$this->get('app.dummy')->getAcademyData(),
+            'attendance' => $this->get('app.dummy')->getAttendanceDataTest()
+        ]);
     }
 }

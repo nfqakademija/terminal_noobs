@@ -17,6 +17,73 @@ class DummyDataService
     }
 
     /**
+     * get Team data
+     *
+     * @return array
+     */
+    public function getTeamData()
+    {
+        return array(
+            'teams' => [
+                [
+                    'getId' => '1',
+                    'getName' => 'terminal_noobs',
+                    'getMentor' => ['getName' => 'Giedriukas'],
+                    'getMembers' => [
+                        'getName' => 'Mantas Narkevicius',
+                        'getUserId' => 1
+                        ],
+                        [
+                            'getName' => 'Viktorija Razaite',
+                            'getUserId' => 2
+                        ],
+                        [
+                            'getName' => 'Matas Minelga',
+                            'getUserId' => 3
+                        ]
+
+                 ],
+                [
+                    'getId' => '2',
+                    'getName' => 'xxxx',
+                    'getMentor' => ['getName' => 'Giedriukas'],
+                    'getMembers' => [
+                        'getName' => 'Mantas Narkevicius',
+                        'getUserId' => 1
+                    ],
+                    [
+                        'getName' => 'Viktorija Razaite',
+                        'getUserId' => 2
+                    ],
+                    [
+                        'getName' => 'Matas Minelga',
+                        'getUserId' => 3
+                    ]
+
+                ],
+                [
+                    'getId' => '3',
+                    'getName' => 'yyyy',
+                    'getMentor' => ['getName' => 'Giedriukas'],
+                    'getMembers' => [
+                        'getName' => 'Mantas Narkevicius',
+                        'getUserId' => 1
+                    ],
+                    [
+                        'getName' => 'Viktorija Razaite',
+                        'getUserId' => 2
+                    ],
+                    [
+                        'getName' => 'Matas Minelga',
+                        'getUserId' => 3
+                    ]
+
+                ]
+                ]
+        );
+    }
+
+    /**
      * Get workshop data
      *
      * @return array
@@ -61,7 +128,28 @@ class DummyDataService
 
         );
     }
+    /**
+     * get academies data
+     *
+     * @return array
+     */
+    public function getAcademyData()
+    {
+        return array(
+            'academies'=>[
+                [
+                    'name' => '2016 Rudens semestras, Kaunas',
+                    'id' => '1'
 
+                ],
+                [
+                    'name' => '2016 Rudens semestras, Vilnius',
+                    'id' => '2'
+
+                ]
+            ]
+        );
+    }
     /**
      * Get grade data
      *
@@ -381,7 +469,7 @@ class DummyDataService
                 ],
                 [
                     'name' => 'terminal_pros',
-                    'academy'=> 1,
+                    'academy'=> 2,
                     'members' => [
                         [
                             'name' => 'John Pro',
@@ -452,7 +540,7 @@ class DummyDataService
                 ],
                 [
                     'name' => 'code_bugs',
-                    'academy'=> 1,
+                    'academy'=> 2,
                     'members' => [
                         [
                             'name' => 'Carl Bee',
