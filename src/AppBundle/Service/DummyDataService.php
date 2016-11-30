@@ -402,7 +402,7 @@ class DummyDataService
                 ],
                 [
                     'name' => 'terminal_pros',
-                    'academy'=> 1,
+                    'academy'=> 2,
                     'members' => [
                         [
                             'name' => 'John Pro',
@@ -473,7 +473,7 @@ class DummyDataService
                 ],
                 [
                     'name' => 'code_bugs',
-                    'academy'=> 1,
+                    'academy'=> 2,
                     'members' => [
                         [
                             'name' => 'Carl Bee',

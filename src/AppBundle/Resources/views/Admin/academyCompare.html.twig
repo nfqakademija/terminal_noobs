@@ -9,7 +9,7 @@
                 Pasirinkti akademijas lyginimui:
                 <select name="academy1">
                     {% for academy in academies.academies %}
-                    <option value="{{ academy.id }}">{{ academy.name }}</option>
+                    <option value="{{ academy.id }}", onchange="updateViewData()">{{ academy.name }}</option>
                     {% endfor %}
                 </select>
                 <select name="academy2">
@@ -70,6 +70,11 @@
             }
             return teams;
         }
+        function updateViewData()
+        {
+            selectedAcademies = $('form').serialize();
+            window.alert(selectedAcademies.toString());
+        }
 
     </script>
     <script>
@@ -77,7 +82,8 @@
         //document.write(window.teams.toString());
         var reqiuredTeams = getTeamsFromSelectedAcademy(1, Allteams);
         var averages = [getAttendanceWorkshopAverage(1, reqiuredTeams), getAttendanceWorkshopAverage(2, reqiuredTeams), getAttendanceWorkshopAverage(3, reqiuredTeams), getAttendanceWorkshopAverage(4, reqiuredTeams)]
-
+        var academyOne;
+        var academyTwo;
         $(function () {
             Highcharts.chart('attendance', {
                 title: {
