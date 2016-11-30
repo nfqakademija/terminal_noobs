@@ -13,9 +13,15 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Team;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface
+class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -24,15 +30,47 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        /*$team = new Team();
-        $team->setName("Terminal_noobs")->setMembers([
-            0 => $this->getReference("student_mantas"),
-            1 => $this->getReference("student_viktorija"),
-            2 => $this->getReference("student_matas")
-        ]);
-        $team->setMentor($this->getReference('mentor_giedrius'));
-        $manager->persist($team);
-        $manager->flush();*/
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $teamInfo = [
+            [
+                'title' => 'terminal_noobs',
+                'mentor' => 'gievic',
+                'members' => ['mannar', 'matmin', 'vikraz'],
+                'academy' => '2016'
+            ],
+            [
+                'title' => 'podelis',
+                'mentor' => 'podmen',
+                'members' => ['danstr', 'eimmar', 'sarvab'],
+                'academy' => '2016'
+            ],
+            [
+                'title' => 'Edukodas',
+                'mentor' => 'edumen',
+                'members' => ['genboj', 'lukcep', 'dompet'],
+                'academy' => '2016'
+            ],
+            [
+                'title' => 'Copy_Paste',
+                'mentor' => 'copmen',
+                'members' => ['robnor', 'gedluk', 'zilnav'],
+                'academy' => '2016'
+            ]
+        ];
+
+        foreach($teamInfo as $info) {
+            $team = new Team();
+            $team->setTitle($info['title']);
+            $team->setMentor($this->container->get('fos_user.user_manager')->findUserByUsername($info['mentor']));
+            $students = [];
+            foreach ($info['members'] as $member){
+                $students[] = $this->container->get('fos_user.user_manager')->findUserByUsername($member);
+            }
+            $team->setStudents($students);
+            $manager->persist($team);
+        }
+        $manager->flush();
     }
 
     /**
@@ -43,5 +81,10 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface
     public function getOrder()
     {
         return 3;
+    }
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
     }
 }

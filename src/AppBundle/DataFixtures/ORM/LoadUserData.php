@@ -33,6 +33,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $userInfo = [
             [
             /* Admin logins */
+                'name'     => 'admin',
                 'username' => 'admin',
                 'email'    => 'admin@admin.lt',
                 'password' => 'demo',
@@ -40,30 +41,35 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ],
             /* Lector logins */
             [
+                'name'     => 'Darius Kasiulevicius',
                 'username' => 'darkas',
                 'email'    => 'darius.kasiulevicius@nfq.lt',
                 'password' => 'demo',
                 'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
             ],
             [
+                'name'     => 'Simonas Serlinskas',
                 'username' => 'simser',
                 'email'    => 'simonas.serlinskas@nfq.com',
                 'password' => 'demo',
                 'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
             ],
             [
+                'name'     => 'Darius',
                 'username' => 'darbis',
                 'email'    => 'dariusb@nfq.lt',
                 'password' => 'demo',
                 'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
             ],
             [
+                'name'     => 'Linas',
                 'username' => 'linkuk',
                 'email'    => '	linas.kukulskis@nfq.lt',
                 'password' => 'demo',
                 'roles'    => ['ROLE_LECTOR', 'ROLE_USER']
             ],
             [
+                'name'     => 'Mantas',
                 'username' => 'manurn',
                 'email'    => 'mantas.urnieza@nfq.lt',
                 'password' => 'demo',
@@ -71,18 +77,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ],
             /* Mentor logins */
             [
+                'name'     => 'Giedrius',
                 'username' => 'gievic',
                 'email'    => 'giedrius.vickus@nfq.lt',
                 'password' => 'demo',
                 'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
             ],
             [
+                'name'     => 'Podelis',
                 'username' => 'podmen',
                 'email'    => 'podelis.mentorius@nfq.lt',
                 'password' => 'demo',
                 'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
             ],
             [
+                'name'     => 'Edukodas',
                 'username' => 'edumen',
                 'email'    => 'edukodas.mentorius@nfq.lt',
                 'password' => 'demo',
@@ -91,18 +100,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             /* Student logins */
             /* terminal_noobs */
             [
+                'name'     => 'Mantas Narkevicius',
                 'username' => 'mannar',
                 'email'    => 'manttassn@gmail.com',
                 'password' => 'demo',
                 'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
+                'name'     => 'Viktorija Razaite',
                 'username' => 'vikraz',
                 'email'    => 'viktorija.razaite@gmail.com',
                 'password' => 'demo',
                 'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
+                'name'     => 'Matas Minelga',
                 'username' => 'matmin',
                 'email'    => 'minematas@gmail.com',
                 'password' => 'demo',
@@ -110,18 +122,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ],
             /* podelis */
             [
+                'name'     => 'Dan',
                 'username' => 'danstr',
                 'email'    => 'danstr@gmail.com',
                 'password' => 'demo',
                 'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
+                'name'     => 'Eim',
                 'username' => 'eimmar',
                 'email'    => 'eimmar@gmail.com',
                 'password' => 'demo',
                 'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
+                'name'     => 'Sar',
                 'username' => 'sarvab',
                 'email'    => 'sarvab@gmail.com',
                 'password' => 'demo',
@@ -130,6 +145,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ],
             /* Edukodas */
             [
+                'name'     => 'Gen',
                 'username' => 'genboj',
                 'email'    => 'genboj@gmail.com',
                 'password' => 'demo',
@@ -137,6 +153,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
             ],
             [
+                'name'     => 'Luk',
                 'username' => 'lukcep',
                 'email'    => 'lukcep@gmail.com',
                 'password' => 'demo',
@@ -144,6 +161,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
             ],
             [
+                'name'     => 'Dom',
                 'username' => 'dompet',
                 'email'    => 'dompet@gmail.com',
                 'password' => 'demo',
@@ -152,12 +170,14 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ],
             /* Copy_Paste */
             [
+                'name'     => 'Rob',
                 'username' => 'robnor',
                 'email'    => 'robnor@gmail.com',
                 'password' => 'demo',
                 'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
             ],
             [
+                'name'     => 'Ged',
                 'username' => 'gedluk',
                 'email'    => 'gedluk@gmail.com',
                 'password' => 'demo',
@@ -165,6 +185,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
             ],
             [
+                'name'     => 'Zil',
                 'username' => 'zilnav',
                 'email'    => 'zilnav@gmail.com',
                 'password' => 'demo',
@@ -179,6 +200,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $userManager = $this->container->get('fos_user.user_manager');
         foreach ($userInfo as $info){
             $user = $userManager->createUser();
+            $user->setName($info['name']);
             $user->setUsername($info['username']);
             $user->setEmail($info['email']);
             $user->setPlainPassword($info['password']);
@@ -195,7 +217,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
      */
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 
     /**

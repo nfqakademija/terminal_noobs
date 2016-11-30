@@ -12,7 +12,9 @@ class WorkshopController extends Controller
      */
     public function listAction()
     {
-        return $this->render('AppBundle:Workshop:list.html.twig', $this->get('app.dummy')->getWorkshopData());
+        return $this->render('AppBundle:Workshop:list.html.twig', array(
+            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll()
+        ));
     }
 
     /**

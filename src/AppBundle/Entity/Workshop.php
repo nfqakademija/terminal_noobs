@@ -37,7 +37,7 @@ class Workshop
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="lector_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="lector_id", referencedColumnName="id", nullable=true)
      */
     private $lector;
 
