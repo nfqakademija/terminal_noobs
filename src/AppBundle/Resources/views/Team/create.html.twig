@@ -49,11 +49,11 @@
                     </td>
                     <br>
                 </tr>
-                {% for member in item.getMembers %}
+                {% for member in team.getMembers %}
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>{{ member }}</td>
+                        <td>{{ member.getName }}</td>
                     </tr>
                 {% endfor %}
             {% endfor %}
