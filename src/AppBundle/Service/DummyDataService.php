@@ -61,7 +61,28 @@ class DummyDataService
 
         );
     }
+    /**
+     * get academies data
+     *
+     * @return array
+     */
+    public function getAcademyData()
+    {
+        return array(
+            'academies'=>[
+                [
+                    'name' => '2016 Rudens semestras, Kaunas',
+                    'id' => '1'
 
+                ],
+                [
+                    'name' => '2016 Rudens semestras, Vilnius',
+                    'id' => '2'
+
+                ]
+            ]
+        );
+    }
     /**
      * Get grade data
      *
