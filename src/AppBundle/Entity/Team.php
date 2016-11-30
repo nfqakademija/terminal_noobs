@@ -46,17 +46,21 @@ class Team
     private $mentor;
 
     /**
-     * Constructor
+     * @ORM\ManyToOne(targetEntity="Academy")
+     * @ORM\JoinColumn(name="academy_id", referencedColumnName="id")
+     */
+    private $academy;
+
+    /**
+     * Team constructor.
      */
     public function __construct()
     {
-        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->students = new ArrayCollection();
     }
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -64,22 +68,14 @@ class Team
     }
 
     /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Team
+     * @param int $id
      */
-    public function setTitle($title)
+    public function setId($id)
     {
-        $this->title = $title;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get title
-     *
      * @return string
      */
     public function getTitle()
@@ -88,33 +84,15 @@ class Team
     }
 
     /**
-     * Add student
-     *
-     * @param \AppBundle\Entity\User $student
-     *
-     * @return Team
+     * @param string $title
      */
-    public function addStudent(\AppBundle\Entity\User $student)
+    public function setTitle($title)
     {
-        $this->students[] = $student;
-
-        return $this;
+        $this->title = $title;
     }
 
     /**
-     * Remove student
-     *
-     * @param \AppBundle\Entity\User $student
-     */
-    public function removeStudent(\AppBundle\Entity\User $student)
-    {
-        $this->students->removeElement($student);
-    }
-
-    /**
-     * Get students
-     *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return mixed
      */
     public function getStudents()
     {
@@ -122,26 +100,43 @@ class Team
     }
 
     /**
-     * Set mentor
-     *
-     * @param \AppBundle\Entity\User $mentor
-     *
-     * @return Team
+     * @param mixed $students
      */
-    public function setMentor(\AppBundle\Entity\User $mentor = null)
+    public function setStudents($students)
     {
-        $this->mentor = $mentor;
-
-        return $this;
+        $this->students = $students;
     }
 
     /**
-     * Get mentor
-     *
-     * @return \AppBundle\Entity\User
+     * @return mixed
      */
     public function getMentor()
     {
         return $this->mentor;
     }
+
+    /**
+     * @param mixed $mentor
+     */
+    public function setMentor($mentor)
+    {
+        $this->mentor = $mentor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAcademy()
+    {
+        return $this->academy;
+    }
+
+    /**
+     * @param mixed $academy
+     */
+    public function setAcademy($academy)
+    {
+        $this->academy = $academy;
+    }
+
 }

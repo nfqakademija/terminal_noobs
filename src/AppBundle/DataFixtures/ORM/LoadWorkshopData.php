@@ -65,7 +65,7 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 2;
+        return 4;
     }
 
     public function setContainer(ContainerInterface $container = null)

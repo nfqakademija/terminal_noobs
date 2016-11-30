@@ -3,19 +3,26 @@
 {% block title %}NFQ Lentelės{% endblock %}
 
 {% block body %}
+
 <article class="article workshop-list">
+{#
+    <input type="text" size="40px" id="label" /> <br /><br />
+    <input type="text" id="url" readonly />
+#}
+
+    <div class="form-status-holder"></div>
     <br>
     <h1 class="acenter">Pažymiai</h1><br>
-
     <div class="table-container">
         <table class="table table-hover">
             <thead>
             <tr class="table-header">
-                <th><!--Vardas, Pavardė--></th>
-                <th>Dizainas</th>
-                <th>Planavimas</th>
-                <th>MySQL</th>
-                <th>GitHub</th>
+                <th>Vardas \ Paskaita</th>
+                {#{% for item in workshops %}
+                    <th>{{ item.getTitle }}</th>
+                {% endfor %}#}
+                <th>Git</th>
+
             </tr>
             </thead>
 
@@ -23,14 +30,18 @@
                     {% for team in grades.teams %}
                         <tr>
                             <td><b>{{ team.name }}</b></td>
-                            <td><input min="0" max="10" step="1" maxlength="2" size="2" value="" ></td>
+                            {#
+                                {% for item in workshops %}#}
+                                     <td>  <input class="team-input" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value=""></td>
+                            {# {% endfor %}}#}
+
                         </tr>
                         {% for member in team.members %}
                             <tr>
 
                                 <td>{{ member.name }}</td>
                 {% for grade in member.grades %}
-                <td><input type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
+                <td><input class="one-student-input" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
                 {% endfor %}
                 </tr>
                 {% endfor %}
