@@ -1,10 +1,40 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:User:list{% endblock %}
+{% block title %}NFQ Akademija{% endblock %}
 
 {% block body %}
-<h1>Welcome to the User:list page</h1>
-    {% for user in users %}
-        {{ user.getEmail }}
-    {% endfor %}
+<article>
+    <br>
+<h1>Visi akademijos dalyviai</h1><br>
+
+    <table class="table table-hover">
+        <thead>
+        <tr class="table-header">
+            <th>Vardas, Pavardė</th>
+            <th>Username</th>
+            <th>El. paštas</th>
+            <th>Rolė</th>
+            <th>Aktyvumas</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for user in users %}
+        <tr>
+            {#<td>{{ user.getName }}</td>  #}
+            <td>vardas pavarde</td>
+            <td>{{ user.getUsername }}</td>
+            <td>{{ user.getEmail }}</td>
+            <td>role</td>
+            <td>aktyvus/neaktyvus</td>
+            {#<td>{{ user.getRoles }}</td>
+            <td>{{ user.getEnabled }}</td>
+            #}
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+</article>
 {% endblock %}

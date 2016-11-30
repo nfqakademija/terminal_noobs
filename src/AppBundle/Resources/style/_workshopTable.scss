@@ -1,5 +1,5 @@
 .workshop-list {
-  input[type=integer] {
+  .one-student-input {
     border: none;
     color: dimgray;
     box-sizing: border-box;
@@ -13,6 +13,24 @@
       min-width: 800px;
    }
   }
+  .team-input{
+    color: dimgray;
+    border-color: #322F2B;
+    border-radius: 4px;
+    background-color: transparent;
+  }
+  #parent #popup {
+    display: none;
+  }
+
+  #parent:hover #popup {
+    display: block;
+  }
+/*
+  #b {
+    display: block;
+  }
+  */
 }
 
 
