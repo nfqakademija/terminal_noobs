@@ -1,14 +1,10 @@
 
 $(function () {
     /*marks for team*/
-    /*
-    $("#label").bind("keyup", changed).bind("change", changed);
 
-    function changed() {
-        $("#url").val(this.value);
-    }
-    */
-
+    $(document).on('keyup', '.js-team-grade', function(e) {
+        $(".js-team-" + $(this).data('team-name')).val($(this).val());
+    });
 
     /*save input*/
     /*

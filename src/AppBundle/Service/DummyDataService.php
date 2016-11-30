@@ -161,9 +161,27 @@ class DummyDataService
     public function getGradeData(){
         return array(
             'grades' => [
-                'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
+                'workshops' => [
+                    [
+                        'id' => 1,
+                        'name' => 'Symfony introduction'
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'MySQL'
+                    ],
+                    [
+                        'id' => 3,
+                        'name' => 'Dizainas'
+                    ],
+                    [
+                        'id' => 4,
+                        'name' => 'GitHub'
+                    ]
+                ],
                 'teams' => [
                     [
+                        'id' => 1,
                         'name' => 'terminal_noobs',
                         'members' => [
                             [
@@ -181,6 +199,7 @@ class DummyDataService
                         ]
                     ],
                     [
+                        'id' => 2,
                         'name' => 'other_team',
                         'members' => [
                             [
@@ -198,6 +217,7 @@ class DummyDataService
                         ]
                     ],
                     [
+                        'id' => 3,
                         'name' => 'terminal_pros',
                         'members' => [
                             [
@@ -215,6 +235,7 @@ class DummyDataService
                         ]
                     ],
                     [
+                        'id' => 4,
                         'name' => 'code_bugs',
                         'members' => [
                             [
