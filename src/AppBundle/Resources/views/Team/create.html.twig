@@ -15,8 +15,8 @@
             </tr>
             {% for team in teams %}
                 <tr>
-                    <td>{{ team.getId }} {{ team.getName }}</td>
-                    <td>{{ team.getMentor.getName }}</td>
+                    <td>{{ team.id }} {{ team.name }}</td>
+                    <td>{{ team.mentor.name }}</td>
                     <td></td>
                     <td>
                         <button  class="btn-default" data-toggle="modal" data-target="#myModal">daugiau</button>
@@ -26,16 +26,16 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h2 class="modal-title"><input type="text" value="{{ team.getName }}"></h2>
+                                        <h2 class="modal-title"><input type="text" value="{{ team.name }}"></h2>
                                     </div>
 
                                         <p class="modal-title">Mentorius:</p>
-                                        <p class="modal-member"><input type="text" value="{{ team.getMentor.getName }}"></p><br>
+                                        <p class="modal-member"><input type="text" value="{{ team.mentor.name }}"></p><br>
 
                                         <span class="modal-title">Nariai</span>
 
-                                            {% for member in team.getMembers %}
-                                                <p class="modal-member"><input type="text" value="{{ member.getName }}"></p>
+                                            {% for member in team.members %}
+                                                <p class="modal-member"><input type="text" value="{{ member.name }}"></p>
                                             {% endfor %}
 
 
@@ -49,11 +49,11 @@
                     </td>
                     <br>
                 </tr>
-                {% for member in team.getMembers %}
+                {% for member in team.members %}
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>{{ member.getName }}</td>
+                        <td>{{ member.name }}</td>
                     </tr>
                 {% endfor %}
             {% endfor %}
