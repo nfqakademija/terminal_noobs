@@ -3,7 +3,7 @@
 {% block title %}NFQ Akademija{% endblock %}
 
 {% block body %}
-<article class="article">
+<article class="article user-list">
     <br><h1>Visi akademijos dalyviai</h1><br>
     <table class="table table-hover">
         <thead>
@@ -20,11 +20,10 @@
        {# {{ dump(users) }}#}
         {% for user in users %}
         <tr>
-            {#<td>{{ user.getName }}</td>  #}
-            <td>vardas pavarde</td>
+            <td>{{ user.name }}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
-            <td>
+            <td class="to-lowercase">
                 {% for role in user.roles %}
                     {{ role }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
