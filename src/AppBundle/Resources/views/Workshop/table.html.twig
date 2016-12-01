@@ -5,11 +5,6 @@
 {% block body %}
 
 <article class="article workshop-list">
-{#
-    <input type="text" size="40px" id="label" /> <br /><br />
-    <input type="text" id="url" readonly />
-#}
-
     <div class="form-status-holder"></div>
     <br>
     <h1 class="acenter">Pažymiai</h1><br>
@@ -18,41 +13,35 @@
             <thead>
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
-                {#{% for item in workshops %}
-                    <th>{{ item.getTitle }}</th>
-                {% endfor %}#}
-                <th>Git</th>
-
+                {% for workshop in grades.workshops %}
+                    <th>{{ workshop.name }}</th>
+                {% endfor %}
             </tr>
             </thead>
-
             <tbody>
-                    {% for team in grades.teams %}
+                {% for team in grades.teams %}
+                    <tr>
+                        <td>
+                            <b>{{ team.name }}</b>
+                        </td>
+                        {% for workshop in grades.workshops %}
+                             <td>
+                                 <input class="team-input js-team-grade" data-team-name="{{ team.id }}" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="">
+                             </td>
+                        {% endfor %}
+                    </tr>
+                    {% for member in team.members %}
                         <tr>
-                            <td><b>{{ team.name }}</b></td>
-                            {#
-                                {% for item in workshops %}#}
-                                     <td>  <input class="team-input" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value=""></td>
-                            {# {% endfor %}}#}
-
+                            <td>{{ member.name }}</td>
+                            {% for grade in member.grades %}
+                            <td><input class="one-student-inputt js-team-{{ team.id }}" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
+                            {% endfor %}
                         </tr>
-                        {% for member in team.members %}
-                            <tr>
-
-                                <td>{{ member.name }}</td>
-                {% for grade in member.grades %}
-                <td><input class="one-student-input" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
-                {% endfor %}
-                </tr>
-                {% endfor %}
                     {% endfor %}
-
+                {% endfor %}
             </tbody>
         </table>
     </div>
-
-
-    </form>
 </article>
 
 
