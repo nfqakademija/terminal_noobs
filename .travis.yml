@@ -14,5 +14,5 @@ before_script:
 script:
   - bin/console doctrine:database:create
   - bin/console doctrine:schema:update --force
-  - bin/console doctrine:fixtures:load
+  - bin/console doctrine:fixtures:load -y
   - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src
