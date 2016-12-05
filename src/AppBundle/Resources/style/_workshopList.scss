@@ -37,20 +37,14 @@
 }
 
 .btn-default {
-  color: #ffffff;
-  background-color: #aea79f;
-  border-color: #aea79f;
+  color: white;
+  background-color: #FE9100;
+  border-radius: 10px;
 }
 .btn-default:hover {
-  color: orange;
-  background-color: #978e83;
-  border-color: #92897e;
-}
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-  color: #ffffff;
-  background-color: #978e83;
-  border-color: #92897e;
+  color: #322F2B;
+  background-color: #FE9100;
+  border-radius: 10px;
 }
 .info-about{
   padding-left: 100px;

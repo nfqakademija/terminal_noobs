@@ -1,11 +1,9 @@
 {% extends '::base.html.twig' %}
 {% block title %}NFQ Lektoriai{% endblock %}
 {% block body %}
-    <div class="container">
     <article class="article">
         <br>
         <h1 class="acenter">Lektorių tvarkymas</h1><br>
-    <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-6">
                 <form>
@@ -23,7 +21,74 @@
                 <button class="btn btn-bg">Add new</button>
             </div>
         </div>
-    </div>
+
+        {#
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td class="to-lowercase">
+                    {% for role in user.roles %}
+                        {{ role }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{% if user.enabled %}
+                        aktyvus
+                    {% else %}
+                        neaktyvus
+                    {% endif %}
+                </td>
+            </tr>
+
+        {% endfor %}
+ #}
+
+        {#
+
+        {% for user in users %}
+            {% for role in user.roles %}
+
+            {% endfor %}
+
+
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td class="to-lowercase">
+                    {% for role in user.roles %}
+                        {{ role }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{% if user.enabled %}
+                        aktyvus
+                    {% else %}
+                        neaktyvus
+                    {% endif %}
+                </td>
+            </tr>
+
+        {% endfor %}
+        #}
+
+        <h1 class="acenter">Mentorių tvarkymas</h1><br>
+        <div class="row">
+            <div class="col-sm-6 col-lg-6">
+                <form>
+                    <div>
+                        <label>Vardas Pavardė</label>
+                        <input type="text" value="" class="form-control" />
+                    </div>
+                    <div>
+                        <label>Active</label>
+                        <input type="checkbox"/>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6 col-lg-6">
+                <button class="btn btn-bg">Add new</button>
+            </div>
+        </div>
     </article>
-    </div>
 {% endblock %}
