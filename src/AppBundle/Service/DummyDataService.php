@@ -28,7 +28,7 @@ class DummyDataService
                 [
                     'id' => '1',
                     'name' => 'terminal_noobs',
-                    'mentor' => ['name' => 'Giedriukas'],
+                    'mentor' => ['name' => 'Giedrius'],
                     'members' => [
                         [
                             'name' => 'Mantas Narkevicius',
@@ -46,38 +46,38 @@ class DummyDataService
                 ],
                 [
                     'id' => '2',
-                    'name' => 'xxxx',
-                    'mentor' => ['name' => 'neGiedriukas'],
+                    'name' => 'Edukologas',
+                    'mentor' => ['name' => 'edumen'],
                     'members' => [
                         [
-                            'name' => 'Mantas Narkevicius',
+                            'name' => 'Gen',
                             'userId' => 1
                         ],
                         [
-                            'name' => 'Viktorija Razaite',
+                            'name' => 'Luk',
                             'userId' => 2
                         ],
                         [
-                            'name' => 'Matas Minelga',
+                            'name' => 'Dom',
                             'userId' => 3
                         ]
                     ]
                 ],
                 [
                     'id' => '3',
-                    'name' => 'yyyyy',
-                    'mentor' => ['name' => 'neGiedriukas2'],
+                    'name' => 'podelis',
+                    'mentor' => ['name' => 'podmen'],
                     'members' => [
                         [
-                            'name' => 'Mantas Narkevicius',
+                            'name' => 'Dan',
                             'userId' => 1
                         ],
                         [
-                            'name' => 'Viktorija Razaite',
+                            'name' => 'Eim',
                             'userId' => 2
                         ],
                         [
-                            'name' => 'Matas Minelga',
+                            'name' => 'Sar',
                             'userId' => 3
                         ]
                     ]
