@@ -8,3 +8,9 @@ function showReminder(a){
     else
         document.getElementById("showReminder").style.display="block";
 }
+function showReminder2(a){
+    if(a==1)
+        document.getElementById("showReminder2").style.display="none";
+    else
+        document.getElementById("showReminder2").style.display="block";
+}
