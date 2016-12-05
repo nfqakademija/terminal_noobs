@@ -12,7 +12,6 @@ class TeamController extends Controller
      */
     public function createAction()
     {
-        //dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
         return $this->render('AppBundle:Team:create.html.twig', $this->get('app.dummy')->getTeamData());
     }
 
@@ -38,12 +37,12 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/edit")
+     * @Route("/team/edit/{id}")
      */
-    public function editAction()
+    public function editAction($id)
     {
         return $this->render('AppBundle:Team:edit.html.twig', array(
-            // ...
+            'team' => $this->getDoctrine()->getRepository('AppBundle:Team')->find($id)
         ));
     }
 

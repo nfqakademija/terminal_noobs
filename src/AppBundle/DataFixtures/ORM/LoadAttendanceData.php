@@ -41,7 +41,6 @@ class LoadAttendanceData extends AbstractFixture implements OrderedFixtureInterf
         $teamRepository = $this->container->get('doctrine')->getRepository('AppBundle:Team');
         $academyRepository = $this->container->get('doctrine')->getRepository('AppBundle:Academy');
 
-
     }
 
     /**

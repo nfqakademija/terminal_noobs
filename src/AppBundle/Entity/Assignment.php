@@ -44,9 +44,9 @@ class Assignment
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="deadline", type="datetime")
+     * @ORM\Column(name="dueDate", type="datetime")
      */
-    private $deadline;
+    private $dueDate;
 
     /**
      * @ORM\OneToMany(targetEntity="Grade", mappedBy="assignment")

@@ -35,6 +35,17 @@ class Grade
     private $grade;
 
     /**
+     * @ORM\Column(name="createDate", type="datetime")
+     */
+    private $createDate;
+
+    /**
+     * @ORM\Column(name="updateDate", type="datetime")
+     */
+    private $updateDate;
+
+
+    /**
      * Set grade
      *
      * @param integer $grade

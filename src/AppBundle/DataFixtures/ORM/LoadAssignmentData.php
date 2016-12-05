@@ -40,6 +40,9 @@ class LoadAssignmentData extends AbstractFixture implements OrderedFixtureInterf
         foreach($workshops as $workshop){
             if(rand(0,1)){
                 $assignment = new Assignment();
+                $assignment->setTitle($workshop->getTitle() . 'assignment.');
+                $assignment->setDescription($workshop->getTitle() . 'description.');
+                $assignment->setWorkshop($workshop);
             }
         }
 
