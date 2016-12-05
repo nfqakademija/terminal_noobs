@@ -234,24 +234,7 @@ class DummyDataService
                             ]
                         ]
                     ],
-                    [
-                        'id' => 4,
-                        'name' => 'code_bugs',
-                        'members' => [
-                            [
-                                'name' => 'Carl Bee',
-                                'grades' => [6, 6, 6, 9, 8, 5]
-                            ],
-                            [
-                                'name' => 'Adam Ant',
-                                'grades' => [6, 6, 6, 9, 8, 10]
-                            ],
-                            [
-                                'name' => 'Rick Roll',
-                                'grades' => [7, 7, 8, 9, 8, 10]
-                            ]
-                        ]
-                    ]
+
                 ]
             ]
         );

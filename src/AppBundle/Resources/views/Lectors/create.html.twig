@@ -12,65 +12,58 @@
                         <input type="text" value="" class="form-control" />
                     </div>
                     <div>
-                        <label>Active</label>
+                        <label>Aktyvus</label>
                         <input type="checkbox"/>
                     </div>
                 </form>
             </div>
             <div class="col-sm-6 col-lg-6">
-                <button class="btn btn-bg">Add new</button>
+                <button class="btn-default">Pridėti</button>
             </div>
         </div>
 
-        {#
-        {% for user in users %}
-            <tr>
-                <td>{{ user.name }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td class="to-lowercase">
-                    {% for role in user.roles %}
-                        {{ role }}{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-                <td>{% if user.enabled %}
-                        aktyvus
-                    {% else %}
-                        neaktyvus
-                    {% endif %}
-                </td>
+        <br>
+        <h3 class="acenter">Lektoriai</h3><br>
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th>Vardas, Pavardė</th>
+                <th>Username</th>
+                <th>El. paštas</th>
+                <th>Aktyvumas</th>
+                <th>Paskaitos</th>
             </tr>
+            </thead>
 
-        {% endfor %}
- #}
+            <tbody>
+             {% for user in users %}
+                <tr>
+                    {% for role in user.roles %}
+                        {% if role == "ROLE_LECTOR" %}
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
 
-        {#
+                            <td>{% if user.enabled %}
+                                    aktyvus
+                                    {% for item in workshops %}
+                                        {% if user.id == item.getLector.getId %}
+                                            <td>{{ item.getTitle }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    neaktyvus
+                                {% endif %}
+                            </td>
 
-        {% for user in users %}
-            {% for role in user.roles %}
-
+                        {% endif %}
+                    {% endfor %}
+                </tr>
             {% endfor %}
 
+            </tbody>
+        </table>
 
-            <tr>
-                <td>{{ user.name }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td class="to-lowercase">
-                    {% for role in user.roles %}
-                        {{ role }}{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-                <td>{% if user.enabled %}
-                        aktyvus
-                    {% else %}
-                        neaktyvus
-                    {% endif %}
-                </td>
-            </tr>
-
-        {% endfor %}
-        #}
 
         <h1 class="acenter">Mentorių tvarkymas</h1><br>
         <div class="row">
@@ -81,14 +74,59 @@
                         <input type="text" value="" class="form-control" />
                     </div>
                     <div>
-                        <label>Active</label>
+                        <label>Activus</label>
                         <input type="checkbox"/>
                     </div>
                 </form>
             </div>
             <div class="col-sm-6 col-lg-6">
-                <button class="btn btn-bg">Add new</button>
+                <button class="btn-default">Pridėti</button>
             </div>
         </div>
+
+        <br>
+        <h3 class="acenter">Mentoriai</h3><br>
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th>Vardas, Pavardė</th>
+                <th>Username</th>
+                <th>El. paštas</th>
+                <th>Aktyvumas</th>
+                <th>Komanda</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    {% for role in user.roles %}
+                        {% if role == "ROLE_MENTOR" %}
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+
+                            <td>{% if user.enabled %}
+                            aktyvus
+                            <td>Pavadinimas</td>
+                            {#
+                            {% for item in team %}
+                                {% if user.id == item.getMentorId %}
+                                    <td>{{ item.getTitle }}</td>
+                            {% endif %}
+                            {% endfor %} #}
+                        {% else %}
+                            neaktyvus
+                        {% endif %}
+                            </td>
+
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
     </article>
 {% endblock %}

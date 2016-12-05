@@ -26,7 +26,7 @@
                         </td>
                         {% for workshop in grades.workshops %}
                              <td>
-                                 <input class="team-input js-team-grade" data-team-name="{{ team.id }}" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="">
+                                 <input class="team-input js-team-grade" data-team-name="{{ team.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
                              </td>
                         {% endfor %}
                     </tr>
@@ -34,7 +34,7 @@
                         <tr>
                             <td>{{ member.name }}</td>
                             {% for grade in member.grades %}
-                            <td><input class="one-student-inputt js-team-{{ team.id }}" type="integer" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
+                            <td><input class="one-student-inputt js-team-{{ team.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
                             {% endfor %}
                         </tr>
                     {% endfor %}
