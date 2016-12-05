@@ -35,12 +35,12 @@ class Grade
     private $grade;
 
     /**
-     * @ORM\Column(name="createDate", type="datetime")
+     * @ORM\Column(name="createDate", type="datetime", nullable=true)
      */
     private $createDate;
 
     /**
-     * @ORM\Column(name="updateDate", type="datetime")
+     * @ORM\Column(name="updateDate", type="datetime", nullable=true)
      */
     private $updateDate;
 

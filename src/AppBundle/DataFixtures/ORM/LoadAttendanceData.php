@@ -9,6 +9,10 @@
 namespace DataFixtures\ORM;
 
 
+use AppBundle\Entity\Attendance;
+use AppBundle\Entity\Workshop;
+use AppBundle\Entity\Team;
+use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -39,8 +43,32 @@ class LoadAttendanceData extends AbstractFixture implements OrderedFixtureInterf
     {
         $workshopRepository = $this->container->get('doctrine')->getRepository('AppBundle:Workshop');
         $teamRepository = $this->container->get('doctrine')->getRepository('AppBundle:Team');
-        $academyRepository = $this->container->get('doctrine')->getRepository('AppBundle:Academy');
 
+        $workshops = $workshopRepository->findAll();
+
+        foreach($workshops as $workshop) {
+            $academy = $workshop->getAcademy();
+            //$teams = $teamRepository->findByAcademy($academy);
+            $teams = $teamRepository->findAll();
+            foreach($teams as $team) {
+                $students = $team->getStudents();
+                foreach($students as $student) {
+                    $attendance = new Attendance();
+                    $attendance->setWorkshop($workshop);
+                    $attendance->setStudent($student);
+                    $attendance->setPresent(true);
+                    $present = rand(0, 1);
+
+                    if($present == 0){
+                        $attendance->setPresent(false);
+                    } else {
+                        $attendance->setPresent(true);
+                    }
+                    $manager->persist($attendance);
+                }
+            }
+        }
+        $manager->flush();
     }
 
     /**

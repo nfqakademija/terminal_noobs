@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Attendance:list{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Attendance:list page</h1>
+    <ul>
+        {% for attendance in attendaces %}
+            <li>{{ attendance.getStudent.getName }} {{ attendance.getWorkshop.getTitle }} {{ attendance.getPresent }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -34,17 +34,20 @@ class LoadAssignmentData extends AbstractFixture implements OrderedFixtureInterf
      */
     public function load(ObjectManager $manager)
     {
-        $workshopManager = $this->container->get('doctrine')->getRepository('AppBundle:Workshop');
+        /*$workshopManager = $this->container->get('doctrine')->getRepository('AppBundle:Workshop');
         $workshops = $workshopManager->findAll();
 
         foreach($workshops as $workshop){
-            if(rand(0,1)){
+            $create = rand(0,1);
+            if(true){
                 $assignment = new Assignment();
                 $assignment->setTitle($workshop->getTitle() . 'assignment.');
-                $assignment->setDescription($workshop->getTitle() . 'description.');
+                $assignment->setDescription($workshop->getTitle() . ' description.');
                 $assignment->setWorkshop($workshop);
+                $manager->persist($assignment);
             }
         }
+        $manager->flush();*/
 
     }
 
@@ -55,7 +58,7 @@ class LoadAssignmentData extends AbstractFixture implements OrderedFixtureInterf
      */
     public function getOrder()
     {
-        // TODO: Implement getOrder() method.
+        return 6;
     }
 
     /**

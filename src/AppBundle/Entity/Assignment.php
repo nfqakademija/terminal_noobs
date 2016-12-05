@@ -44,7 +44,7 @@ class Assignment
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dueDate", type="datetime")
+     * @ORM\Column(name="dueDate", type="datetime", nullable=true)
      */
     private $dueDate;
 

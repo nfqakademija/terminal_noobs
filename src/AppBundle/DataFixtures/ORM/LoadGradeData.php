@@ -8,7 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -37,7 +36,20 @@ class LoadGradeData extends AbstractFixture implements  OrderedFixtureInterface,
      */
     public function load(ObjectManager $manager)
     {
-        // TODO: Implement load() method.
+        $assignmentRepository = $this->container->get('doctrine')->getRepository('AppBundle:Assignment');
+
+        $assignments = $assignmentRepository->findAll();
+        foreach($assignments as $assignment){
+            $students = $this->container->get('doctrine')->getRepository('AppBundle:Team')->findAll()->getStudents();
+            foreach($students as $student) {
+                $grade = new Grade();
+                $grade->setGrade(rand(5,10));
+                $grade->setStudent($student);
+                $grade->setAssignment($assignment);
+                $manager->persist($grade);
+            }
+        }
+        $manager->flush();
     }
 
     /**
@@ -47,6 +59,6 @@ class LoadGradeData extends AbstractFixture implements  OrderedFixtureInterface,
      */
     public function getOrder()
     {
-        // TODO: Implement getOrder() method.
+        return 7;
     }
 }

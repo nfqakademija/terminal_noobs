@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Assignment:list{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Assignment:list page</h1>
+    <ul>
+        {% for assignment in assignments %}
+            <li>{{ assignment.id }}</li>
+            <li>{{ assignment.getTitle }}</li>
+            <li>{{ assignment.getDescription }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
