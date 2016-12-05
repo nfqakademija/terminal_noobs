@@ -19,7 +19,7 @@ class AssignmentController extends Controller
     }
 
     /**
-     * @Route("/assignment/acreate")
+     * @Route("/assignment/create")
      */
     public function createAction()
     {
@@ -29,7 +29,7 @@ class AssignmentController extends Controller
     }
 
     /**
-     * @Route("/ssignment/show")
+     * @Route("/assignment/show")
      */
     public function showAction()
     {
@@ -49,7 +49,7 @@ class AssignmentController extends Controller
     }
 
     /**
-     * @Route("/update")
+     * @Route("/assignment/update")
      */
     public function updateAction()
     {
