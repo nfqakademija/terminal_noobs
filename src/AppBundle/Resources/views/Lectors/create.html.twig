@@ -1,29 +1,147 @@
 {% extends '::base.html.twig' %}
 {% block title %}NFQ Lektoriai{% endblock %}
 {% block body %}
-    <div class="container">
     <article class="article">
         <br>
         <h1 class="acenter">Lektorių tvarkymas</h1><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-lg-6">
-                <form>
-                    <div>
-                        <label>Name</label>
-                        <input type="text" value="" class="form-control" />
-                    </div>
-                    <div>
-                        <label>Active</label>
-                        <input type="checkbox"/>
-                    </div>
-                </form>
-            </div>
-            <div class="col-sm-6 col-lg-6">
-                <button class="btn btn-bg">Add new</button>
-            </div>
+        <button class="btn-default" onclick="showReminder(2)">Pridėti lektorių</button>
+
+        <div id="showReminder" style='display: none'>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-header">
+                    <th>Vardas, Pavardė</th>
+                    <th>Username</th>
+                    <th>El. paštas</th>
+                    <th>
+                        Paskaitos
+                        <button class="btn-default" onclick="addFields()">+</button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                </tbody>
+            </table>
+            <button class="btn-default" onclick="">Pridėti</button>
         </div>
-    </div>
+
+        <br>
+        <h3 class="acenter">Lektoriai</h3><br>
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th>Vardas, Pavardė</th>
+                <th>Username</th>
+                <th>El. paštas</th>
+                <th>Aktyvumas</th>
+                <th>Paskaitos</th>
+            </tr>
+            </thead>
+
+            <tbody>
+             {% for user in users %}
+                <tr>
+                    {% for role in user.roles %}
+                        {% if role == "ROLE_LECTOR" %}
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+
+                            <td>{% if user.enabled %}
+                                    aktyvus
+                                    {% for item in workshops %}
+                                        {% if user.id == item.getLector.getId %}
+                                            <td>{{ item.getTitle }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    neaktyvus
+                                {% endif %}
+                            </td>
+
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+        <br>
+        <h1 class="acenter">Mentorių tvarkymas</h1><br>
+        <button class="btn-default" onclick="showReminder2(2)">Pridėti mentorių</button>
+
+        <div id="showReminder2" style='display: none'>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-header">
+                    <th>Vardas, Pavardė</th>
+                    <th>Username</th>
+                    <th>El. paštas</th>
+                    <th>Komanda</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                </tbody>
+            </table>
+            <button class="btn-default" onclick="">Pridėti</button>
+        </div>
+        <h3 class="acenter">Mentoriai</h3><br>
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th>Vardas, Pavardė</th>
+                <th>Username</th>
+                <th>El. paštas</th>
+                <th>Aktyvumas</th>
+                <th>Komanda</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    {% for role in user.roles %}
+                        {% if role == "ROLE_MENTOR" %}
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+
+                            <td>{% if user.enabled %}
+                            aktyvus
+                            <td>Pavadinimas</td>
+                            {#
+                            {% for item in team %}
+                                {% if user.id == item.getMentorId %}
+                                    <td>{{ item.getTitle }}</td>
+                            {% endif %}
+                            {% endfor %} #}
+                        {% else %}
+                            neaktyvus
+                        {% endif %}
+                            </td>
+
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
     </article>
-    </div>
 {% endblock %}
