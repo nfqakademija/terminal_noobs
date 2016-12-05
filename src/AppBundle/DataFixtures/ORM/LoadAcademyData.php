@@ -9,6 +9,7 @@
 namespace DataFixtures\ORM;
 
 
+
 use AppBundle\Entity\Academy;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -24,10 +25,28 @@ class LoadAcademyData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $academy = new Academy();
-        $academy->setName('2016');
-        $academy->setCity('Kaunas');
-        $manager->persist($academy);
+        $academyInfo = [
+            [
+                'name' => '2016 ruduo',
+                'city' => 'Kaunas'
+            ],
+            [
+                'name' => '2016 ruduo',
+                'city' => 'Vilnius'
+            ],
+            [
+                'name' => '2016 ruduo',
+                'city' => 'Siauliai'
+            ]
+        ];
+
+        foreach($academyInfo as $info){
+            $academy = new Academy();
+            $academy->setName($info['name']);
+            $academy->setCity($info['city']);
+            $manager->persist($academy);
+        }
+        $manager->flush();
     }
 
     /**

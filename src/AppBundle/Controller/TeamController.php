@@ -22,7 +22,7 @@ class TeamController extends Controller
     public function listAction()
     {
         //dump($this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
-        return $this->render('AppBundle:Team:list.html.twig', $this->get('app.dummy')->getTeamData());
+        return $this->render('AppBundle:Team:list.html.twig', $this->getDoctrine()->getRepository('AppBundle:Team')->findAll());
     }
 
     /**

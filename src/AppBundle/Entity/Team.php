@@ -46,7 +46,7 @@ class Team
     private $mentor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Academy")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Academy")
      * @ORM\JoinColumn(name="academy_id", referencedColumnName="id")
      */
     private $academy;

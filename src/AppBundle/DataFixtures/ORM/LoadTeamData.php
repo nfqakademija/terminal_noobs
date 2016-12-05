@@ -31,31 +31,32 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface, C
     public function load(ObjectManager $manager)
     {
         $userManager = $this->container->get('fos_user.user_manager');
+        $academyRepository = $this->container->get('doctrine')->getRepository('AppBundle:Academy');
 
         $teamInfo = [
             [
                 'title' => 'terminal_noobs',
                 'mentor' => 'gievic',
                 'members' => ['mannar', 'matmin', 'vikraz'],
-                'academy' => '2016'
+                'academy' => '2016 ruduo'
             ],
             [
                 'title' => 'podelis',
                 'mentor' => 'podmen',
                 'members' => ['danstr', 'eimmar', 'sarvab'],
-                'academy' => '2016'
+                'academy' => '2016 ruduo'
             ],
             [
                 'title' => 'Edukodas',
                 'mentor' => 'edumen',
                 'members' => ['genboj', 'lukcep', 'dompet'],
-                'academy' => '2016'
+                'academy' => '2016 ruduo'
             ],
             [
                 'title' => 'Copy_Paste',
                 'mentor' => 'copmen',
                 'members' => ['robnor', 'gedluk', 'zilnav'],
-                'academy' => '2016'
+                'academy' => '2016 ruduo'
             ]
         ];
 
@@ -63,6 +64,7 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface, C
             $team = new Team();
             $team->setTitle($info['title']);
             $team->setMentor($this->container->get('fos_user.user_manager')->findUserByUsername($info['mentor']));
+            $team->setAcademy($academyRepository->findOneByName($info['academy']));
             $students = [];
             foreach ($info['members'] as $member){
                 $students[] = $this->container->get('fos_user.user_manager')->findUserByUsername($member);

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Academy;
 
 /**
  * Workshop
@@ -45,6 +46,28 @@ class Workshop
      * @ORM\OneToMany(targetEntity="Attendance", mappedBy="workshop")
      */
     private $attendance;
+
+    /**
+     * @return mixed
+     */
+    public function getAcademy()
+    {
+        return $this->academy;
+    }
+
+    /**
+     * @param mixed $academy
+     */
+    public function setAcademy($academy)
+    {
+        $this->academy = $academy;
+    }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Academy")
+     * @ORM\JoinColumn(name="academy_id", referencedColumnName="id")
+     */
+    private $academy;
 
     /**
      * Constructor
