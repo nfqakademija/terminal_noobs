@@ -15,3 +15,7 @@ services:
         class: AppBundle\Service\DummyDataService
         arguments: ["@doctrine.orm.entity_manager"]
 
+    security.authentication.customized_success_handler:
+        class: AppBundle\Service\LoginSuccessHandler
+        public: false
+        arguments:  ["@router", "@security.authorization_checker"]
