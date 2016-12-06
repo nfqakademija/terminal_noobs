@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+    <div class="container">
+        <ul>
+            {% for workshop in workshops %}
+                <li><a href="/workshop/show/{{ workshop.getId }}">{{ workshop.getTitle }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
