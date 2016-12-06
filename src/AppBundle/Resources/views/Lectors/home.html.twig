@@ -4,7 +4,7 @@
     <div class="container">
         <ul>
             {% for workshop in workshops %}
-                <li><a href="/workshop/show/{{ workshop.getId }}">{{ workshop.getTitle }}</a></li>
+                <li><a href="/workshop/show/{{ workshop.getId }}">{{ workshop.getTitle }}</a> <a href="/workshop/attendance/{{ workshop.id }}">show</a></li>
             {% endfor %}
         </ul>
     </div>

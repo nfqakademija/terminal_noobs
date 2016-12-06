@@ -27,23 +27,16 @@ class LoadAcademyData extends AbstractFixture implements OrderedFixtureInterface
     {
         $academyInfo = [
             [
-                'name' => '2016 ruduo',
-                'city' => 'Kaunas'
+                'name' => '2016 ruduo Kaunas',
             ],
             [
-                'name' => '2016 ruduo',
-                'city' => 'Vilnius'
-            ],
-            [
-                'name' => '2016 ruduo',
-                'city' => 'Siauliai'
+                'name' => '2016 ruduo Vilnius',
             ]
         ];
 
         foreach($academyInfo as $info){
             $academy = new Academy();
             $academy->setName($info['name']);
-            $academy->setCity($info['city']);
             $manager->persist($academy);
         }
         $manager->flush();
