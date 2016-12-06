@@ -12,7 +12,10 @@ class TeamController extends Controller
      */
     public function createAction()
     {
-        return $this->render('AppBundle:Team:create.html.twig', $this->get('app.dummy')->getTeamData());
+        return $this->render('AppBundle:Team:create.html.twig', array(
+            'teams' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll(),
+            'users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll()
+        ));
     }
 
     /**
