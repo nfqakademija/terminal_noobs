@@ -22,7 +22,9 @@ class WorkshopController extends Controller
      */
     public function tableAction()
     {
-        return $this->render('AppBundle:Workshop:table.html.twig', $this->get('app.dummy')->getGradeData());
+        return $this->render('AppBundle:Workshop:table.html.twig', array (
+            $this->get('app.dummy')->getGradeData()
+        ));
     }
 
     /**
@@ -30,7 +32,7 @@ class WorkshopController extends Controller
      */
     public function attendanceAction()
     {
-        return $this->render('AppBundle:Workshop:attendance.html.twig', $this->get('app.dummy')->getAttendanceData());
+        return $this->render('AppBundle:Workshop:attendance.html.twig', $this->get('AppBundle:Attendance')->get());
     }
 
     /**

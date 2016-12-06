@@ -29,4 +29,19 @@ class LectorsController extends Controller
         ));
     }
 
+    /**
+     * @Route("/lector/home", name="lector_home")
+     */
+    public function homeAction(){
+
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_LECTOR')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+
+        return $this->render('AppBundle:Lectors:home.html.twig', array(
+            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByLector($user)
+        ));
+    }
 }
