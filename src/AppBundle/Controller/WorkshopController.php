@@ -22,13 +22,13 @@ class WorkshopController extends Controller
      */
     public function tableAction()
     {
-        return $this->render('AppBundle:Workshop:table.html.twig', array (
-            $this->get('app.dummy')->getGradeData()
-        ));
+        return $this->render('AppBundle:Workshop:table.html.twig', [
+            'grades' => $this->get('app.dummy')->getGradeData()
+        ]);
     }
 
     /**
-     * @Route("/workshop/attendance")
+     * @Route("/workshop/attendance/")
      */
     public function attendanceAction()
     {

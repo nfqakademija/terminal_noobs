@@ -38,25 +38,25 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface, C
                 'title' => 'terminal_noobs',
                 'mentor' => 'gievic',
                 'members' => ['mannar', 'matmin', 'vikraz'],
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ],
             [
                 'title' => 'podelis',
                 'mentor' => 'podmen',
                 'members' => ['danstr', 'eimmar', 'sarvab'],
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ],
             [
                 'title' => 'Edukodas',
                 'mentor' => 'edumen',
                 'members' => ['genboj', 'lukcep', 'dompet'],
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ],
             [
                 'title' => 'Copy_Paste',
                 'mentor' => 'copmen',
                 'members' => ['robnor', 'gedluk', 'zilnav'],
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ]
         ];
 
