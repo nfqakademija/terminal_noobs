@@ -18,9 +18,13 @@
             {% for attendance in attendances %}
                 <tr>
                     <td>{{ attendance.student.name }}</td>
-
-                    <td><input type="checkbox" id="checkbox" checked=true  disabled = "enabled">
+                    {% if attendance.present %}
+                    <td><input type="checkbox" id="checkbox" checked>
                         <label for="checkbox"></label></td>
+                    {% else %}
+                    <td><input type="checkbox" id="checkbox">
+                        <label for="checkbox"></label></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
