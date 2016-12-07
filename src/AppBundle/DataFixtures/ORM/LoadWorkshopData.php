@@ -54,7 +54,7 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
             $workshop = new Workshop();
             $workshop->setTitle($info['title']);
             $workshop->setDescription($info['description']);
-            //$workshop->setAcademy($this->container->get('doctrine')->getRepository('AppBundle:Academy'));
+            $workshop->setAcademy($this->container->get('doctrine')->getRepository('AppBundle:Academy')->findOneByName($info['academy']));
             $workshop->setLector($this->container->get('fos_user.user_manager')->findUserByUsername($info['lector']));
             $manager->persist($workshop);
         }

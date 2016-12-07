@@ -20,13 +20,26 @@ class AttendanceController extends Controller
     /**
      * @Route("/workshop/attendance/{id}")
      */
-    public function listAction($id)
+    public function showAction($id)
     {
         $workshop = $this->getDoctrine()->getRepository('AppBundle:Workshop')->find($id);
         $attendances = $this->getDoctrine()->getRepository('AppBundle:Attendance')->findByWorkshop($workshop);
 
         return $this->render('AppBundle:Attendance:show.html.twig', array(
             'workshop' => $workshop,
+            'attendances' => $attendances
+        ));
+    }
+
+
+    /**
+     * @Route("/attendance/list")
+     */
+    public function listAction()
+    {
+        $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->findByName('2016 ruduo Kaunas');
+        $attendances = $this->getDoctrine()->getRepository('AppBundle:Attendance')->findByAcademy($academy);
+        return $this->render('AppBundle:Attendance:list.html.twig', array(
             'attendances' => $attendances
         ));
     }
