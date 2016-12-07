@@ -10,7 +10,8 @@ namespace AppBundle\Repository;
  */
 class GradeRepository extends \Doctrine\ORM\EntityRepository
 {
-    function getList(){
+    public function getList()
+    {
         return [
             'workshops' => ['Symfony introduction', 'MySQL', 'Dizainas', 'GitHub'],
             'teams' => [

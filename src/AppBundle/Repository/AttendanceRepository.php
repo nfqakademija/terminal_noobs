@@ -15,10 +15,12 @@ class AttendanceRepository extends \Doctrine\ORM\EntityRepository
     /**
      * @param $academy
      */
-    public function findByAcademy($academy){
+    public function findByAcademy($academy)
+    {
 
         /**
-         * Query in SQL "SELECT * FROM attendances LEFT JOIN workshops ON attendances.workshop_id = workshops.id WHERE workshops.academy_id = 2"
+         * Query in SQL "SELECT * FROM attendances LEFT JOIN workshops
+         * ON attendances.workshop_id = workshops.id WHERE workshops.academy_id = 2"
          */
 
         $em = $this->getEntityManager();
@@ -44,10 +46,12 @@ class AttendanceRepository extends \Doctrine\ORM\EntityRepository
     /**
      *
      */
-    public function getAverageAttendanceForAcademy($academy, $lecture){
+    public function getAverageAttendanceForAcademy($academy, $lecture)
+    {
 
         /**
-         * Query in SQL "SELECT * FROM attendances LEFT JOIN workshops ON attendances.workshop_id = workshops.id WHERE workshops.academy_id = 2"
+         * Query in SQL "SELECT * FROM attendances LEFT JOIN workshops
+         * ON attendances.workshop_id = workshops.id WHERE workshops.academy_id = 2"
          */
 
         $em = $this->getEntityManager();

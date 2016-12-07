@@ -138,5 +138,4 @@ class Team
     {
         $this->academy = $academy;
     }
-
 }

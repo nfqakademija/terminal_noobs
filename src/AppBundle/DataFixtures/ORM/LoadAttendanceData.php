@@ -49,7 +49,7 @@ class LoadAttendanceData extends AbstractFixture implements OrderedFixtureInterf
             $academy = $workshop->getAcademy();
             $teams = $teamRepository->findByAcademy($academy);
             //$teams = $teamRepository->findAll();
-            foreach($teams as $team) {
+            foreach ($teams as $team) {
                 $students = $team->getStudents();
                 foreach ($students as $student) {
                     $attendance = new Attendance();
@@ -57,8 +57,7 @@ class LoadAttendanceData extends AbstractFixture implements OrderedFixtureInterf
                     $attendance->setStudent($student);
                     $present = rand(0, 1);
 
-                    if ($present == 0)
-                    {
+                    if ($present == 0) {
                         $attendance->setPresent(false);
                     } else {
                         $attendance->setPresent(true);

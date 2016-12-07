@@ -91,7 +91,7 @@ class DummyDataService
      *
      * @return array
      */
-    public function getWorkshopData(){
+    public function getWorkshopData() {
         return array(
             'workshops' => [
                 [
@@ -99,16 +99,20 @@ class DummyDataService
                     'getTitle' => 'Symfony introduction',
                     'getDescription' => 'Lorem inpum',
                     'getLector' => ['getName' => 'Simonas Serlinskas'],
-                    'getDetailDescription' => 'A framework streamlines application development by automating many of the patterns employed for
-                    a given purpose. A framework also adds structure to the code, prompting the developer to write better, more readable, and more
-                    maintainable code. Ultimately, a framework makes programming easier, since it packages complex operations into simple statements.'
+                    'getDetailDescription' => 'A framework streamlines application 
+                    development by automating many of the patterns employed for
+                    a given purpose. A framework also adds structure to the code, 
+                    prompting the developer to write better, more readable, and more
+                    maintainable code. Ultimately, a framework makes programming 
+                    easier, since it packages complex operations into simple statements.'
                 ],
                 [
                     'getId' => '2',
                     'getTitle' => 'MySQL',
                     'getDescription' => 'Lorem inpum',
                     'getLector' => ['getName' => 'Linas Kukulskis'],
-                    'getDetailDescription' => 'A database is a separate application that stores a collection of data. Each database has one or more
+                    'getDetailDescription' => 'A database is a separate application that stores a 
+                    collection of data. Each database has one or more
                     distinct APIs for creating, accessing, managing, searching and replicating the data it holds.'
                 ],
                 [
@@ -116,16 +120,19 @@ class DummyDataService
                     'getTitle' => 'Dizainas',
                     'getDescription' => 'Lorem inpum',
                     'getLector' => ['getName' => 'Darius Bisikirskas'],
-                    'getDetailDescription' => 'pateikti optimalius vizualinės komunikacijos problemos sprendimo būdus tiek komercinėje, tiek nekomercinėje
-                    srityje. Sprendimo būdai ir rezultatai tiesiogiai priklauso nuo kliento suformuluojamos užduoties. Komunikavimui paprastai naudojami
-                    statiniai elementai – žodžiai (tipografija), vaizdai ir kiti grafiniai elementai (vizualinė medžiaga).'
+                    'getDetailDescription' => 'pateikti optimalius vizualinės komunikacijos 
+                    problemos sprendimo būdus tiek komercinėje, tiek nekomercinėje
+                    srityje. Sprendimo būdai ir rezultatai tiesiogiai priklauso nuo kliento suformuluojamos užduoties. 
+                    Komunikavimui paprastai naudojami statiniai elementai – žodžiai (tipografija), 
+                    vaizdai ir kiti grafiniai elementai (vizualinė medžiaga).'
                 ],
                 [
                     'getId' => '4',
                     'getTitle' => 'GitHub',
                     'getDescription' => 'Lorem inpum',
                     'getLector' => ['getName' => 'Darius Kasiulevicius'],
-                    'getDetailDescription' => 'GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.'
+                    'getDetailDescription' => 'GitHub is a code hosting platform for version control and collaboration. 
+                    It lets you and others work together on projects from anywhere.'
                 ]
             ]
 
@@ -345,15 +352,14 @@ class DummyDataService
                                         'attended' => false,
                                         'workshopId'=>2
                                     ],
-                                [
-                                    'attended' => false,
-                                    'workshopId'=>3
-                                ],
-                                [
-                                    'attended' => true,
-                                    'workshopId'=>4
-                                ],
-
+                                    [
+                                        'attended' => false,
+                                        'workshopId'=>3
+                                    ],
+                                    [
+                                        'attended' => true,
+                                        'workshopId'=>4
+                                    ],
                             ]
                         ],
                         [

@@ -34,8 +34,7 @@ class LoadAcademyData extends AbstractFixture implements OrderedFixtureInterface
             ]
         ];
 
-        foreach ($academyInfo as $info)
-        {
+        foreach ($academyInfo as $info) {
             $academy = new Academy();
             $academy->setName($info['name']);
             $academy->setStatus($info['status']);

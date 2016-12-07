@@ -36,11 +36,9 @@ class LoadAssignmentData extends AbstractFixture implements OrderedFixtureInterf
         $workshopManager = $this->container->get('doctrine')->getRepository('AppBundle:Workshop');
         $workshops = $workshopManager->findAll();
 
-        foreach ($workshops as $workshop)
-        {
+        foreach ($workshops as $workshop) {
             $create = rand(0, 1);
-            if (true)
-            {
+            if (true) {
                 $assignment = new Assignment();
                 $assignment->setTitle($workshop->getTitle() . 'assignment.');
                 $assignment->setDescription($workshop->getTitle() . ' description.');

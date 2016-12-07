@@ -257,7 +257,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->loadUsers($userInfo);
     }
 
-    public function loadUsers($userInfo) {
+    public function loadUsers($userInfo)
+    {
         $userManager = $this->container->get('fos_user.user_manager');
         foreach ($userInfo as $info) {
             $user = $userManager->createUser();

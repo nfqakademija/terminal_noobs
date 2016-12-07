@@ -12,5 +12,4 @@ class HomeControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
     }
-
 }

@@ -40,5 +40,4 @@ class WorkshopControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/workshop/delete');
     }
-
 }
