@@ -38,9 +38,9 @@ class AttendanceController extends Controller
     public function listAction()
     {
         $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->findByName('2016 ruduo Kaunas');
-        $attendances = $this->getDoctrine()->getRepository('AppBundle:Attendance')->findByAcademy($academy);
+        $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
         return $this->render('AppBundle:Attendance:list.html.twig', array(
-            'attendances' => $attendances
+            'workshops' => $workshops
         ));
     }
 }
