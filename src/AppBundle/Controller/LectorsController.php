@@ -15,7 +15,7 @@ class LectorsController extends Controller
         return $this->render('AppBundle:Lectors:create.html.twig', array(
             'users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll(),
             'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll(),
-            'team' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
+            'teams' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
         ));
     }
 

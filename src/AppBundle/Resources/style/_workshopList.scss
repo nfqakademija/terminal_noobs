@@ -40,11 +40,18 @@
   color: white;
   background-color: #FE9100;
   border-radius: 10px;
+  font-size: 18px;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 .btn-default:hover {
-  color: #322F2B;
-  background-color: #FE9100;
+  background-color: #FFAB3D;
+  color: white;
   border-radius: 10px;
+  font-size: 18px;
 }
 .info-about{
   padding-left: 100px;
