@@ -2,8 +2,6 @@
   .one-student-input {
     border: none;
     color: dimgray;
-    box-sizing: border-box;
-    border-radius: 4px;
     background-color: transparent;
   }
   .table-container {
@@ -26,11 +24,15 @@
   #parent:hover #popup {
     display: block;
   }
-
   #b {
     display: block;
   }
-
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    width:5px;
+  }
 }
 
 
