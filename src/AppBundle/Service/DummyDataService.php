@@ -122,8 +122,8 @@ class DummyDataService
                     'getDescription' => 'Lorem inpum',
                     'getLector' => ['getName' => 'Darius Bisikirskas'],
                     'getDetailDescription' => 'pateikti optimalius vizualinės komunikacijos 
-                    problemos sprendimo būdus tiek komercinėje, tiek nekomercinėje
-                    srityje. Sprendimo būdai ir rezultatai tiesiogiai priklauso nuo kliento suformuluojamos užduoties. 
+                    problemos sprendimo būdus tiek komercinėje, tiek nekomercinėje srityje. 
+                    Sprendimo būdai ir rezultatai tiesiogiai priklauso nuo kliento suformuluojamos užduoties. 
                     Komunikavimui paprastai naudojami statiniai elementai – žodžiai (tipografija), 
                     vaizdai ir kiti grafiniai elementai (vizualinė medžiaga).'
                 ],
