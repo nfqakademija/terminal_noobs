@@ -8,8 +8,6 @@
             <th>Nr.</th>
             <th>Pavadinimas</th>
             <th>Aprašymas</th>
-            <th>Dėstytojas</th>
-            <th>Failas</th>
             <th></th>
             {% for item in workshops %}
                 {% if item.getLector.getName ==  app.user.Name  %}
@@ -17,14 +15,6 @@
                     <td>{{ item.getId }}</td>
                     <td>{{ item.getTitle }}</td>
                     <td>{{ item.getDescription }}</td>
-                    <td>{{ item.getLector.getName }}</td>
-                    <!-- a href="show/{{ item.getId }}"-->
-                    <td>
-                        <form action="upload.php" method="post" enctype="multipart/form-data">
-
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                        </form>
-                    </td>
                 </tr>
                     {% endif %}
             {% endfor %}
