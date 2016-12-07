@@ -91,7 +91,8 @@ class DummyDataService
      *
      * @return array
      */
-    public function getWorkshopData() {
+    public function getWorkshopData()
+    {
         return array(
             'workshops' => [
                 [
@@ -165,7 +166,8 @@ class DummyDataService
      *
      * @return array
      */
-    public function getGradeData(){
+    public function getGradeData()
+    {
         return array(
             'grades' => [
                 'workshops' => [

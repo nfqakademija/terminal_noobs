@@ -89,4 +89,3 @@ class Academy
         return $this->name;
     }
 }
-
