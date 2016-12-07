@@ -74,6 +74,18 @@ function getAttendanceAverages(workshopId, teams)
 $(document).ready(function() {
 
 
+    $('.js-attendance-submit').on('change', function(e) {
+
+        var data = {
+            user_id: $(this).data('user'),
+            workshop_id: $(this).data('attendace')
+        };
+
+        $.post("/attendance/update/"+$(this).data('user')+"/"+$(this).data('attendace'), function( data ) {
+            console.log(data);
+        });
+    });
+
     //asnxaksx
 
 });

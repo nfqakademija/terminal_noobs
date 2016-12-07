@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Attendance;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class AttendanceController extends Controller
@@ -42,5 +44,29 @@ class AttendanceController extends Controller
         return $this->render('AppBundle:Attendance:list.html.twig', array(
             'workshops' => $workshops
         ));
+    }
+
+    /**
+     * @var Attendance $attendance
+     *
+     * @Route("/attendance/update/{userId}/{workshopId}")
+     */
+    public function updateAction(Request $request, $userId, $workshopId)
+    {
+
+//        $userId = $request->query->get('user_id');
+//
+//        $workshopId = $request->query->get('workshop_id');
+
+//        $em = $this->getDoctrine()->getEntityManager();
+//        $workshop = $em->getRepository('AppBundle:Workshop')->find($workshopId);
+//        $attendance = $em->getRepository('AppBundle:Attendance')->findOneBy($workshop);
+//        $attendance->setPresent(!$attendance->getPresent());
+//        $em->persist($attendance);
+//        $em->flush();
+
+
+        return $this->json(array('status' => 'ok', 'user' => $userId, 'workshop' => $workshopId));
+
     }
 }
