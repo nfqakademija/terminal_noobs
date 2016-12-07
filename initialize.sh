@@ -9,6 +9,6 @@ docker-compose exec fpm bin/console doctrine:database:create
 echo "Updating database"
 docker-compose exec fpm bin/console doctrine:schema:update --force
 echo "Loading database"
-docker-compose exec fpm bin/console doctrine:fixtures:load
+docker-compose exec fpm bin/console doctrine:fixtures:load -n
 echo "Done!"
 docker-compose run npm gulp

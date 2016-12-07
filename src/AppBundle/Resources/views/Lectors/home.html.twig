@@ -1,11 +1,27 @@
 {% extends '::base.html.twig' %}
 {% block title %}Home{% endblock %}
 {% block body %}
-    <div class="container">
-        <ul>
-            {% for workshop in workshops %}
-                <li><a href="/workshop/show/{{ workshop.getId }}">{{ workshop.getTitle }}</a> <a href="/workshop/attendance/{{ workshop.id }}">show</a></li>
-            {% endfor %}
-        </ul>
-    </div>
+    <article class="article user-list">
+        <br><h1>Paskaitos</h1><br>
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th>Paskaita</th>
+                <th>Lankomumas</th>
+                <th>Pažymiai</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                {% for workshop in workshops %}
+                    <td><a href="/workshop/show/{{ workshop.getId }}">{{ workshop.getTitle }}</a> </td>
+                    <td>  <a href="/workshop/attendance/{{ workshop.id }}">show</a></td>
+                    <td></td>
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </article>
+
 {% endblock %}

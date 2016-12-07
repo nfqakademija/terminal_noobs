@@ -53,19 +53,22 @@
                             <td>{{ user.name }}</td>
                             <td>{{ user.username }}</td>
                             <td>{{ user.email }}</td>
-
-                            <td>{% if user.enabled %}
+                            <td>
+                                {% if user.enabled %}
                                     aktyvus
-                                    {% for item in workshops %}
-                                        {% if user.id == item.getLector.getId %}
-                                            <td>{{ item.getTitle }}</td>
-                                        {% endif %}
-                                    {% endfor %}
                                 {% else %}
                                     neaktyvus
                                 {% endif %}
                             </td>
-
+                            <td>
+                            {% if user.enabled %}
+                                {% for item in workshops %}
+                                    {% if user.id == item.getLector.getId %}
+                                        {{ item.getTitle }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            </td>
                         {% endif %}
                     {% endfor %}
                 </tr>

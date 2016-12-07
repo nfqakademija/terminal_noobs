@@ -25,12 +25,9 @@
                     </td>
 
                 </tr>
-
-                
                 {% for student in team.students %}
                     {% for user in users %}
-                        {% for id in user.id %}
-                            {% if id == student.id%}
+                            {% if user.id == student.id%}
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -39,7 +36,6 @@
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
-                {% endfor %}
             {% endfor %}
         </table>
 
@@ -59,10 +55,13 @@
 
             <span class="modal-title">Nariai:</span><br>
             {% for team in teams %}
-                {% for member in team.students %}
-                    <tr>
-                        <td class="modal-member">{{ member.name }}</td><br>
-                    </tr>
+                {% for student in team.students %}
+                    {% for user in users %}
+                        {% if user.id == student.id%}
+                                <td>{{ user.name }}</td>
+                           <br>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             {% endfor %}
             <br>
