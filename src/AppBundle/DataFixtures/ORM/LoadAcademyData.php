@@ -28,15 +28,18 @@ class LoadAcademyData extends AbstractFixture implements OrderedFixtureInterface
         $academyInfo = [
             [
                 'name' => '2016 ruduo Kaunas',
+                'status' => true
             ],
             [
                 'name' => '2016 ruduo Vilnius',
+                'status' => true
             ]
         ];
 
         foreach($academyInfo as $info){
             $academy = new Academy();
             $academy->setName($info['name']);
+            $academy->setStatus($info['status']);
             $manager->persist($academy);
         }
         $manager->flush();
