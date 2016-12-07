@@ -9,7 +9,7 @@
                     {% endif %}
 
                     {% if is_granted('ROLE_LECTOR') %}
-                        <a class="image-holder" href="/workshop/attendance" id="/workshop/attendance" onclick="window.location = '/workshop/attendance';" >
+                        <a class="image-holder" href="/lector/home" id="/lector/home" onclick="window.location = '/lector/home';" >
                             <img src="{{ asset('images/logo.png') }}">
                         </a>
                     {% endif %}
@@ -42,13 +42,8 @@
                                     <li class="item-a"><a href="/administrator/academyCompare">Akademijų palyginimas</a></li>
                                 </ul>
                             </li>
-                            <li class="item-a" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tvarkyti<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="item-a"><a href="/team/create">Komandos</a></li>
-                                    {#<li class="item-a"><a href="/team/list">Komandos List</a></li>#}
-                                    <li class="item-a"><a href="/lectors/create">Lektoriai / Mentoriai</a></li>
-                                </ul>
-                            </li>
+                            <li class="item-a"><a href="/lectorsmentors">Lektoriai / Mentoriai</a></li>
+                            <li class="item-a"><a href="/team/create">Komandos</a></li>
                             <li><a class="item-a" href="/user/list">Akademijos dalyviai</a></li>
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
                             <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
@@ -57,17 +52,17 @@
 
                         {% if is_granted('ROLE_LECTOR') %}
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                            <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
-                            <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
+                            <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
+                            <li><a class="item-a" href="/lector/home">Paskaitų informacija</a></li>
                         {% endif %}
                         {% if is_granted('ROLE_MENTOR') %}
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                            <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
+                            <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
                             <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
                         {% endif %}
                         {% if is_granted('ROLE_STUDENT') %}
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                            <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
+                            <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
                             <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
                         {% endif %}
 

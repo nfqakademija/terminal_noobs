@@ -3,37 +3,9 @@
 {% block body %}
     <article class="article">
         <br>
-        <h1 class="acenter">Lektorių tvarkymas</h1><br>
-        <button class="btn-default" onclick="showReminder(2)">Pridėti lektorių</button>
-
-        <div id="showReminder" style='display: none'>
-            <br>
-            <table class="table table-hover">
-                <thead>
-                <tr class="table-header">
-                    <th>Vardas, Pavardė</th>
-                    <th>Username</th>
-                    <th>El. paštas</th>
-                    <th>
-                        Paskaitos
-                        <button class="btn-default" onclick="addFields()">+</button>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                </tr>
-                </tbody>
-            </table>
-            <button class="btn-default" onclick="showReminder(1)">Pridėti</button>
-        </div>
+        <h1 class="acenter">Lektoriai</h1><br>
 
         <br>
-        <h3 class="acenter">Lektoriai</h3><br>
         <table class="table table-hover">
             <thead>
             <tr class="table-header">
@@ -53,19 +25,22 @@
                             <td>{{ user.name }}</td>
                             <td>{{ user.username }}</td>
                             <td>{{ user.email }}</td>
-
-                            <td>{% if user.enabled %}
+                            <td>
+                                {% if user.enabled %}
                                     aktyvus
-                                    {% for item in workshops %}
-                                        {% if user.id == item.getLector.getId %}
-                                            <td>{{ item.getTitle }}</td>
-                                        {% endif %}
-                                    {% endfor %}
                                 {% else %}
                                     neaktyvus
                                 {% endif %}
                             </td>
-
+                            <td>
+                            {% if user.enabled %}
+                                {% for item in workshops %}
+                                    {% if user.id == item.getLector.getId %}
+                                        {{ item.getTitle }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            </td>
                         {% endif %}
                     {% endfor %}
                 </tr>
@@ -75,32 +50,8 @@
         </table>
 
         <br>
-        <h1 class="acenter">Mentorių tvarkymas</h1><br>
-        <button class="btn-default" onclick="showReminder2(2)">Pridėti mentorių</button>
+        <h1 class="acenter">Mentoriai</h1><br>
 
-        <div id="showReminder2" style='display: none'>
-            <br>
-            <table class="table table-hover">
-                <thead>
-                <tr class="table-header">
-                    <th>Vardas, Pavardė</th>
-                    <th>Username</th>
-                    <th>El. paštas</th>
-                    <th>Komanda</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                </tr>
-                </tbody>
-            </table>
-            <button class="btn-default" onclick="showReminder2(1)">Pridėti</button>
-        </div>
-        <h3 class="acenter">Mentoriai</h3><br>
         <table class="table table-hover">
             <thead>
             <tr class="table-header">
@@ -122,18 +73,24 @@
                             <td>{{ user.email }}</td>
 
                             <td>{% if user.enabled %}
-                            aktyvus
-                            <td>Pavadinimas</td>
-                            {#
-                            {% for item in team %}
-                                {% if user.id == item.getMentorId %}
-                                    <td>{{ item.getTitle }}</td>
-                            {% endif %}
-                            {% endfor %} #}
-                        {% else %}
-                            neaktyvus
-                        {% endif %}
+                                aktyvus
+                                {% else %}
+                                    neaktyvus
+                                {% endif %}
                             </td>
+                            {% if user.enabled %}
+
+                                {% for team in teams %}
+
+                                        {% if team.mentor == user.username %}
+                                            <td>{{ team.title }} </td>
+                                        {% endif %}
+
+
+                                {% endfor %}
+
+                                {% endif %}
+
 
                         {% endif %}
                     {% endfor %}

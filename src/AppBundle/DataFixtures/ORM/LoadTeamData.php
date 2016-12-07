@@ -57,6 +57,18 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface, C
                 'mentor' => 'copmen',
                 'members' => ['robnor', 'gedluk', 'zilnav'],
                 'academy' => '2016 ruduo Kaunas'
+            ],
+            [
+                'title' => 'Other Wilno team',
+                'mentor' => 'wilno',
+                'members' => ['sumguy', 'nono', 'kumkum'],
+                'academy' => '2016 ruduo Vilnius'
+            ],
+            [
+                'title' => 'One another Wilno Team',
+                'mentor' => 'wilnot',
+                'members' => ['sumguyt', 'nonot', 'kumkumt'],
+                'academy' => '2016 ruduo Vilnius'
             ]
         ];
 

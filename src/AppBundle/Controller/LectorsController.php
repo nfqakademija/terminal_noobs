@@ -8,14 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class LectorsController extends Controller
 {
     /**
-     * @Route("/lectors/create")
+     * @Route("/lectorsmentors")
      */
     public function createAction()
     {
         return $this->render('AppBundle:Lectors:create.html.twig', array(
             'users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll(),
             'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll(),
-            'team' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
+            'teams' => $this->getDoctrine()->getRepository('AppBundle:Team')->findAll()
         ));
     }
 

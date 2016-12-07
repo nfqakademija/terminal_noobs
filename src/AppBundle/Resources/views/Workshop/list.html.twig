@@ -7,43 +7,27 @@
     <br>
     <h1 class="acenter">Paskaitų informacija</h1><br>
     <table class="table">
-        <th>Nr.</th><th>Pavadinimas</th><th>Aprašymas</th><th>Dėstytojas</th><th></th>
+        <th>Nr.</th>
+        <th>Pavadinimas</th>
+        <th>Aprašymas</th>
+        <th>Dėstytojas</th>
+        <th>Failas</th>
+        <th></th>
         {% for item in workshops %}
             <tr>
                 <td>{{ item.getId }}</td>
                 <td>{{ item.getTitle }}</td>
                 <td>{{ item.getDescription }}</td>
-                <td>{{ item.getLector.getUsername }}</td>
+                <td>{{ item.getLector.getName }}</td>
                 <!-- a href="show/{{ item.getId }}"-->
                 <td>
-                    <!-- Trigger/Open The Modal -->
-                    <button class="btn-default" onclick="openModal('{{ item.getTitle }}', '{{ item.getDescription }}')">Daugiau info</button>
+                    <form action="upload.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                    </form>
                 </td>
             </tr>
         {% endfor %}
     </table>
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <span id="close" onclick="closeModal()">×</span>
-                <h1 id="modal-title"></h1>
-            </div>
-
-            <p class="modal-title">Apie paskaitą:</p>
-            <p id="modal-description" class="info-about"></p>
-            <br>
-            <label class="control-label">Pridėti failą</label>
-            <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
-            <br>
-            <div class="modal-footer">
-                <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
-
-            </div>
-        </div>
-    </div>
-
 </article>
 {% endblock %}
