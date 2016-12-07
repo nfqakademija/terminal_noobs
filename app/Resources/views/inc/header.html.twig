@@ -9,7 +9,7 @@
                     {% endif %}
 
                     {% if is_granted('ROLE_LECTOR') %}
-                        <a class="image-holder" href="/workshop/attendance" id="/workshop/attendance" onclick="window.location = '/workshop/attendance';" >
+                        <a class="image-holder" href="/lector/home" id="/lector/home" onclick="window.location = '/lector/home';" >
                             <img src="{{ asset('images/logo.png') }}">
                         </a>
                     {% endif %}
@@ -57,17 +57,17 @@
 
                         {% if is_granted('ROLE_LECTOR') %}
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                            <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
-                            <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
+                            <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
+                            <li><a class="item-a" href="/lector/home">Paskaitų informacija</a></li>
                         {% endif %}
                         {% if is_granted('ROLE_MENTOR') %}
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                            <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
+                            <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
                             <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
                         {% endif %}
                         {% if is_granted('ROLE_STUDENT') %}
                             <li><a class="item-a" href="/workshop/table">Pažymiai</a></li>
-                            <li><a class="item-a" href="/workshop/attendance">Lankomumas</a></li>
+                            <li><a class="item-a" href="/attendance/list">Lankomumas</a></li>
                             <li><a class="item-a" href="/workshop/list">Paskaitų informacija</a></li>
                         {% endif %}
 
