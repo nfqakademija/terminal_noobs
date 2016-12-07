@@ -55,6 +55,7 @@ class AdminController extends Controller
         $grades = $this->getDoctrine()->getRepository('AppBundle:Grade')->findAll();
         $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
         $attendances = $this->getDoctrine()->getRepository('AppBundle:Attendance')->findAll();
+
         if (!empty($_GET)) {
             $AcademyOne = $_GET['academy1'];
             $AcademyTwo = $_GET['academy2'];
