@@ -28,12 +28,6 @@ class Academy
      */
     private $name;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=55)
-     */
-    private $city;
 
     /**
      * @return mixed
@@ -73,28 +67,6 @@ class Academy
         return $this->name;
     }
 
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return Academy
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
 
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
 }
 

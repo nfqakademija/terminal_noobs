@@ -22,8 +22,13 @@ class WorkshopController extends Controller
      */
     public function tableAction()
     {
+        $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findAll();
+        $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
         return $this->render('AppBundle:Workshop:table.html.twig', array (
-            $this->get('app.dummy')->getGradeData()
+            'workshops' => $workshops,
+            'teams' => $teams,
+            'assignments' => $assignments,
         ));
     }
 

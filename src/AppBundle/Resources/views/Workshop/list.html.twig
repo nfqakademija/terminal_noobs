@@ -27,18 +27,22 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span id="close" onclick="closeModal()">×</span>
-            <h1 id="modal-title"></h1>
+            <div class="modal-header">
+                <span id="close" onclick="closeModal()">×</span>
+                <h1 id="modal-title"></h1>
+            </div>
 
-            <p>Apie paskaitą:</p>
+            <p class="modal-title">Apie paskaitą:</p>
             <p id="modal-description" class="info-about"></p>
             <br>
             <label class="control-label">Pridėti failą</label>
             <input  class="btn-default" id="mySelect" id="input-1a" type="file" class="file" data-show-preview="false">
             <br>
-            <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
-        </div>
+            <div class="modal-footer">
+                <input class="btn-default" type="button" onclick="save()"  value="Išsaugoti">
 
+            </div>
+        </div>
     </div>
 
 </article>

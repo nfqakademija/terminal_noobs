@@ -13,31 +13,33 @@
             <thead>
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
-                {% for workshop in grades.workshops %}
-                    <th>{{ workshop.name }}</th>
+                {% for workshop in workshops %}
+                    <th>{{ workshop.title }}</th>
                 {% endfor %}
             </tr>
             </thead>
             <tbody>
-                {% for team in grades.teams %}
+                {% for team in teams %}
                     <tr>
                         <td>
-                            <b>{{ team.name }}</b>
+                            <b>{{ team.title }}</b>
                         </td>
-                        {% for workshop in grades.workshops %}
+                        {% for workshop in workshops %}
                              <td>
                                  <input class="team-input js-team-grade" data-team-name="{{ team.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
                              </td>
                         {% endfor %}
                     </tr>
-                    {% for member in team.members %}
+
+                    {% for stud in team.students %}
                         <tr>
-                            <td>{{ member.name }}</td>
-                            {% for grade in member.grades %}
-                            <td><input class="one-student-inputt js-team-{{ team.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade }}" ></td>
+                            <td>{{ stud.name }}</td>
+                            {% for grade in assignment.grades %}
+                            <td><input class="one-student-inputt js-team-{{ team.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade.grade }}" ></td>
                             {% endfor %}
                         </tr>
                     {% endfor %}
+
                 {% endfor %}
             </tbody>
         </table>

@@ -34,19 +34,19 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
                 'title'  => 'Design patterns',
                 'lector' => 'simser',
                 'description' => 'Description of the design pattern workshop',
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ],
             [
                 'title'  => 'Introduction to symfony',
                 'lector' => 'simser',
                 'description' => 'Description of the symfony introduction workshop',
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ],
             [
                 'title'  => 'Design',
                 'lector' => 'simser',
                 'description' => 'Description of the design workshop',
-                'academy' => '2016 ruduo'
+                'academy' => '2016 ruduo Kaunas'
             ]
         ];
 
