@@ -76,5 +76,4 @@ class WorkshopController extends Controller
         return $this->render('AppBundle:Workshop:delete.html.twig', array(// ...
         ));
     }
-
 }

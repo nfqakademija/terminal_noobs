@@ -8,8 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
-
 use AppBundle\Entity\Academy;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

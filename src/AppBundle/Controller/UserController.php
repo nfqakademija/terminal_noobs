@@ -16,5 +16,4 @@ class UserController extends Controller
             'users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll()
         ));
     }
-
 }

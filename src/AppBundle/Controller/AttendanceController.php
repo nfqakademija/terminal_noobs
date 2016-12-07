@@ -67,6 +67,5 @@ class AttendanceController extends Controller
 
 
         return $this->json(array('status' => 'ok', 'user' => $userId, 'workshop' => $workshopId));
-
     }
 }
