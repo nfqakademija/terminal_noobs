@@ -1,6 +1,6 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}NFQ Lentelės{% endblock %}
+{% block title %}NFQ Pažymiai{% endblock %}
 
 {% block body %}
 
@@ -14,7 +14,7 @@
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
                 {% for workshop in workshops %}
-                    <th width="10%">{{ workshop.title }}</th>
+                    <th width="17%">{{ workshop.title }}</th>
                 {% endfor %}
             </tr>
             </thead>

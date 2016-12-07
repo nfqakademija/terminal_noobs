@@ -38,10 +38,11 @@ class LectorsController extends Controller
             throw $this->createAccessDeniedException();
         }
 
-        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->findByName('2016 ruduo Kaunas');
+        $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
 
         return $this->render('AppBundle:Lectors:home.html.twig', array(
-            'workshops' => $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByLector($user)
+            'workshops' => $workshops
         ));
     }
 }

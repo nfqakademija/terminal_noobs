@@ -16,4 +16,13 @@ class UserController extends Controller
             'users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll()
         ));
     }
+    /**
+     * @Route("/user/show")
+     */
+    public function showAction()
+    {
+        return $this->render('AppBundle:User:show.html.twig', array(
+            'users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll()
+        ));
+    }
 }
