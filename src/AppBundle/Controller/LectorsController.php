@@ -32,7 +32,8 @@ class LectorsController extends Controller
     /**
      * @Route("/lector/home", name="lector_home")
      */
-    public function homeAction(){
+    public function homeAction()
+    {
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_LECTOR')) {
             throw $this->createAccessDeniedException();
         }

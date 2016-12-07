@@ -8,7 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -37,9 +36,11 @@ class LoadAssignmentData extends AbstractFixture implements OrderedFixtureInterf
         $workshopManager = $this->container->get('doctrine')->getRepository('AppBundle:Workshop');
         $workshops = $workshopManager->findAll();
 
-        foreach($workshops as $workshop){
-            $create = rand(0,1);
-            if(true){
+        foreach ($workshops as $workshop)
+        {
+            $create = rand(0, 1);
+            if (true)
+            {
                 $assignment = new Assignment();
                 $assignment->setTitle($workshop->getTitle() . 'assignment.');
                 $assignment->setDescription($workshop->getTitle() . ' description.');
@@ -48,7 +49,6 @@ class LoadAssignmentData extends AbstractFixture implements OrderedFixtureInterf
             }
         }
         $manager->flush();
-
     }
 
     /**

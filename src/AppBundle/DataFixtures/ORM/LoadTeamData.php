@@ -72,13 +72,13 @@ class LoadTeamData extends AbstractFixture implements OrderedFixtureInterface, C
             ]
         ];
 
-        foreach($teamInfo as $info) {
+        foreach ($teamInfo as $info) {
             $team = new Team();
             $team->setTitle($info['title']);
             $team->setMentor($this->container->get('fos_user.user_manager')->findUserByUsername($info['mentor']));
             $team->setAcademy($academyRepository->findOneByName($info['academy']));
             $students = [];
-            foreach ($info['members'] as $member){
+            foreach ($info['members'] as $member) {
                 $students[] = $this->container->get('fos_user.user_manager')->findUserByUsername($member);
             }
             $team->setStudents($students);

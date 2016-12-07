@@ -15,7 +15,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadGradeData extends AbstractFixture implements  OrderedFixtureInterface, ContainerAwareInterface
+class LoadGradeData extends AbstractFixture implements  OrderedFixtureInterface,ContainerAwareInterface
 {
 
     private $container;
@@ -40,14 +40,14 @@ class LoadGradeData extends AbstractFixture implements  OrderedFixtureInterface,
         $assignmentRepository = $this->container->get('doctrine')->getRepository('AppBundle:Assignment');
 
         $assignments = $assignmentRepository->findAll();
-        foreach($assignments as $assignment){
+        foreach ($assignments as $assignment) {
             $academy = $assignment->getWorkshop()->getAcademy();
             $teams = $this->container->get('doctrine')->getRepository('AppBundle:Team')->findByAcademy($academy);
-            foreach($teams as $team) {
+            foreach ($teams as $team) {
                 $students = $team->getStudents();
-                foreach($students as $student) {
+                foreach ($students as $student) {
                     $grade = new Grade();
-                    $grade->setGrade(rand(5,10));
+                    $grade->setGrade(rand(5, 10));
                     $grade->setStudent($student);
                     $grade->setAssignment($assignment);
                     $manager->persist($grade);

@@ -8,7 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -80,11 +79,13 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
             ],
         ];
 
-        foreach($workshopInfo as $info){
+        foreach ($workshopInfo as $info) {
             $workshop = new Workshop();
             $workshop->setTitle($info['title']);
             $workshop->setDescription($info['description']);
-            $workshop->setAcademy($this->container->get('doctrine')->getRepository('AppBundle:Academy')->findOneByName($info['academy']));
+            $workshop->setAcademy(
+                $this->container->get('doctrine')->getRepository('AppBundle:Academy')->findOneByName($info['academy'])
+            );
             $workshop->setLector($this->container->get('fos_user.user_manager')->findUserByUsername($info['lector']));
             $manager->persist($workshop);
         }
