@@ -81,7 +81,7 @@
         var academyOneId = {{ academyOneId|json_encode() | raw()}};
         var academyTwoId = {{ academyTwoId|json_encode() | raw()}};
         //var reqiuredTeams = getTeamsFromSelectedAcademy(academyOneId, Allteams);
-        var averages = [0.7*100,0.8*100,0.9*100,0.65*100]
+        var averages = [100, 95, 80, 85, 93, 97,97, 85, 65, 93, 78, 43];
 
 
 
@@ -131,12 +131,12 @@
                 },
 
                 series: [{
-                    name: 'Kaunas',
-                    data: [window.averages[0], window.averages[1]]
-                },
+                        name: 'Kaunas',
+                        data: [window.averages[0], window.averages[1], window.averages[2], window.averages[3], window.averages[4], window.averages[5]]
+                    },
                     {
                         name: 'Vilnius',
-                        data: [window.averages[2], window.averages[3]]
+                        data: [window.averages[6], window.averages[7], window.averages[8], window.averages[9], window.averages[10], window.averages[11]]
                     }
                 ]
             });
