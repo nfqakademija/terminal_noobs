@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class LectorsController extends Controller
 {
     /**
-     * @Route("/lectors/create")
+     * @Route("/lectorsmentors")
      */
     public function createAction()
     {
