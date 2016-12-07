@@ -8,7 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
 use AppBundle\Entity\Attendance;
 use AppBundle\Entity\Workshop;
 use AppBundle\Entity\Team;
@@ -46,19 +45,20 @@ class LoadAttendanceData extends AbstractFixture implements OrderedFixtureInterf
 
         $workshops = $workshopRepository->findAll();
 
-        foreach($workshops as $workshop) {
+        foreach ($workshops as $workshop) {
             $academy = $workshop->getAcademy();
             $teams = $teamRepository->findByAcademy($academy);
             //$teams = $teamRepository->findAll();
             foreach($teams as $team) {
                 $students = $team->getStudents();
-                foreach($students as $student) {
+                foreach ($students as $student) {
                     $attendance = new Attendance();
                     $attendance->setWorkshop($workshop);
                     $attendance->setStudent($student);
                     $present = rand(0, 1);
 
-                    if($present == 0){
+                    if ($present == 0)
+                    {
                         $attendance->setPresent(false);
                     } else {
                         $attendance->setPresent(true);

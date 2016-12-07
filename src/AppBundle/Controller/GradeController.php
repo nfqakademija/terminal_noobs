@@ -42,6 +42,5 @@ class GradeController extends Controller
             return $this->render('AppBundle:Grade:update.html.twig', array(// ...
             ));
         }
-
     }
 }

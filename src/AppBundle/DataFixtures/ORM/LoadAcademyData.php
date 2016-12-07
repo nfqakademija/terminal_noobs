@@ -8,8 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
-
 use AppBundle\Entity\Academy;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -36,7 +34,8 @@ class LoadAcademyData extends AbstractFixture implements OrderedFixtureInterface
             ]
         ];
 
-        foreach($academyInfo as $info){
+        foreach ($academyInfo as $info)
+        {
             $academy = new Academy();
             $academy->setName($info['name']);
             $academy->setStatus($info['status']);

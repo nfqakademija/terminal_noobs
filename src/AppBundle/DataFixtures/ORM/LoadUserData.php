@@ -8,7 +8,6 @@
 
 namespace DataFixtures\ORM;
 
-
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -258,9 +257,9 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->loadUsers($userInfo);
     }
 
-    public function loadUsers($userInfo){
+    public function loadUsers($userInfo) {
         $userManager = $this->container->get('fos_user.user_manager');
-        foreach ($userInfo as $info){
+        foreach ($userInfo as $info) {
             $user = $userManager->createUser();
             $user->setName($info['name']);
             $user->setUsername($info['username']);

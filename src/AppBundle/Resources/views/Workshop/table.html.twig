@@ -14,9 +14,7 @@
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
                 {% for workshop in workshops %}
-                    {% if workshop.getLector.getName ==  app.user.Name  %}
-                        <th width="10%">{{ workshop.title }}</th>
-                    {% endif %}
+                    <th width="10%">{{ workshop.title }}</th>
                 {% endfor %}
             </tr>
             </thead>
@@ -43,7 +41,7 @@
                             {% for assignment in assignments %}
                                 {% for grade in assignment.grades %}
                                     {% if grade.student.name == stud.name %}
-                                    <td><input class="one-student-inputt js-team-{{ team.id }}{{ assignment.workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade.grade }}" ></td>
+                                    <td><input class="one-student-input js-team-{{ team.id }}{{ assignment.workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade.grade }}" ></td>
                                 {% endif %}
                             {% endfor %}
                             {% endfor %}
