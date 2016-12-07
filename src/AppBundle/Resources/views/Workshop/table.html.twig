@@ -14,7 +14,9 @@
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
                 {% for workshop in workshops %}
-                    <th>{{ workshop.title }}</th>
+                    {% if workshop.getLector.getName ==  app.user.Name  %}
+                        <th width="10%">{{ workshop.title }}</th>
+                    {% endif %}
                 {% endfor %}
             </tr>
             </thead>
@@ -25,9 +27,11 @@
                             <b>{{ team.title }}</b>
                         </td>
                         {% for workshop in workshops %}
-                             <td>
-                                 <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
-                             </td>
+                            {% if workshop.getLector.getName ==  app.user.Name  %}
+                                 <td>
+                                     <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
+                                 </td>
+                            {% endif %}
                         {% endfor %}
                     </tr>
 
@@ -53,14 +57,6 @@
         </table>
     </div>
 </article>
-
-
-    <form action="" method="">
-        <input type="text">
-        <input type="submit">
-        <button>Save</button>
-    </form>
-
 {% endblock %}
 
 
