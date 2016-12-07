@@ -97,6 +97,20 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 'password' => 'demo',
                 'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
             ],
+            [
+                'name'     => 'Wilno',
+                'username' => 'wilno',
+                'email'    => 'wilno.mentorius@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
+            ],
+            [
+                'name'     => 'WilnoTwo',
+                'username' => 'wilnot',
+                'email'    => 'wilnot.mentorius@nfq.lt',
+                'password' => 'demo',
+                'roles'    => ['ROLE_MENTOR', 'ROLE_USER']
+            ],
             /* Student logins */
             /* terminal_noobs */
             [
@@ -192,6 +206,54 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
 
             ],
+            /*wilNo*/
+            [
+                'name'     => 'Wil',
+                'username' => 'sumguy',
+                'email'    => 'sumguy@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+            ],
+            [
+                'name'     => 'No',
+                'username' => 'nono',
+                'email'    => 'nono@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            [
+                'name'     => 'Kum',
+                'username' => 'kumkum',
+                'email'    => 'kumkum@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            /*wilNoT*/
+            [
+                'name'     => 'Wilt',
+                'username' => 'sumguyt',
+                'email'    => 'sumguyt@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+            ],
+            [
+                'name'     => 'Not',
+                'username' => 'nonot',
+                'email'    => 'nonot@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ],
+            [
+                'name'     => 'Kumt',
+                'username' => 'kumkumt',
+                'email'    => 'kumkumt@gmail.com',
+                'password' => 'demo',
+                'roles'    => ['ROLE_STUDENT', 'ROLE_USER']
+
+            ]
         ];
         $this->loadUsers($userInfo);
     }

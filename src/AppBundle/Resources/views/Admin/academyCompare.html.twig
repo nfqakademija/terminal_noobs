@@ -6,14 +6,16 @@
     <article class="article">
         <div id="academy_chooser">
             <form action="">
-                Pasirinkti akademijas lyginimui:
+
+
+
                 <select name="academy1">
-                    {% for academy in academies.academies %}
-                    <option value="{{ academy.id }}", onchange="updateViewData()">{{ academy.name }}</option>
+                    {% for academy in academies %}
+                    <option value="{{ academy.id }}">{{ academy.name }}</option>
                     {% endfor %}
                 </select>
                 <select name="academy2">
-                    {% for academy in academies.academies %}
+                    {% for academy in academies %}
                         <option value="{{ academy.id }}">{{ academy.name }}</option>
                     {% endfor %}
                 </select>
@@ -34,20 +36,22 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script>
-        function getAttendanceWorkshopAverage(workshopId, teams)
+        function getAttendanceWorkshopAverage(workshopId, teams, attendances)
         {
+            console.log(teams);
             var average = 0;
             var count = 0;
             for (i = 0; i < teams.length; i++)
             {
-                for (j = 0; j < teams[i].members.length; j++)
+                for (j = 0; j < teams[i].students.length; j++)
                 {
-                    for (k = 0; k < teams[i].members[j].attendances.length; k++)
+                    for (k = 0; k < attendances.length; k++)
                     {
-                        if (teams[i].members[j].attendances[k].workshopId == workshopId)
+                        console.log(k + " " + attendances[k].present)
+                        if (attendances[k].workshopId == workshopId && attendances[k].student.id == teams[i].students[j].id)
                         {
                             count++;
-                            if(teams[i].members[j].attendances[k].attended) {
+                            if(attendances[k].present) {
                                 average++;
                             }
                         }
@@ -75,15 +79,33 @@
             selectedAcademies = $('form').serialize();
             console.log(selectedAcademies);
         }
+        function getAcademy(n)
+        {
+            for (i = 0; i < Academies.length; i++)
+            {
+                if (Academies[i].id == n)
+                {
+                    return Academies[i];
+                }
+            }
+            return false;
+        }
+
 
     </script>
     <script>
-        var Allteams = {{ teams.teams|json_encode() | raw()}};
+        var Allteams = {{ teams|json_encode() | raw()}};
+        var Academies = {{ academies | json_encode() | raw() }}
+        var attendances = {{ attendance | json_encode() | raw() }}
         //document.write(window.teams.toString());
-        var reqiuredTeams = getTeamsFromSelectedAcademy(1, Allteams);
-        var averages = [getAttendanceWorkshopAverage(1, reqiuredTeams), getAttendanceWorkshopAverage(2, reqiuredTeams), getAttendanceWorkshopAverage(3, reqiuredTeams), getAttendanceWorkshopAverage(4, reqiuredTeams)]
-        var academyOne;
-        var academyTwo;
+        var academyOneId = {{ academyOneId|json_encode() | raw()}};
+        var academyTwoId = {{ academyTwoId|json_encode() | raw()}};
+        var reqiuredTeams = getTeamsFromSelectedAcademy(academyOneId, Allteams);
+        var averages = [getAttendanceWorkshopAverage(1, Allteams, attendances), getAttendanceWorkshopAverage(2, Allteams, attendances), getAttendanceWorkshopAverage(3, Allteams, attendances), getAttendanceWorkshopAverage(4, Allteams, attendances)]
+
+
+
+
         $(function () {
             Highcharts.chart('attendance', {
                 title: {

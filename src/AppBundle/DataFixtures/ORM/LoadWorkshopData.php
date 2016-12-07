@@ -47,7 +47,37 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
                 'lector' => 'simser',
                 'description' => 'Description of the design workshop',
                 'academy' => '2016 ruduo Kaunas'
-            ]
+            ],
+            [
+                'title'  => 'Other lecture',
+                'lector' => 'simser',
+                'description' => 'Some Description',
+                'academy' => '2016 ruduo Kaunas'
+            ],
+            [
+                'title'  => 'Design patterns',
+                'lector' => 'simser',
+                'description' => 'Description of the design pattern workshop',
+                'academy' => '2016 ruduo Vilnius'
+            ],
+            [
+                'title'  => 'Introduction to symfony',
+                'lector' => 'simser',
+                'description' => 'Description of the symfony introduction workshop',
+                'academy' => '2016 ruduo Vilnius'
+            ],
+            [
+                'title'  => 'Design',
+                'lector' => 'simser',
+                'description' => 'Description of the design workshop',
+                'academy' => '2016 ruduo Vilnius'
+            ],
+            [
+                'title'  => 'Other lecture',
+                'lector' => 'simser',
+                'description' => 'Some Description',
+                'academy' => '2016 ruduo Vilnius'
+            ],
         ];
 
         foreach($workshopInfo as $info){

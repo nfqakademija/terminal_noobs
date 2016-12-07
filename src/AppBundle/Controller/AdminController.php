@@ -51,13 +51,27 @@ class AdminController extends Controller
  */
     public function academyCompareAction()
     {
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
+        $grades = $this->getDoctrine()->getRepository('AppBundle:Grade')->findAll();
+        $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
+        $attendances = $this->getDoctrine()->getRepository('AppBundle:Attendance')->findAll();
+        if (!empty($_GET)) {
+            $AcademyOne = $_GET['academy1'];
+            $AcademyTwo = $_GET['academy2'];
+        }
+        else {
+            $AcademyOne = 1;
+            $AcademyTwo = 2;
+        }
 
         return $this->render('AppBundle:Admin:academyCompare.html.twig',
         [
-            'teams' =>$this->get('app.dummy')->getAttendanceDataTest(),
-            'grades' => $this->get('app.dummy')->getGradeData(),
-            'academies'=>$this->get('app.dummy')->getAcademyData(),
-            'attendance' => $this->get('app.dummy')->getAttendanceDataTest()
+            'teams' =>$teams,
+            'grades' => $grades,
+            'academies'=>$academies,
+            'attendance' => $attendances,
+            'academyOneId' =>$AcademyOne,
+            'academyTwoId' =>$AcademyTwo
         ]);
     }
 }
