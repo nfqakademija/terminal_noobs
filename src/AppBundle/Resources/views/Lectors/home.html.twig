@@ -2,25 +2,32 @@
 {% block title %}Home{% endblock %}
 {% block body %}
     <article class="article user-list">
-        <br><h1>Paskaitos</h1><br>
-        <table class="table table-hover">
-            <thead>
-            <tr class="table-header">
-                <th>Paskaita</th>
-                <th>Lankomumas</th>
-                <th>Pažymiai</th>
-            </tr>
-            </thead>
+        <br>
+        <h1 class="acenter">Paskaitų informacija</h1><br>
+        <table class="table">
+            <th>Nr.</th>
+            <th>Pavadinimas</th>
+            <th>Aprašymas</th>
+            <th>Dėstytojas</th>
+            <th>Failas</th>
+            <th></th>
+            {% for item in workshops %}
+                {% if item.getLector.getName ==  app.user.Name  %}
+                <tr>
+                    <td>{{ item.getId }}</td>
+                    <td>{{ item.getTitle }}</td>
+                    <td>{{ item.getDescription }}</td>
+                    <td>{{ item.getLector.getName }}</td>
+                    <!-- a href="show/{{ item.getId }}"-->
+                    <td>
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
 
-            <tbody>
-            <tr>
-                {% for workshop in workshops %}
-                    <td><a href="/workshop/show/{{ workshop.getId }}">{{ workshop.getTitle }}</a> </td>
-                    <td>  <a href="/workshop/attendance/{{ workshop.id }}">show</a></td>
-                    <td></td>
-                {% endfor %}
-            </tr>
-            </tbody>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                        </form>
+                    </td>
+                </tr>
+                    {% endif %}
+            {% endfor %}
         </table>
     </article>
 
