@@ -33,8 +33,8 @@ class Team
     /**
      * @ORM\ManyToMany(targetEntity="User")
      * @ORM\JoinTable(name="teams_users",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="team_id", referencedColumnName="id", unique=true)}
+     *      joinColumns={@ORM\JoinColumn(name="team_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", unique=true)}
      *      )
      */
     private $students;
