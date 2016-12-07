@@ -41,7 +41,8 @@ class LoadGradeData extends AbstractFixture implements  OrderedFixtureInterface,
 
         $assignments = $assignmentRepository->findAll();
         foreach($assignments as $assignment){
-            $teams = $this->container->get('doctrine')->getRepository('AppBundle:Team')->findAll();
+            $academy = $assignment->getWorkshop()->getAcademy();
+            $teams = $this->container->get('doctrine')->getRepository('AppBundle:Team')->findByAcademy($academy);
             foreach($teams as $team) {
                 $students = $team->getStudents();
                 foreach($students as $student) {
