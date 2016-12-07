@@ -8,7 +8,6 @@
 
 namespace AppBundle\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -33,10 +32,10 @@ class AdminController extends Controller
     {
         return $this->render(
             'AppBundle:Admin:attendanceOverview.html.twig',
-        [
-            'teams' =>$this->get('app.dummy')->getAttendanceDataTest(),
-            'attendance' => $this->get('app.dummy')->getAttendanceDataTest()
-        ]
+            [
+                'teams' =>$this->get('app.dummy')->getAttendanceDataTest(),
+                'attendance' => $this->get('app.dummy')->getAttendanceDataTest()
+            ]
         );
     }
     /**
@@ -61,8 +60,7 @@ class AdminController extends Controller
         if (!empty($_GET)) {
             $AcademyOne = $_GET['academy1'];
             $AcademyTwo = $_GET['academy2'];
-        }
-        else {
+        } else {
             $AcademyOne = 1;
             $AcademyTwo = 2;
         }
@@ -76,7 +74,7 @@ class AdminController extends Controller
                 'attendance' => $attendances,
                 'academyOneId' =>$AcademyOne,
                 'academyTwoId' =>$AcademyTwo
-            ]);
+            ]
+        );
     }
 }
-
