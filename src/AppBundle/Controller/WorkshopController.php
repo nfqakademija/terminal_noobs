@@ -28,7 +28,7 @@ class WorkshopController extends Controller
         $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
         $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
         return $this->render('AppBundle:Workshop:table.html.twig', array (
-            'teams' => $teams,
+            //'teams' => $teams,
             'workshops' => $workshops,
             'academyOne' => $academyId,
             'academies' =>$academies,
@@ -49,7 +49,7 @@ class WorkshopController extends Controller
         $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
 
         return $this->render('AppBundle:Workshop:table.html.twig', array (
-            'teams' => $teams,
+            //'teams' => $teams,
             'workshops' => $workshops,
             'academyOne' => $academyId,
             'academies' =>$academies,
