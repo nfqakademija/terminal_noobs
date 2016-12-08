@@ -79,7 +79,9 @@ class AttendanceController extends Controller
         $em = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:User')->find($userId);
         $workshop = $em->getRepository('AppBundle:Workshop')->find($workshopId);
-        $attendance = $em->getRepository('AppBundle:Attendance')->findOneBy(['workshop' => $workshop, 'student' => $student]);
+        $attendance = $em->getRepository('AppBundle:Attendance')->findOneBy(
+            ['workshop' => $workshop, 'student' => $student]
+        );
 
         $attendance->setPresent(!$attendance->getPresent());
         $em->persist($attendance);
