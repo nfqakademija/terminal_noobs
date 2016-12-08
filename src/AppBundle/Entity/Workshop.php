@@ -43,7 +43,7 @@ class Workshop
     private $lector;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Attendance", mappedBy="workshop")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Attendance", mappedBy="workshop", fetch="EAGER")
      */
     private $attendance;
 
