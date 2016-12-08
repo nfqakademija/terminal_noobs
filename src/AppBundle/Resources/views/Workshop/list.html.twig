@@ -11,6 +11,7 @@
             <th>Pavadinimas</th>
             <th>Aprašymas</th>
             <th>Dėstytojas</th>
+            <th>Akademija</th>
             <th></th>
             {% for item in workshops %}
                 <tr>
@@ -18,6 +19,7 @@
                     <td>{{ item.getTitle }}</td>
                     <td>{{ item.getDescription }}</td>
                     <td>{{ item.getLector.getName }}</td>
+                    <td>{{ item.academy.name }}</td>
                 </tr>
             {% endfor %}
         </table>
