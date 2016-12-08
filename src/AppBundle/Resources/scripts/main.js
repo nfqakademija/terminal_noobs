@@ -86,6 +86,33 @@ $(document).ready(function() {
         });
     });
 
+    $('.js-grade-submit').on('change', function(e) {
+
+        var data = {
+            gradeId: $(this).data('grade'),
+            newGrade: $(this).val()
+        };
+
+        $.post("/grade/update/"+$(this).data('grade')+"/"+$(this).val(), function( data ) {
+            console.log(data);
+        });
+    });
+
+    $('.js-team-grade-submit').on('change', function(e) {
+
+        var data = {
+            teamId: $(this).data('team'),
+            workshopId: $(this).data('workshop'),
+            newGrade: $(this).val()
+        };
+
+        $.post("/grade/update/"+$(this).data('team')+"/"+ $(this).data('workshop') +"/"+$(this).val(), function( data ) {
+            console.log(data);
+        });
+    });
+
+
+
     //asnxaksx
 
 });
