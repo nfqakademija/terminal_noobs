@@ -27,7 +27,7 @@
                         {% for workshop in workshops %}
                             {% if workshop.getLector.getName ==  app.user.Name  %}
                                  <td>
-                                     <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
+                                     <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" name="no1" min="0" max="10" step="1" maxlength="2" size="2" pattern="[0-9]*" value="">
                                  </td>
                             {% endif %}
                         {% endfor %}
@@ -41,7 +41,7 @@
                             {% for assignment in assignments %}
                                 {% for grade in assignment.grades %}
                                     {% if grade.student.name == stud.name %}
-                                    <td><input class="one-student-input js-team-{{ team.id }}{{ assignment.workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade.grade }}" ></td>
+                                    <td><input class="one-student-input js-team-{{ team.id }}{{ assignment.workshop.id }}" type="number" name="no1" min="0" max="10" step="1" maxlength="2" size="2" pattern="[0-9]*" value="{{ grade.grade }}" ></td>
                                 {% endif %}
                             {% endfor %}
                             {% endfor %}

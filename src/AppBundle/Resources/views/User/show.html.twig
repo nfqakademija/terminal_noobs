@@ -6,38 +6,43 @@
 <article class="article user-list">
     <br><h1>Profilis</h1><br>
 
-    <br>
-    <br>
-    <table class="table table-hover">
-        <thead>
-        <tr class="table-header">
-            <th>Vardas, Pavardė</th>
-            <th>Username</th>
-            <th>El. paštas</th>
-            <th>Rolė</th>
-            <th>Aktyvumas</th>
-        </tr>
-        </thead>
 
+    <table class="table table-hover">
         <tbody>
         {% for user in users %}
             {% if user.getName ==  app.user.Name  %}
-            <tr>
-                <td>{{ user.name }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td class="to-lowercase">
-                    {% for role in user.roles %}
-                        {{ role }}{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-                <td>{% if user.enabled %}
-                        aktyvus
-                    {% else %}
-                        neaktyvus
-                    {% endif %}
-                </td>
-             </tr>
+
+                <tr>
+                    <th>Vardas, Pavardė</th>
+                    <td>{{ user.name }}</td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>{{ user.username }}</td>
+
+                </tr>
+                <tr>
+                    <th>El. paštas</th>
+                    <td>{{ user.email }}</td>
+
+                </tr>
+                <tr>
+                    <th>Rolė</th>
+                    <td class="to-lowercase">
+                        {% for role in user.roles %}
+                            {{ role }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Aktyvumas</th>
+                    <td>{% if user.enabled %}
+                            aktyvus
+                        {% else %}
+                            neaktyvus
+                        {% endif %}
+                    </td>
+                </tr>
             {% endif %}
         {% endfor %}
         </tbody>
