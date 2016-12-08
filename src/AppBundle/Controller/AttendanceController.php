@@ -39,17 +39,27 @@ class AttendanceController extends Controller
      */
     public function listAction($academyId)
     {
-        if (!empty($_GET)) {
-            $AcademyOne = $_GET['academy1'];
-        } else {
-            $AcademyOne = 1;
-        }
         $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->find($academyId);
         $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
         $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
         return $this->render('AppBundle:Attendance:list.html.twig', array(
             'workshops' => $workshops,
-            'academyOne' => $AcademyOne,
+            'academyOne' => $academyId,
+            'academies' =>$academies,
+            'academy' => $academy
+        ));
+    }
+    /**
+     * @Route("/attendance/list/")
+     */
+    public function listActionZero()
+    {
+        $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->find(1);
+        $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
+        $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
+        return $this->render('AppBundle:Attendance:list.html.twig', array(
+            'workshops' => $workshops,
+            'academyOne' => 1,
             'academies' =>$academies,
             'academy' => $academy
         ));
