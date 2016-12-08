@@ -8,7 +8,7 @@
         <h1 class="acenter">Lankomumas</h1><br>
         <div id="academy_chooser">
             <form action="">
-                <select name="academy1" onchange = "this.form.submit()">
+                <select name="academy1" onChange="window.document.location.href='list/'+this.options[this.selectedIndex].value;" value="GO">
                     {%for academy in academies %}
                         {% if academy.id== academyOne %}
                             <option value="{{ academy.id }}">{{ academy.name }}</option>
