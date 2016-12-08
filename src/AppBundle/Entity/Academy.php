@@ -31,9 +31,16 @@ class Academy
     /**
      * @var string
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Workshop", mappedBy="academy")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Workshop", mappedBy="academy", fetch="EAGER")
      */
     private $workshops;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Team", mappedBy="academy", fetch="EAGER")
+     */
+    private $teams;
 
     /**
      * @return string
@@ -102,5 +109,21 @@ class Academy
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
+
+    /**
+     * @param string $teams
+     */
+    public function setTeams($teams)
+    {
+        $this->teams = $teams;
     }
 }
