@@ -28,37 +28,10 @@ class Academy
      */
     private $name;
 
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Team", mappedBy="academy")
-     */
-    private $teams;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Workshop", mappedBy="academy")
-     */
-    private $workshops;
-
-    /**
-     * @return mixed
-     */
-    public function getWorkshops()
-    {
-        return $this->workshops;
-    }
-
-    /**
-     * @param mixed $workshops
-     */
-    public function setWorkshops($workshops)
-    {
-        $this->workshops = $workshops;
-    }
-
     /**
      * @return boolean
      */
-    public function getStatus()
+    public function isStatus()
     {
         return $this->status;
     }
@@ -114,21 +87,5 @@ class Academy
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTeams()
-    {
-        return $this->teams;
-    }
-
-    /**
-     * @param mixed $teams
-     */
-    public function setTeams($teams)
-    {
-        $this->teams = $teams;
     }
 }
