@@ -9,7 +9,7 @@
     <br>
     <h1 class="acenter">Pažymiai</h1><br>
     <form action="">
-        <select name="academy1" onChange="window.document.location.href='table/'+this.options[this.selectedIndex].value;" value="GO">
+        <select name="academy1" onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
             {%for academy in academies %}
                 {% if academy.id== academyOne %}
                     <option value="{{ academy.id }}">{{ academy.name }}</option>
@@ -29,10 +29,8 @@
             <thead>
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
-                {% for workshop in workshops %}
-                    {% if workshop.academy.id == academyOne %}
-                        <th width="17%">{{ workshop.title }}</th>
-                    {% endif %}
+                {% for workshop in academy.workshops %}
+                    <th width="17%">{{ workshop.title }}</th>
                 {% endfor %}
             </tr>
             </thead>
@@ -43,13 +41,11 @@
                             <td>
                                 <b>{{ team.title }}</b>
                             </td>
-                            {% for workshop in workshops %}
-                                {% if workshop.academy.id == academyOne %}
-                                    {% if workshop.getLector.getName ==  app.user.Name  %}
-                                         <td>
-                                             <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
-                                         </td>
-                                    {% endif %}
+                            {% for workshop in academy.workshops %}
+                                {% if workshop.getLector.getName ==  app.user.Name  %}
+                                     <td>
+                                         <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
+                                     </td>
                                 {% endif %}
                             {% endfor %}
                         </tr>

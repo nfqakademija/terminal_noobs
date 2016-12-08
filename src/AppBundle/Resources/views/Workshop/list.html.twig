@@ -3,23 +3,23 @@
 {% block title %}NFQ Lentelės{% endblock %}
 
 {% block body %}
-<article class="article">
-    <br>
-    <h1 class="acenter">Paskaitų informacija</h1><br>
-    <table class="table">
-        <th>Nr.</th>
-        <th>Pavadinimas</th>
-        <th>Aprašymas</th>
-        <th>Dėstytojas</th>
-        <th></th>
-        {% for item in workshops %}
-            <tr>
-                <td>{{ item.getId }}</td>
-                <td>{{ item.getTitle }}</td>
-                <td>{{ item.getDescription }}</td>
-                <td>{{ item.getLector.getName }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-</article>
+    <article class="article">
+        <br>
+        <h1 class="acenter">Paskaitų informacija</h1><br>
+        <table class="table">
+            <th>Nr.</th>
+            <th>Pavadinimas</th>
+            <th>Aprašymas</th>
+            <th>Dėstytojas</th>
+            <th></th>
+            {% for item in workshops %}
+                <tr>
+                    <td>{{ item.getId }}</td>
+                    <td>{{ item.getTitle }}</td>
+                    <td>{{ item.getDescription }}</td>
+                    <td>{{ item.getLector.getName }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </article>
 {% endblock %}
