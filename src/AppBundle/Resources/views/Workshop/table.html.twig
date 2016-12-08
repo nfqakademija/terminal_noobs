@@ -9,7 +9,7 @@
     <br>
     <h1 class="acenter">Pažymiai</h1><br>
     <form action="">
-        <select name="academy1" onchange = "this.form.submit()">
+        <select name="academy1" onChange="window.document.location.href='table/'+this.options[this.selectedIndex].value;" value="GO">
             {%for academy in academies %}
                 {% if academy.id== academyOne %}
                     <option value="{{ academy.id }}">{{ academy.name }}</option>
@@ -22,6 +22,7 @@
             {% endfor %}
         </select>
         <br><br>
+
     </form>
     <div class="table-container">
         <table class="table table-hover">
