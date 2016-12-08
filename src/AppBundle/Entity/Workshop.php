@@ -37,10 +37,12 @@ class Workshop
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="lector_id", referencedColumnName="id", nullable=true)
      */
     private $lector;
+
+
 
     /**
      * @ORM\OneToMany(targetEntity="Attendance", mappedBy="workshop")
@@ -64,7 +66,7 @@ class Workshop
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Academy")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Academy", inversedBy="workshops")
      * @ORM\JoinColumn(name="academy_id", referencedColumnName="id")
      */
     private $academy;
