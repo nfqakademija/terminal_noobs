@@ -15,7 +15,7 @@ use \AppBundle\Entity\User;
 class Attendance
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Workshop", inversedBy="attendance")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Workshop", inversedBy="attendance")
      * @ORM\Id
      * @ORM\JoinColumn(name="workshop_id", referencedColumnName="id")
      */

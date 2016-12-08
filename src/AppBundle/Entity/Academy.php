@@ -29,6 +29,21 @@ class Academy
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Workshop", mappedBy="academy")
+     */
+    private $workshops;
+
+    /**
+     * @return string
+     */
+    public function getWorkshops()
+    {
+        return $this->workshops;
+    }
+
+    /**
      * @return boolean
      */
     public function isStatus()

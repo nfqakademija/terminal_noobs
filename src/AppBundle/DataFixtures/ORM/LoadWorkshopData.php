@@ -76,7 +76,7 @@ class LoadWorkshopData extends AbstractFixture implements OrderedFixtureInterfac
                 'lector' => 'simser',
                 'description' => 'Some Description',
                 'academy' => '2016 ruduo Vilnius'
-            ],
+            ]
         ];
 
         foreach ($workshopInfo as $info) {
