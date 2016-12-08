@@ -18,26 +18,43 @@ class WorkshopController extends Controller
     }
 
     /**
-     * @Route("/workshop/table")
+     * @Route("/workshop/table/{academyId}")
      */
-    public function tableAction()
+    public function tableAction($academyId)
     {
-        if (!empty($_GET)) {
-            $AcademyOne = $_GET['academy1'];
-        } else {
-            $AcademyOne = 1;
-        }
-        $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->findByName('2016 ruduo Kaunas');
+        $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->find($academyId);
         $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
         $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
-        $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
         $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
+        $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
         return $this->render('AppBundle:Workshop:table.html.twig', array (
-            'workshops' => $workshops,
             'teams' => $teams,
-            'assignments' => $assignments,
-            'academyOne' => $AcademyOne,
-            'academies' =>$academies
+            'workshops' => $workshops,
+            'academyOne' => $academyId,
+            'academies' =>$academies,
+            'academy' => $academy,
+            'assignments' => $assignments
+        ));
+    }
+    /**
+     * @Route("/workshop/table/")
+     */
+    public function tableActionZero()
+    {
+        $academyId = 1;
+        $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->find($academyId);
+        $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
+        $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
+        $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
+
+        return $this->render('AppBundle:Workshop:table.html.twig', array (
+            'teams' => $teams,
+            'workshops' => $workshops,
+            'academyOne' => $academyId,
+            'academies' =>$academies,
+            'academy' => $academy,
+            'assignments' => $assignments
         ));
     }
 
