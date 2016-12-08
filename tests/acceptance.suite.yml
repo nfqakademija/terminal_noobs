@@ -7,8 +7,8 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        - WebDriver:
-           url: http://127.0.0.1:8001/
-           browser: chrome
-           host: 192.168.40.131
-        - \Helper\Acceptance
+          - PhpBrowser:
+             url: http://127.0.0.1:8001/
+             browser: chrome
+             host: 172.17.0.1
+          - \Helper\Acceptance
