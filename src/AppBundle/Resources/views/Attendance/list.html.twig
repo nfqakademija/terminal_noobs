@@ -27,26 +27,20 @@
             <thead>
             <tr>
             <th>Studentas / Paskaita</th>
-            {% for workshop in workshops %}
-                {% if workshop.academy.id == academyOne %}
+            {% for workshop in academy.workshops %}
                     <th width="17%">{{ workshop.title }}</th>
-                {% endif %}
             {% endfor %}
             </tr>
             </thead>
 
             <tbody>
 
-            {% for i in workshops[0].attendance %}
-                <tr>
-                    {% if workshops[0].academy.id == academyOne %}
-                        <td>{{ workshops[0].attendance[loop.index0].student.name }}</td>
-                        {% for workshop in workshops %}
-                            <td><input type="checkbox" class="js-attendance-submit" id="checkbox" data-attendace={{ workshop.id }} data-user={{ workshop.attendance[loop.parent.loop.index0].student.id }} {% if workshop.attendance[loop.parent.loop.index0].present %}checked{% endif %}>
-                                <label for="checkbox"></label></td>
-                        {% endfor %}
-                    {% endif %}
-                </tr>
+            {{ dump(workshops) }}
+
+            {% for workshop in workshops %}
+                {% for attendance in workshop.attendance %}
+
+                {% endfor %}
             {% endfor %}
             </tbody>
         </table>
