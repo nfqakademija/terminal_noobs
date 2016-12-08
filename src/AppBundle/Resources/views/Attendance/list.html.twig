@@ -6,12 +6,25 @@
     <article class="article">
         <br>
         <h1 class="acenter">Lankomumas</h1><br>
+        <div id="academy_chooser">
+            <form action="">
+                <select name="academy1">
+                    {% for academy in academies %}
+                        <option value="{{ academy.id }}">{{ academy.name }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <input type="submit", value="Pasirinkti">
+            </form>
+        </div>
         <table class="table table-striped table-hover ">
             <thead>
             <tr>
             <th>Studentas / Paskaita</th>
             {% for workshop in workshops %}
-            <th width="17%">{{ workshop.title }}</th>
+                {% if workshop.academy.id == academyOne %}
+                    <th width="17%">{{ workshop.title }}</th>
+                {% endif %}
             {% endfor %}
             </tr>
             </thead>
@@ -20,11 +33,13 @@
 
             {% for i in workshops[0].attendance %}
                 <tr>
-                    <td>{{ workshops[0].attendance[loop.index0].student.name }}</td>
-                    {% for workshop in workshops %}
-                        <td><input type="checkbox" class="js-attendance-submit" id="checkbox" data-attendace={{ workshop.id }} data-user={{ workshop.attendance[loop.parent.loop.index0].student.id }} {% if workshop.attendance[loop.parent.loop.index0].present %}checked{% endif %}>
-                            <label for="checkbox"></label></td>
-                    {% endfor %}
+                    {% if workshops[0].academy.id == academyOne %}
+                        <td>{{ workshops[0].attendance[loop.index0].student.name }}</td>
+                        {% for workshop in workshops %}
+                            <td><input type="checkbox" class="js-attendance-submit" id="checkbox" data-attendace={{ workshop.id }} data-user={{ workshop.attendance[loop.parent.loop.index0].student.id }} {% if workshop.attendance[loop.parent.loop.index0].present %}checked{% endif %}>
+                                <label for="checkbox"></label></td>
+                        {% endfor %}
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
