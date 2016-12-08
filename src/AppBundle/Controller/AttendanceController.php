@@ -74,15 +74,16 @@ class AttendanceController extends Controller
     {
 
 //        $userId = $request->query->get('user_id');
-//
 //        $workshopId = $request->query->get('workshop_id');
 
-//        $em = $this->getDoctrine()->getEntityManager();
-//        $workshop = $em->getRepository('AppBundle:Workshop')->find($workshopId);
-//        $attendance = $em->getRepository('AppBundle:Attendance')->findOneBy($workshop);
-//        $attendance->setPresent(!$attendance->getPresent());
-//        $em->persist($attendance);
-//        $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $student = $em->getRepository('AppBundle:User')->find($userId);
+        $workshop = $em->getRepository('AppBundle:Workshop')->find($workshopId);
+        $attendance = $em->getRepository('AppBundle:Attendance')->findOneBy(['workshop' => $workshop, 'student' => $student]);
+
+        $attendance->setPresent(!$attendance->getPresent());
+        $em->persist($attendance);
+        $em->flush();
 
 
         return $this->json(array('status' => 'ok', 'user' => $userId, 'workshop' => $workshopId));
