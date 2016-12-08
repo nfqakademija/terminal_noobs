@@ -44,7 +44,7 @@
                             {% for workshop in academy.workshops %}
                                 {% if workshop.getLector.getName ==  app.user.Name  %}
                                      <td>
-                                         <input class="team-input js-team-grade-submit" data-team-name="{{ team.id }}{{ workshop.id }}"
+                                         <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}"
                                                 data-team={{ team.id }}
                                                 data-workshop={{ workshop.id }}
                                                 type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">

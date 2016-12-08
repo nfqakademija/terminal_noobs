@@ -3,7 +3,9 @@ $(function () {
     /*marks for team*/
 
     $(document).on('keyup', '.js-team-grade', function(e) {
-        $(".js-team-" + $(this).data('team-name')).val($(this).val());
+        var input = $(".js-team-" + $(this).data('team-name'));
+        input.val($(this).val());
+        input.trigger('change');
     });
 
     $('input[name="no1"]').keypress(function() {
