@@ -9,8 +9,15 @@
         <div id="academy_chooser">
             <form action="">
                 <select name="academy1">
-                    {% for academy in academies %}
-                        <option value="{{ academy.id }}">{{ academy.name }}</option>
+                    {%for academy in academies %}
+                        {% if academy.id== academyOne %}
+                            <option value="{{ academy.id }}">{{ academy.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                    {%for academy in academies %}
+                        {% if academy.id != academyOne %}
+                            <option value="{{ academy.id }}">{{ academy.name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <br><br>
