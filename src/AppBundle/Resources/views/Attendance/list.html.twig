@@ -8,7 +8,7 @@
         <h1 class="acenter">Lankomumas</h1><br>
         <div id="academy_chooser">
             <form action="">
-                <select name="academy1">
+                <select name="academy1" onchange = "this.form.submit()">
                     {%for academy in academies %}
                         {% if academy.id== academyOne %}
                             <option value="{{ academy.id }}">{{ academy.name }}</option>
@@ -21,7 +21,6 @@
                     {% endfor %}
                 </select>
                 <br><br>
-                <input type="submit", value="Pasirinkti">
             </form>
         </div>
         <table class="table table-striped table-hover ">

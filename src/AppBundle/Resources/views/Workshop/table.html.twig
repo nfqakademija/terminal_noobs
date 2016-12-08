@@ -8,48 +8,66 @@
     <div class="form-status-holder"></div>
     <br>
     <h1 class="acenter">Pažymiai</h1><br>
+    <form action="">
+        <select name="academy1" onchange = "this.form.submit()">
+            {%for academy in academies %}
+                {% if academy.id== academyOne %}
+                    <option value="{{ academy.id }}">{{ academy.name }}</option>
+                {% endif %}
+            {% endfor %}
+            {%for academy in academies %}
+                {% if academy.id != academyOne %}
+                    <option value="{{ academy.id }}">{{ academy.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <br><br>
+    </form>
     <div class="table-container">
         <table class="table table-hover">
             <thead>
             <tr class="table-header">
                 <th>Vardas \ Paskaita</th>
                 {% for workshop in workshops %}
-                    <th width="17%">{{ workshop.title }}</th>
+                    {% if workshop.academy.id == academyOne %}
+                        <th width="17%">{{ workshop.title }}</th>
+                    {% endif %}
                 {% endfor %}
             </tr>
             </thead>
             <tbody>
                 {% for team in teams %}
-                    <tr>
-                        <td>
-                            <b>{{ team.title }}</b>
-                        </td>
-                        {% for workshop in workshops %}
-                            {% if workshop.getLector.getName ==  app.user.Name  %}
-                                 <td>
-                                     <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" name="no1" min="0" max="10" step="1" maxlength="2" size="2" pattern="[0-9]*" value="">
-                                 </td>
-                            {% endif %}
-                        {% endfor %}
-                    </tr>
-
-                    {% for stud in team.students %}
+                    {% if team.academy.id == academyOne %}
                         <tr>
-                            <td>{{ stud.name }}</td>
-
-
-                            {% for assignment in assignments %}
-                                {% for grade in assignment.grades %}
-                                    {% if grade.student.name == stud.name %}
-                                    <td><input class="one-student-input js-team-{{ team.id }}{{ assignment.workshop.id }}" type="number" name="no1" min="0" max="10" step="1" maxlength="2" size="2" pattern="[0-9]*" value="{{ grade.grade }}" ></td>
+                            <td>
+                                <b>{{ team.title }}</b>
+                            </td>
+                            {% for workshop in workshops %}
+                                {% if workshop.academy.id == academyOne %}
+                                    {% if workshop.getLector.getName ==  app.user.Name  %}
+                                         <td>
+                                             <input class="team-input js-team-grade" data-team-name="{{ team.id }}{{ workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="">
+                                         </td>
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
-                            {% endfor %}
-
-
                         </tr>
-                    {% endfor %}
 
+                        {% for stud in team.students %}
+                            <tr>
+                                <td>{{ stud.name }}</td>
+                                {% for assignment in assignments %}
+                                    {% for grade in assignment.grades %}
+                                        {% if grade.student.name == stud.name %}
+                                        <td><input class="one-student-input js-team-{{ team.id }}{{ assignment.workshop.id }}" type="number" min="0" max="10" step="1" maxlength="2" size="2" value="{{ grade.grade }}" ></td>
+                                    {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+
+
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
                 {% endfor %}
             </tbody>
         </table>

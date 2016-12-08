@@ -22,7 +22,13 @@ class WorkshopController extends Controller
      */
     public function tableAction()
     {
+        if (!empty($_GET)) {
+            $AcademyOne = $_GET['academy1'];
+        } else {
+            $AcademyOne = 1;
+        }
         $academy = $this->getDoctrine()->getRepository('AppBundle:Academy')->findByName('2016 ruduo Kaunas');
+        $academies = $this->getDoctrine()->getRepository('AppBundle:Academy')->findAll();
         $workshops = $this->getDoctrine()->getRepository('AppBundle:Workshop')->findByAcademy($academy);
         $assignments = $this->getDoctrine()->getRepository('AppBundle:Assignment')->findAll();
         $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
@@ -30,6 +36,8 @@ class WorkshopController extends Controller
             'workshops' => $workshops,
             'teams' => $teams,
             'assignments' => $assignments,
+            'academyOne' => $AcademyOne,
+            'academies' =>$academies
         ));
     }
 
