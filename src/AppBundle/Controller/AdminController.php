@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class AdminController extends Controller
 {
 
+    
     /**
      * @Route("/administrator/overview", name="admin_home")
      */
