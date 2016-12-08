@@ -33,6 +33,10 @@
     margin: 0;
     width:5px;
   }
+  input[type=number] {
+    -moz-appearance:textfield;
+    width:30px;
+  }
 }
 
 
