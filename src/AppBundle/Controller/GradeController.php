@@ -21,7 +21,7 @@ class GradeController extends Controller
     /**
      * @Route("/grade/update/{gradeId}/{newGrade}")
      */
-    public function updateAction( $gradeId, $newGrade)
+    public function updateAction($gradeId, $newGrade)
     {
         $em = $this->getDoctrine()->getManager();
         $grade = $em->getRepository('AppBundle:Grade')->find($gradeId);
